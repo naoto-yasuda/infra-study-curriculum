@@ -1,10 +1,11 @@
 module.exports = {
+  pathPrefix: "/infra-study-curriculum",
   siteMetadata: {
     siteTitle: `Rocket Docs`,
     defaultTitle: `Rocket Docs`,
     siteTitleShort: `Rocket Docs`,
     siteDescription: `Out of the box Gatsby Theme for creating documentation websites easily and quickly`,
-    siteUrl: `https://rocketdocs.netlify.app`,
+    siteUrl: `https://naoto-yasuda.github.io/`,
     siteAuthor: `@rocketseat`,
     siteImage: `/banner.png`,
     siteLanguage: `en`,
@@ -44,7 +45,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-canonical-urls`,
       options: {
-        siteUrl: `https://rocketdocs.netlify.app`,
+        siteUrl: `https://naoto-yasuda.github.io/`,
       },
     },
     `gatsby-plugin-offline`,
