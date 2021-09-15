@@ -1,9 +1,33 @@
 # Sidebar navigation
 
+- label: Linuxサーバーの学習
+  items:
+    - label: '必要なソフトウェアの準備'
+      link: '/software_preparation'
+    - label: 'Linuxサーバーへのログイン手順'
+      link: '/login_procedure'
+- label: 'コマンド操作の学習'
+  items:
+    - label: 'cd'
+      link: '/command_control_cd'
+    - label: 'ls'
+      link: '/command_control_ls'
+    - label: 'vi'
+      link: '/command_control_vi'
+    - label: 'cat'
+      link: '/command_control_cat'
+    - label: 'less'
+      link: '/command_control_less'
+    - label: 'find'
+      link: '/command_control_find'
+    - label: 'touch'
+      link: '/command_control_touch'
 - label: 'Introduction'
   link: '/'
 - label: 'Getting started'
   link: '/getting-started'
+- label: 'Test'
+  link: '/test'
 - label: Usage
   items:
     - label: 'Creating docs'
