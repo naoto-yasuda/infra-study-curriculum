@@ -6,12 +6,14 @@ cpコマンドと同じく色々な場面で利用するためこちらもしっ
 ```shell
 mv <移動元> <移動先>
 
-例：testディレクトリのtest01ファイルをtest_moveディレクトリにtest01_moveとして移動したい場合
+例：testディレクトリのtest01ファイルをtest_moveディレクトリにtest01_moveとして
+　　移動したい場合
 mv test/test01 test_move/test01_move
 ```
 ファイル名を変更せずに移動する場合は、移動先にはディレクトリ名だけを記載します。
 ```shell
-例：testディレクトリのtest01ファイルを名前はそのままtest_moveディレクトリに移動したい場合
+例：testディレクトリのtest01ファイルを名前はそのままtest_moveディレクトリに
+　　移動したい場合
 mv test/test01 test_move/
 ```
 ワイルドカードを使ってディレクトリ配下のファイルを一括で移動したり、条件に合うファイルを一括で移動することもできます。
@@ -47,7 +49,8 @@ mv -i <移動元> <移動先>
 ```shell
 mv -b <移動元> <移動先>
 
-例：testディレクトリのtest01.txtをtest_moveディレクトリにtest01.txtとしてバックアップファイルを作りつつ上書き移動する場合
+例：testディレクトリのtest01.txtをtest_moveディレクトリにtest01.txtとして
+　　バックアップファイルを作りつつ上書き移動する場合
 mv -b test/test01.txt test_move/test01.txt
 ※バックアップファイルはtest01.txt~として作成されます
 ```
@@ -56,7 +59,8 @@ mv -b test/test01.txt test_move/test01.txt
 ```shell
 mv -b --suffix=_$(date +%Y%m%d) <移動元> <移動先>
 
-例：testディレクトリのtest01.txtをtest_moveディレクトリにtest01.txtとしてバックアップファイルを作りつつ上書き移動する場合
+例：testディレクトリのtest01.txtをtest_moveディレクトリにtest01.txtとして
+　　バックアップファイルを作りつつ上書き移動する場合
 mv -b --suffix=_$(date +%Y%m%d) test/test01.txt test_move/test01.txt
 ※バックアップファイルはtest01.txt_20210921のように日付が付与されて作成されます
 ```

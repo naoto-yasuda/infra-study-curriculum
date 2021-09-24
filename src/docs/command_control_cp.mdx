@@ -11,7 +11,8 @@ cp test/test01 test/test01_copy
 ```
 ファイル名を変更せずにコピーする場合は、コピー先にはディレクトリ名だけを記載します。
 ```shell
-例：testディレクトリのtest01ファイルを名前はそのままtest_copyディレクトリにコピーしたい場合
+例：testディレクトリのtest01ファイルを名前はそのままtest_copyディレクトリに
+　　コピーしたい場合
 cp test/test01 test_copy/
 ```
 ワイルドカードを使ってディレクトリ配下のファイルを一括でコピーしたり、条件に合うファイルを一括でコピーすることもできます。
@@ -51,7 +52,8 @@ cp -i <コピー元> <コピー先>
 ```shell
 cp -b <コピー元> <コピー先>
 
-例：testディレクトリのtest01.txtをtest_copyディレクトリにtest01.txtとしてバックアップファイルを作りつつ上書きコピーする場合
+例：testディレクトリのtest01.txtをtest_copyディレクトリにtest01.txtとして
+　　バックアップファイルを作りつつ上書きコピーする場合
 cp -b test/test01.txt test_copy/test01.txt
 ※バックアップファイルはtest01.txt~として作成されます
 ```
@@ -60,7 +62,8 @@ cp -b test/test01.txt test_copy/test01.txt
 ```shell
 cp -b --suffix=_$(date +%Y%m%d) <コピー元> <コピー先>
 
-例：testディレクトリのtest01.txtをtest_copyディレクトリにtest01.txtとしてバックアップファイルを作りつつ上書きコピーする場合
+例：testディレクトリのtest01.txtをtest_copyディレクトリにtest01.txtとして
+　　バックアップファイルを作りつつ上書きコピーする場合
 cp -b --suffix=_$(date +%Y%m%d) test/test01.txt test_copy/test01.txt
 ※バックアップファイルはtest01.txt_20210921のように日付が付与されて作成されます
 ```
