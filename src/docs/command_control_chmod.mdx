@@ -1,0 +1,160 @@
+# コマンド操作の学習「chmod」
+chmodコマンドはファイルやディレクトリの権限を設定するためのコマンドです。  
+権限についての詳細は[権限の指定方法について](/permission)を確認していただければと思いますが、  
+Linuxではファイルの権限によってできることが大きく変わってきますのでしっかりと覚えましょう。
+## 0. 事前準備
+### ※コマンド試し用ファイルの準備
+本ページのコマンドを試すためのファイルは以下のコマンドを一通り実行することで作成することができます。
+```shell
+touch test01
+touch test02
+touch test03
+touch testtest01
+touch testtest02
+```
+作成したファイルの権限はls -lコマンドで確認できるので、これ以降のコマンドを実行する前に一度確認しておきましょう。
+```shell
+ls -l
+
+※実行結果例
+-rw-rw-r-- 1 ec2-user ec2-user 0  9月 24 11:21 test01
+-rw-rw-r-- 1 ec2-user ec2-user 0  9月 24 11:27 test02
+-rw-rw-r-- 1 ec2-user ec2-user 0  9月 24 11:27 test03
+-rw-rw-r-- 1 ec2-user ec2-user 0  9月 24 11:29 testtest01
+-rw-rw-r-- 1 ec2-user ec2-user 0  9月 24 11:29 testtest02
+```
+## 1. 基本コマンド
+ファイルやディレクトリの権限を変更するのは下記のコマンドで行うことができます。
+```shell
+chmod <アクセス権限> <ファイルまたはディレクトリ名>
+
+例：test01ファイルの権限にすべてのユーザーにすべての権限（777）を付与する場合
+chmod 777 test01
+
+※ls -lで実行結果を確認
+-rwxrwxrwx 1 ec2-user ec2-user 0  9月 24 11:21 test01
+-rw-rw-r-- 1 ec2-user ec2-user 0  9月 24 11:27 test02
+-rw-rw-r-- 1 ec2-user ec2-user 0  9月 24 11:27 test03
+-rw-rw-r-- 1 ec2-user ec2-user 0  9月 24 11:29 testtest01
+-rw-rw-r-- 1 ec2-user ec2-user 0  9月 24 11:29 testtest02
+```
+ディレクトリ内のファイルを全て変更したり、ワイルドカードでファイルを指定して変更することもできます。
+```shell
+例：testディレクトリのファイルから「test0」で始まるファイルの権限をすべてのユーザーに
+　　すべての権限（777）に変更したい場合
+chmod 777 test0*
+
+※ls -lで実行結果を確認
+-rwxrwxrwx 1 ec2-user ec2-user 0  9月 24 11:21 test01
+-rwxrwxrwx 1 ec2-user ec2-user 0  9月 24 11:27 test02
+-rwxrwxrwx 1 ec2-user ec2-user 0  9月 24 11:27 test03
+-rw-rw-r-- 1 ec2-user ec2-user 0  9月 24 11:29 testtest01
+-rw-rw-r-- 1 ec2-user ec2-user 0  9月 24 11:29 testtest02
+```
+## 2. 便利なchmodコマンドのオプション
+### 2-1. -vオプション：コマンドの実行結果を表示する
+-vオプションを利用することでchmodコマンドで変更された内容を表示することができます。  
+変更内容が分かりやすくなりますし、ログに証跡を残したい場合は便利です。
+```shell
+chmod -v <アクセス権> <ファイルまたはディレクトリ名>
+
+例：test01ファイルの権限にファイルの所有者に対してすべての権限、それ以外には
+　　読み込み権限（744）を付与する場合
+chmod -v 744 test01
+
+※実行結果例
+'test01' のモードを 0777 (rwxrwxrwx) から 0744 (rwxr--r--) へ変更しました
+```
+変更がない場合は以下のようなメッセージが表示されます。
+```shell
+例：もう一度先程のコマンドを実行してみる場合
+chmod -v 744 test01
+
+※実行結果例
+'test01' のモードは 0744 (rwxr--r--) として保留されました
+```
+### 2-2. -cオプション：コマンドの実行結果を変更があった場合のみ表示する
+-cオプションを利用することでchmodコマンドで変更があった場合のみ変更された内容を表示することができます。  
+-vオプションと近い機能になりますが、例えばワイルドカードで複数ファイルに対して一気に変更をする時に変更内容を分かりやすくチェックすることができます。
+```shell
+chmod -c <アクセス権> <ファイルまたはディレクトリ名>
+
+例：test01ファイルの権限にすべてのユーザーにすべての権限（777）を付与する場合
+chmod -c 777 test01
+
+※実行結果例
+'test01' のモードを 0744 (rwxr--r--) から 0777 (rwxrwxrwx) へ変更しました
+```
+変更がない場合は何もメッセージが表示されません。
+もう一度同じコマンドを実行して試してみましょう。
+```shell
+chmod -c 777 test01
+```
+### 2-3. -Rオプション：複数ファイルに対して設定する場合、ディレクトリ配下のファイルも設定する
+-Rオプションを利用することでワイルドカードを使って複数ファイルに対して設定を行う際に、ディレクトリ配下のファイルも対象として変更することができます。  
+ディレクトリ配下を一括で変更したい際に便利です。
+```shell
+chmod -R <アクセス権> <ファイルまたはディレクトリ名>
+```
+コマンドを試すにあたって以下のコマンドを実行してテスト用のディレクトリ・ファイルを作成しましょう。
+```shell
+mkdir testdir01
+mkdir testdir02
+touch testdir01/testdir01file01
+touch testdir01/testdir01file02
+touch testdir02/testdir01file01
+touch testdir02/testdir02file02
+```
+作成したファイルの権限はls -lRコマンドで確認できるので、これ以降のコマンドを実行する前に一度確認しておきましょう。
+```shell
+ls -lR
+
+※実行結果例
+.:
+合計 0
+-rwxrwxrwx 1 ec2-user ec2-user  0  9月 24 11:21 test01
+-rwxrwxrwx 1 ec2-user ec2-user  0  9月 24 11:27 test02
+-rwxrwxrwx 1 ec2-user ec2-user  0  9月 24 11:27 test03
+drwxrwxr-x 2 ec2-user ec2-user 52  9月 24 12:10 testdir01
+drwxrwxr-x 2 ec2-user ec2-user 52  9月 24 12:10 testdir02
+-rw-rw-r-- 1 ec2-user ec2-user  0  9月 24 11:29 testtest01
+-rw-rw-r-- 1 ec2-user ec2-user  0  9月 24 11:29 testtest02
+
+./testdir01:
+合計 0
+-rw-rw-r-- 1 ec2-user ec2-user 0  9月 24 12:10 testdir01file01
+-rw-rw-r-- 1 ec2-user ec2-user 0  9月 24 12:10 testdir01file02
+
+./testdir02:
+合計 0
+-rw-rw-r-- 1 ec2-user ec2-user 0  9月 24 12:10 testdir01file01
+-rw-rw-r-- 1 ec2-user ec2-user 0  9月 24 12:10 testdir02file02
+```
+以下のコマンドで動きを試してみましょう。
+```shell
+例：testと名前の付くファイルおよびディレクトリにすべてのユーザーに
+　　すべての権限（777）を付与する場合
+chmod -R 777 test*
+
+※ls -lRで実行結果を確認
+.:
+合計 0
+-rwxrwxrwx 1 ec2-user ec2-user  0  9月 24 11:21 test01
+-rwxrwxrwx 1 ec2-user ec2-user  0  9月 24 11:27 test02
+-rwxrwxrwx 1 ec2-user ec2-user  0  9月 24 11:27 test03
+drwxrwxrwx 2 ec2-user ec2-user 52  9月 24 12:10 testdir01
+drwxrwxrwx 2 ec2-user ec2-user 52  9月 24 12:10 testdir02
+-rwxrwxrwx 1 ec2-user ec2-user  0  9月 24 11:29 testtest01
+-rwxrwxrwx 1 ec2-user ec2-user  0  9月 24 11:29 testtest02
+
+./testdir01:
+合計 0
+-rwxrwxrwx 1 ec2-user ec2-user 0  9月 24 12:10 testdir01file01
+-rwxrwxrwx 1 ec2-user ec2-user 0  9月 24 12:10 testdir01file02
+
+./testdir02:
+合計 0
+-rwxrwxrwx 1 ec2-user ec2-user 0  9月 24 12:10 testdir01file01
+-rwxrwxrwx 1 ec2-user ec2-user 0  9月 24 12:10 testdir02file02
+```
+## 3. 学習用サーバーに接続して、実際にコマンドを試してみましょう

@@ -1,0 +1,159 @@
+# コマンド操作の学習「chgrp」
+chgrpコマンドはファイルやディレクトリの所有グループを設定するためのコマンドです。  
+所有グループについては[権限の指定方法について](/permission)を確認していただければと思いますが、  
+所有グループの設定も権限の重要なポイントですのでしっかりと理解しましょう。
+## 0. 事前準備
+### ※コマンド試し用ファイルの準備
+本ページのコマンドを試すためのファイルは以下のコマンドを一通り実行することで作成することができます。
+```shell
+touch test01
+touch test02
+touch test03
+touch testtest01
+touch testtest02
+```
+作成したファイルの所有グループはls -lコマンドで確認できるので、これ以降のコマンドを実行する前に一度確認しておきましょう。
+```shell
+ls -l
+
+※実行結果例
+-rw-rw-r-- 1 ec2-user ec2-user 0  9月 24 11:21 test01
+-rw-rw-r-- 1 ec2-user ec2-user 0  9月 24 11:27 test02
+-rw-rw-r-- 1 ec2-user ec2-user 0  9月 24 11:27 test03
+-rw-rw-r-- 1 ec2-user ec2-user 0  9月 24 11:29 testtest01
+-rw-rw-r-- 1 ec2-user ec2-user 0  9月 24 11:29 testtest02
+```
+### ※権限の切り替え
+本ページのコマンドを試すためには管理者ユーザになる必要があるため[su](/command_control_su)コマンドで管理者ユーザに切り替えておいてください。
+## 1. 基本コマンド
+所有グループの変更は下記のコマンドで行うことができます。
+```shell
+chgrp <所有グループ名> <ファイルまたはディレクトリ名>
+
+例：test01ファイルの所有グループをrootに変更する場合
+chgrp root test01
+
+※ls -lで実行結果を確認
+-rw-rw-r-- 1 ec2-user root     0  9月 24 14:35 test01
+-rw-rw-r-- 1 ec2-user ec2-user 0  9月 24 14:35 test02
+-rw-rw-r-- 1 ec2-user ec2-user 0  9月 24 14:35 test03
+-rw-rw-r-- 1 ec2-user ec2-user 0  9月 24 14:35 testtest01
+-rw-rw-r-- 1 ec2-user ec2-user 0  9月 24 14:35 testtest02
+```
+ディレクトリ内のファイルを全て変更したり、ワイルドカードでファイルを指定して変更することもできます。
+```shell
+例：testディレクトリのファイルから「test0」で始まるファイルの所有グループをrootに変更する場合
+chgrp root test0*
+
+※ls -lで実行結果を確認
+-rw-rw-r-- 1 ec2-user root     0  9月 24 14:35 test01
+-rw-rw-r-- 1 ec2-user root     0  9月 24 14:35 test02
+-rw-rw-r-- 1 ec2-user root     0  9月 24 14:35 test03
+-rw-rw-r-- 1 ec2-user ec2-user 0  9月 24 14:35 testtest01
+-rw-rw-r-- 1 ec2-user ec2-user 0  9月 24 14:35 testtest02
+```
+## 2. 便利なchgrpコマンドのオプション
+### 2-1. -vオプション：コマンドの実行結果を表示する
+-vオプションを利用することでchgrpコマンドで変更された内容を表示することができます。  
+変更内容が分かりやすくなりますし、ログに証跡を残したい場合は便利です。
+```shell
+chgrp -v <所有グループ名> <ファイルまたはディレクトリ名>
+
+例：test01ファイルの所有グループをec2-userに変更する場合
+chgrp -v ec2-user test01
+
+※実行結果例
+'test01' のグループを root から ec2-user へ変更しました
+```
+変更がない場合は以下のようなメッセージが表示されます。
+```shell
+例：もう一度先程のコマンドを実行してみる場合
+chgrp -v ec2-user test01
+
+※実行結果例
+'test01' のグループは ec2-user のまま保留されました
+```
+### 2-2. -cオプション：コマンドの実行結果を変更があった場合のみ表示する
+-cオプションを利用することでchgrpコマンドで変更があった場合のみ変更された内容を表示することができます。  
+-vオプションと近い機能になりますが、例えばワイルドカードで複数ファイルに対して一気に変更をする時に変更内容を分かりやすくチェックすることができます。
+```shell
+chgrp -c <所有グループ名> <ファイルまたはディレクトリ名>
+
+例：test01ファイルの所有グループをrootに変更する場合
+chgrp -c root test01
+
+※実行結果例
+'test01' のグループを ec2-user から root へ変更しました
+```
+変更がない場合は何もメッセージが表示されません。
+もう一度同じコマンドを実行して試してみましょう。
+```shell
+chgrp -c root test01
+```
+### 2-3. -Rオプション：複数ファイルに対して設定する場合、ディレクトリ配下のファイルも設定する
+-Rオプションを利用することでワイルドカードを使って複数ファイルに対して設定を行う際に、ディレクトリ配下のファイルも対象として変更することができます。  
+ディレクトリ配下を一括で変更したい際に便利です。
+```shell
+chgrp -R <所有グループ名> <ファイルまたはディレクトリ名>
+```
+コマンドを試すにあたって以下のコマンドを実行してテスト用のディレクトリ・ファイルを作成しましょう。
+```shell
+mkdir testdir01
+mkdir testdir02
+touch testdir01/testdir01file01
+touch testdir01/testdir01file02
+touch testdir02/testdir01file01
+touch testdir02/testdir02file02
+```
+作成したファイルの権限はls -lRコマンドで確認できるので、これ以降のコマンドを実行する前に一度確認しておきましょう。
+```shell
+ls -lR
+
+※実行結果例
+.:
+合計 0
+-rw-rw-r-- 1 ec2-user root      0  9月 24 14:35 test01
+-rw-rw-r-- 1 ec2-user root      0  9月 24 14:35 test02
+-rw-rw-r-- 1 ec2-user root      0  9月 24 14:35 test03
+drwxrwxr-x 2 ec2-user ec2-user 52  9月 24 14:40 testdir01
+drwxrwxr-x 2 ec2-user ec2-user 52  9月 24 14:40 testdir02
+-rw-rw-r-- 1 ec2-user ec2-user  0  9月 24 14:35 testtest01
+-rw-rw-r-- 1 ec2-user ec2-user  0  9月 24 14:35 testtest02
+
+./testdir01:
+合計 0
+-rw-rw-r-- 1 ec2-user ec2-user 0  9月 24 14:40 testdir01file01
+-rw-rw-r-- 1 ec2-user ec2-user 0  9月 24 14:40 testdir01file02
+
+./testdir02:
+合計 0
+-rw-rw-r-- 1 ec2-user ec2-user 0  9月 24 14:40 testdir01file01
+-rw-rw-r-- 1 ec2-user ec2-user 0  9月 24 14:40 testdir02file02
+```
+以下のコマンドで動きを試してみましょう。
+```shell
+例：testと名前の付くファイルおよびディレクトリの所有グループをrootに変更する場合
+chgrp -R root test*
+
+※ls -lRで実行結果を確認
+.:
+合計 0
+-rw-rw-r-- 1 ec2-user root  0  9月 24 14:35 test01
+-rw-rw-r-- 1 ec2-user root  0  9月 24 14:35 test02
+-rw-rw-r-- 1 ec2-user root  0  9月 24 14:35 test03
+drwxrwxr-x 2 ec2-user root 52  9月 24 14:40 testdir01
+drwxrwxr-x 2 ec2-user root 52  9月 24 14:40 testdir02
+-rw-rw-r-- 1 ec2-user root  0  9月 24 14:35 testtest01
+-rw-rw-r-- 1 ec2-user root  0  9月 24 14:35 testtest02
+
+./testdir01:
+合計 0
+-rw-rw-r-- 1 ec2-user root 0  9月 24 14:40 testdir01file01
+-rw-rw-r-- 1 ec2-user root 0  9月 24 14:40 testdir01file02
+
+./testdir02:
+合計 0
+-rw-rw-r-- 1 ec2-user root 0  9月 24 14:40 testdir01file01
+-rw-rw-r-- 1 ec2-user root 0  9月 24 14:40 testdir02file02
+```
+## 3. 学習用サーバーに接続して、実際にコマンドを試してみましょう
