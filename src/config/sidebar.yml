@@ -42,6 +42,8 @@
       link: '/command_control_passwd'
     - label: 'pwd'
       link: '/command_control_pwd'
+    - label: 'diff'
+      link: '/command_control_diff'
 - label: 'Introduction'
   link: '/'
 - label: 'Getting started'
