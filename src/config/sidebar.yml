@@ -58,6 +58,8 @@
       link: '/command_control_sudo'
     - label: 'exit'
       link: '/command_control_exit'
+    - label: 'shutdown'
+      link: '/command_control_shutdown'
 - label: 'Introduction'
   link: '/'
 - label: 'Getting started'
