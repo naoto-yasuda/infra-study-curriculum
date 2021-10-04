@@ -8,7 +8,7 @@ passwdコマンドはユーザーがログインする時のパスワードを�
 useradd testuser
 ```
 ### ※権限の切り替え
-本ページのコマンドを試すためには管理者ユーザになる必要があるため[su](/command_control_su)コマンドで管理者ユーザに切り替えておいてください。
+本ページのコマンドを試すためには管理者ユーザになる必要があるため[su](/command/command_control_su)コマンドで管理者ユーザに切り替えておいてください。
 ## 1. 基本コマンド
 ユーザのパスワードの変更は下記のコマンドで行うことができます。
 ```shell
@@ -37,7 +37,7 @@ passwd -l testuser
 ユーザー testuser 用のパスワードをロック。
 passwd: 成功
 ```
-[su](/command_control_su)コマンドを使ってtestuserでのログインを試してみます。
+[su](/command/command_control_su)コマンドを使ってtestuserでのログインを試してみます。
 ```shell
 例：testuserにユーザを切り替える
 su testuser
@@ -55,7 +55,7 @@ passwd -u testuser
 ユーザー testuser 用のパスワードをロック解除。
 passwd: 成功
 ```
-[su](/command_control_su)コマンドを使ってtestuserでのログインを試してみます。
+[su](/command/command_control_su)コマンドを使ってtestuserでのログインを試してみます。
 ```shell
 例：testuserにユーザを切り替える
 su testuser
