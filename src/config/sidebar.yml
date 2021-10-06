@@ -66,5 +66,5 @@
       link: '/aws_cp/advance_preparation/aws_cp_account_registration'
 - label: 'AWSクラウドプラクティショナー資格学習 - クラウドとAWSの概要'
   items:
-    - label: 'cd'
-      link: '/command/command_control_cd'
+    - label: '仮想化とは'
+      link: '/aws_cp/cloud_and_aws_overview/aws_cp_what_is_virtualization'
