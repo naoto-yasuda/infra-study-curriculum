@@ -1,0 +1,61 @@
+# AWSの操作方法
+## 1. AWSの操作方法の種類について
+### 1-1. AWSマネジメントコンソール
+![](../../aws_cp_how_to_use_aws_management_console.png)
+AWSマネジメントコンソールはWebブラウザからAWSを操作できるGUIツールです。  
+GUIのため直感的に操作することができます。  
+AWSサービスそのものを操作する際は基本的にはこのマネジメントコンソールを利用します。  
+例えばマネジメントコンソールを操作して仮想サーバーをAWS上に作成し、後述するインスタンス操作で仮想サーバー内の設定をするようなイメージです。
+### 1-2. インスタンス操作（SSHなど）
+インスタンス操作は作成した仮想サーバーに対してサーバー接続用のツールを用いて接続して操作する方法です。  
+WindowsServerの場合は主に「RemoteDesktop」を利用します。  
+Linuxサーバーの場合は主に「TeraTerm」を利用します。
+### 1-3. AWS CLI操作
+AWS CLIはコマンドラインから複数のAWSサービスを制御・管理する操作方法です。  
+コマンドを組み合わせることで自動で複数の処理を行ったり、複数の台数を一気に設定したりすることができます。  
+コマンドを多数入力して操作するため多少操作が難しい部分がありますので、AWSの操作にある程度慣れてきて作業規模が大きくなった来た時に利用すると良いでしょう。
+## 2. ハンズオン
+実際にマネジメントコンソールを操作してみましょう。
+### 2-1. AWSのホームページにアクセスする
+AWSの[HP](https://aws.amazon.com/jp/)にアクセスして、「コンソールにサインイン」をクリックします。
+![](../../aws_cp_how_to_use_aws_management_console_hands_on_1.png)
+### 2-2. ルートユーザでサインインする
+[アカウント登録](../advance_preparation/aws_cp_account_registration)の項で登録したアカウントを使ってサインインを行います。
+![](../../aws_cp_how_to_use_aws_management_console_hands_on_2.png)
+### 2-3. サービス一覧の表示
+マネジメントコンソールのトップ画面が表示されたことを確認し、左上の「サービス▼」をクリックしてください。
+![](../../aws_cp_how_to_use_aws_management_console_hands_on_3.png)  
+サービス一覧が表示されることを確認してください。  
+![](../../aws_cp_how_to_use_aws_management_console_hands_on_4.png)
+### 2-4. サービスの検索
+ページ上部にある検索窓に検索したいサービス名を入力することでサービスを検索することができます。  
+試しに「EC2」と入力してみてください。
+![](../../aws_cp_how_to_use_aws_management_console_hands_on_5.png)  
+「EC2」という文字列にヒットするサービスが検索結果として表示されます。
+![](../../aws_cp_how_to_use_aws_management_console_hands_on_6.png)  
+検索結果の「EC2」をクリックするとEC2の管理画面に遷移することができます。
+![](../../aws_cp_how_to_use_aws_management_console_hands_on_7.png)
+### 2-5. 通知の表示
+検索窓の右にあるベルマークをクリックすることで自分のAWSアカウントに来ている通知を確認することができます。
+![](../../aws_cp_how_to_use_aws_management_console_hands_on_8.png)  
+AWSサービスで自身のアカウントに影響のあるイベントなどが起きていたり、予定されている際に通知が行われます。
+![](../../aws_cp_how_to_use_aws_management_console_hands_on_9.png)
+### 2-6. アカウント情報の表示
+自身のアカウント名をクリックすることでアカウント情報へのアクセスメニューが表示されます。
+![](../../aws_cp_how_to_use_aws_management_console_hands_on_8.png)  
+アカウントの設定や請求情報を確認する際はここからアクセスします。
+![](../../aws_cp_how_to_use_aws_management_console_hands_on_10.png)
+### 2-7. リージョンの選択
+右上に表示されている地名（デフォルトだとバージニア北部の可能性があります）をクリックすることで、マネジメントコンソールで操作するリージョンを選択することができます。
+![](../../aws_cp_how_to_use_aws_management_console_hands_on_8.png)  
+例えば「アジア・パシフィック（東京） ap-northeast-1」をクリックすることで東京リージョンにリージョンを変更することができます。
+![](../../aws_cp_how_to_use_aws_management_console_hands_on_11.png)
+### 2-8. サポートへのアクセス
+右上の「サポート」をクリックすることで各種サポートへのアクセスメニューを表示することができます。
+![](../../aws_cp_how_to_use_aws_management_console_hands_on_8.png)  
+ここからAWSサポートへの問い合わせ画面に移動したり、サポートフォーラムの画面に移動することができます。
+![](../../aws_cp_how_to_use_aws_management_console_hands_on_12.png)
+### 2-9. マネジメントコンソールのトップ画面への移動
+左上のAWSのロゴマークをクリックすることでマネジメントコンソールのトップ画面に遷移することができます。
+![](../../aws_cp_how_to_use_aws_management_console_hands_on_8.png)  
+![](../../aws_cp_how_to_use_aws_management_console_hands_on_13.png)

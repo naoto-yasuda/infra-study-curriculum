@@ -1,0 +1,44 @@
+# EBSの設定（ハンズオン）
+EBSに関して実際にマネジメントコンソールを見ながら改めて確認をしていきましょう。
+## 1. EC2の管理コンソールの表示
+![](../../aws_cp_ebs_hands_on_show_ec2_management_console.png)  
+EC2の管理コンソール画面を表示し、左メニューの「Elastic Block Store」-「ボリューム」をクリックします。  
+## 2. EBSの管理コンソールの確認
+![](../../aws_cp_ebs_hands_on_check_ebs_management_console.png)  
+EBSの管理コンソールが表示されたらEBSの一覧にEC2のハンズオンで先ほど作成したEC2インスタンスに紐付いたボリュームがあることを確認します。
+## 3. ボリュームの変更
+![](../../aws_cp_ebs_hands_on_change_volume_1.png)
+ボリュームを選択し、「アクション」-「ボリュームの変更」をクリックします。  
+
+![](../../aws_cp_ebs_hands_on_change_volume_2.png)
+そうするとボリュームの変更画面が表示され、ボリュームタイプを変更したり、ボリュームの容量を変更することができます。  
+今回は確認するだけで「キャンセル」をクリックしてください。
+## 4. ボリュームの作成
+![](../../aws_cp_ebs_hands_on_check_ebs_management_console.png)  
+「ボリュームの作成」をクリックすることで独立したEBSを作成する事もできます。
+
+![](../../aws_cp_ebs_hands_on_create_volume.png)
+今回は作成画面の内容を確認するだけにして「キャンセル」をクリックしてください。
+## 5. スナップショットの作成
+![](../../aws_cp_ebs_hands_on_get_snapshot_1.png)
+ボリュームを選択し、「アクション」-「スナップショットの作成」をクリックしてください。　　
+
+![](../../aws_cp_ebs_hands_on_get_snapshot_2.png)
+「説明」に「snapshot test」と入力して、「スナップショットの作成」をクリックしてください。  
+
+## 6. スナップショットの確認
+![](../../aws_cp_ebs_hands_on_get_snapshot_3.png)
+「スナップショットの作成リクエストが成功しました」と表示されることを確認して、その下に表示されているスナップショットIDをクリックします。  
+
+![](../../aws_cp_ebs_hands_on_get_snapshot_4.png)
+スナップショットの一覧に取得したスナップショットが表示されていることを確認します。
+## 7. ライフサイクルマネージャーの確認
+![](../../aws_cp_ebs_hands_on_life_cycle_manager_1.png)
+左のメニューから「Elastic Block Store」-「ライフサイクルマネージャー」をクリックします。  
+
+![](../../aws_cp_ebs_hands_on_life_cycle_manager_2.png)
+「ポリシータイプ」を「EBSスナップショットポリシー」にして、「次のステップ」をクリックします。  
+
+![](../../aws_cp_ebs_hands_on_life_cycle_manager_3.png)  
+ここでは実際に設定はしませんが、ターゲットとなるリソースを選択したり、スケジュールが設定できることを確認して下さい。  
+確認できたら「キャンセル」をクリックしましょう。
