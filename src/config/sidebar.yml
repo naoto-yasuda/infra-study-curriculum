@@ -100,3 +100,10 @@
       link: '/aws_cp/aws_core_service_1/aws_cp_ebs_overview'
     - label: 'EBSの設定（ハンズオン）'
       link: '/aws_cp/aws_core_service_1/aws_cp_ebs_hands_on'
+    - label: 'EC2とEBSに関する模擬試験'
+      link: '/aws_cp/aws_core_service_1/aws_cp_ec2_and_ebs_test'
+    - label: 'サブネットとサブネットマスク'
+      link: '/aws_cp/aws_core_service_1/aws_cp_subnet_and_subnetmask'
+    - label: 'VPCの概要'
+      link: '/aws_cp/aws_core_service_1/aws_cp_vpc_overview'
+    
