@@ -106,4 +106,7 @@
       link: '/aws_cp/aws_core_service_1/aws_cp_subnet_and_subnetmask'
     - label: 'VPCの概要'
       link: '/aws_cp/aws_core_service_1/aws_cp_vpc_overview'
-    
+    - label: 'VPCによるネットワーク構築（ハンズオン）'
+      link: '/aws_cp/aws_core_service_1/aws_cp_vpc_hands_on'
+    - label: '通信プロトコルとOSI参照モデル'
+      link: '/aws_cp/aws_core_service_1/aws_cp_communication_protocol_and_osi_reference_model'
