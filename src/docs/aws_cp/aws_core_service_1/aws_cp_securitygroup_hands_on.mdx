@@ -1,0 +1,60 @@
+# セキュリティグループの活用（ハンズオン）
+セキュリティグループを実際に設定して、EC2インスタンスに設定して動作を確認してみましょう。
+
+## 1. セキュリティグループの作成・設定
+### 1-1. セキュリティグループの管理コンソールの表示
+![](../../aws_cp_securitygroup_hands_on_make_securitygroup_1.png)
+左上の「サービス」をクリックして、「ネットワーキングとコンテンツ配信」-「VPC」をクリックします。
+
+![](../../aws_cp_securitygroup_hands_on_make_securitygroup_2.png)
+左メニューの「セキュリティ」-「セキュリティグループ」をクリックします。
+### 1-2. セキュリティグループの作成
+![](../../aws_cp_securitygroup_hands_on_make_securitygroup_3.png)
+「セキュリティグループを作成」をクリックします。
+
+![](../../aws_cp_securitygroup_hands_on_make_securitygroup_4.png)
+「基本的な詳細」の欄に以下のように設定を入力します。
+
+| 項目 | 設定値 |
+|-------|-------|
+| セキュリティグループ名 | test |
+| 説明 | test |
+| VPC | デフォルト |
+
+![](../../aws_cp_securitygroup_hands_on_make_securitygroup_5.png)
+今回はHTTP接続が行えるように設定してみます。  
+「インバウンドルール」の「ルールを追加」をクリックして、以下のように設定を入力します。  
+「アウトバウンドルール」はデフォルトのままにします。
+
+| 項目 | 設定値 | 概要 |
+|-------|-------|-------|
+| タイプ | HTTP | 通信のタイプ |
+| プロトコル | TCP<br/>※タイプをHTTPにしているためTCPで固定 | 通信のプロトコル |
+| ポート範囲 | 80<br/>※タイプをHTTPにしているため80で固定 | 通信に使うポート |
+| ソース | 0.0.0.0/0 | 接続元のIPアドレス |
+| 説明 | 空欄 | 設定内容に関する説明 |
+
+![](../../aws_cp_securitygroup_hands_on_make_securitygroup_6.png)
+タグ設定はデフォルトのまま変更せずに「セキュリティグループの作成」をクリックします。
+
+![](../../aws_cp_securitygroup_hands_on_make_securitygroup_7.png)
+セキュリティグループが作成され、下部の「インバウンドルール」に設定したルールが表示されていることを確認します。
+
+## 2. EC2インスタンスへの設定
+### 2-1. EC2の管理コンソールの表示
+![](../../aws_cp_securitygroup_hands_on_set_ec2_securitygroup_1.png)
+左上の「サービス」をクリックして、「コンピューティング」-「EC2」をクリックします。
+
+### 2-2. EC2のセキュリティグループの設定変更
+![](../../aws_cp_securitygroup_hands_on_set_ec2_securitygroup_2.png)
+EC2の一覧からEC2のハンズオンで作成したインスタンスを選択して、「アクション」-「セキュリティ」-「セキュリティグループを変更」をクリックします。
+
+![](../../aws_cp_securitygroup_hands_on_set_ec2_securitygroup_3.png)
+「関連付けられたセキュリティグループ」で先程作成したセキュリティグループだけが選択された状態になるよう設定して「保存」をクリックします。
+
+![](../../aws_cp_securitygroup_hands_on_set_ec2_securitygroup_4.png)
+設定したインスタンスの「セキュリティ」タブの「インバウンドルール」に先程設定したセキュリティグループのインバウンドルールが表示されていることを確認します。
+
+### 2-3. Webページへのアクセス確認
+![](../../aws_cp_securitygroup_hands_on_set_ec2_securitygroup_5.png)
+設定したインスタンスのパブリックIPアドレスにブラウザからアクセスして、EC2のハンズオンで作成したWebページが表示されることを確認します。
