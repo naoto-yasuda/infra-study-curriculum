@@ -116,3 +116,7 @@
       link: '/aws_cp/aws_core_service_1/aws_cp_securitygroup_hands_on'
     - label: 'ネットワークACLの活用（ハンズオン）'
       link: '/aws_cp/aws_core_service_1/aws_cp_networkacl_hands_on'
+    - label: 'VPCとトラフィック制御に関する模擬試験'
+      link: '/aws_cp/aws_core_service_1/aws_cp_vpc_and_traffic_test'
+    - label: 'Route53の概要'
+      link: '/aws_cp/aws_core_service_1/aws_cp_route53_overview'
