@@ -1,0 +1,155 @@
+# Route53によるドメイン登録
+Route53を実際に設定してみましょう。
+
+## 1. ドメインの準備
+Route53でホストゾーンの設定をするのにまずはドメインが必要になります。  
+### 1-1. AWSでドメインを購入する方法の確認
+今回は別の方法でドメインの準備を行いますが、AWSでもドメインを購入して準備することができるのでその方法を確認しておきましょう。
+
+![](../../aws_cp_route53_hands_on_check_domain_buy_1.png)
+左上の「サービス」をクリックして、「ネットワーキングとコンテンツ配信」-「Route53」をクリックします。
+
+![](../../aws_cp_route53_hands_on_check_domain_buy_2.png)
+「ドメインの登録」をクリックします。
+
+![](../../aws_cp_route53_hands_on_check_domain_buy_3.png)
+取得したいドメインを入力欄に入力し、ドメインの拡張子を選択して「チェック」をクリックします。  
+拡張子の種類によって値段は変わるので注意をしてください。
+
+![](../../aws_cp_route53_hands_on_check_domain_buy_4.png)
+チェックを押すと取得したいドメインや関連するドメイン候補の使用可否を確認することができます。  
+取得したいドメインの「ステータス」が「利用可能」になっていたら「カートに入れる」をクリックしてカートに入れ、「続行」をクリックします。
+
+![](../../aws_cp_route53_hands_on_check_domain_buy_5.png)
+連絡先情報を入力して、「続行」をクリックします。
+
+![](../../aws_cp_route53_hands_on_check_domain_buy_6.png)
+「Eメール検証のスキップ」というダイアログが表示されたら「同意します」をクリックします。
+
+![](../../aws_cp_route53_hands_on_check_domain_buy_7.png)
+<b>※注意：実際に購入しないように！</b>
+
+「キャンセル」をクリックします。  
+なお実際に購入をする場合はこの画面で設定情報を確認して、ドメインの自動更新の有効・無効を設定して、規約に同意をした上で「注文を完了」をクリックします。
+### 1-2. Freenomによるドメインの準備
+無料でドメインを取得できるサービスである[Freenom](https://www.freenom.com/ja/index.html?lang=ja)でドメインを取得します。
+
+![](../../aws_cp_route53_hands_on_get_freenom_domain_1.png)
+[Freenom](https://www.freenom.com/ja/index.html?lang=ja)をブラウザで開き、入力欄に取得したいドメインを入力して「利用可能状況をチェックします」をクリックします。
+
+![](../../aws_cp_route53_hands_on_get_freenom_domain_2.png)
+取得可能なドメインの拡張子が表示されますのでその中から無料のものを選んで「今すぐ入手」をクリックします。
+
+##### ※もし利用不可と表示されたら
+![](../../aws_cp_route53_hands_on_get_freenom_domain_3.png)
+![](../../aws_cp_route53_hands_on_get_freenom_domain_4.png)
+「今すぐ入手」をクリックした際に「利用不可」と表示される場合があります。  
+その場合は拡張子まで含んだ形で再度チェックし直すことで改善する場合があります。
+
+![](../../aws_cp_route53_hands_on_get_freenom_domain_4.png)
+取得したいドメインが選択されていることを確認して、「チェックアウト」をクリックします。
+
+![](../../aws_cp_route53_hands_on_get_freenom_domain_5.png)
+「Domain」のドメインが正しいこと、「Period」が「3 Months @ FREE」と表示されていることを確認して、「Continue」をクリックします。
+
+![](../../aws_cp_route53_hands_on_get_freenom_domain_6.png)
+左の入力欄にメールアドレスを入力して「Verify My Email Address」をクリックします。
+
+![](../../aws_cp_route53_hands_on_get_freenom_domain_7.png)
+入力したメールアドレスに対して画像のようなメールが届くので、中央の認証用のリンクをクリックする。
+
+![](../../aws_cp_route53_hands_on_get_freenom_domain_8.png)
+リンクをクリックすると登録者情報の入力画面になるのでそれぞれ情報を登録して、「I have read and agree to the Terms & Condition」にチェックを入れ、「Complete Order」をクリックします。  
+登録する内容は以下のとおりです。
+
+| 項目             | 説明                 | 必須 or 任意 |
+| ---------------- | -------------------- | ------------ |
+| First Name       | 名前                 | 必須         |
+| Last Name        | 名字                 | 必須         |
+| Company Name     | 会社名               | 任意         |
+| Address 1        | 住所                 | 必須         |
+| Zip Code         | 郵便番号             | 任意         |
+| City             | 市区町村             | 必須         |
+| Country          | 国                   | 必須         |
+| State/Region     | 都道府県             | 必須         |
+| Phone Number     | 電話番号             | 任意         |
+| Email Address    | メールアドレス       | 任意         |
+| Password         | パスワード           | 必須         |
+| Confirm Password | パスワード（確認用） | 必須         |
+
+![](../../aws_cp_route53_hands_on_get_freenom_domain_9.png)
+注文が完了すると「Order Confirmation」と表示された画面になるので、「Click here to go to your Client Area」をクリックします。
+
+![](../../aws_cp_route53_hands_on_get_freenom_domain_10.png)
+上部メニューの「Services」-「My Domains」をクリックします。
+
+![](../../aws_cp_route53_hands_on_get_freenom_domain_11.png)
+先程取得したドメインが表示されていることを確認します。
+### 1-3. ドメイン登録に関する補足
+![](../../aws_cp_route53_hands_on_isp_and_dns.png)
+ここまでFreenomで行ってもらった動作はInternetServiceProvider（ISP）であるFreenomでドメインの登録を行っていただいた形になります。  
+ISPはインターネット接続を提供していますが、今回のようにドメイン登録やDNSサーバーの提供もしています。
+
+これから実際に取得したドメインを利用してDNSの設定を行っていきますが、取得したドメインが使えるようになったり設定した内容が反映されるのに一定の待ち時間が必要になります。  
+場合によっては早くなることもありますが、長い場合だと目安としては24～72hほど掛かることもあります。
+
+![](../../aws_cp_route53_hands_on_domain_flow.png)
+その理由は上図の様にドメインは階層構造になっており、その中でインターネット中の様々なDNSサーバーがそれぞれにDNSの情報を確認し合って登録し合ってといった形で設定が反映されていくので、全てのDNSサーバーに設定が反映されてどこからでも問題なく使えるようになるのに上述の24～72hほど掛かるというわけです。
+## 2. Route53への設定
+### 2-1. ドメインの有効確認
+![](../../aws_cp_route53_hands_on_setting_route53_1.png)
+ドメインが使える状態になっているかを確認するためにWindowsキーを押して「cmd」と入力し、コマンドプロンプトを起動します。
+
+![](../../aws_cp_route53_hands_on_setting_route53_2.png)
+以下のようにコマンドを入力して、「名前：」にドメイン名が表示されれば使える状態になっています。
+```shell
+nslookup <ドメイン名>
+```
+まだ使えない場合は以下の画像のようにドメインが見つけられない旨のメッセージが表示されます。  
+しばらく時間を置いてみましょう。
+![](../../aws_cp_route53_hands_on_setting_route53_3.png)
+### 2-2. ホストゾーンの作成
+![](../../aws_cp_route53_hands_on_setting_route53_4.png)
+Route53の管理コンソールに戻って、ダッシュボードから「ホストゾーンの作成」をクリックします。
+
+![](../../aws_cp_route53_hands_on_setting_route53_5.png)
+ホストゾーンの設定を以下のように入力し、「ホストゾーンの作成」をクリックします。
+
+| 項目       | 内容                                                                                                                                                                     |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| ドメイン名 | Freenomで取得したドメイン                                                                                                                                                |
+| 説明       | ホストゾーンの説明                                                                                                                                                       |
+| タイプ     | 通常はパブリックホストゾーンを選択します<br/>プライベートネットワークで利用したい場合はプライベートホストゾーンを選択します<br/>今回はパブリックホストゾーンを選択します |
+| タグ       | AWSリソースに割り当てるラベル<br/>管理上の必要に応じて設定します                                                                                                         |
+### 2-3. レコードの作成
+![](../../aws_cp_route53_hands_on_setting_route53_6.png)
+作成したホストゾーンの設定内容が表示されるので「レコードを作成」をクリックします。
+
+![](../../aws_cp_route53_hands_on_setting_route53_7.png)
+レコードの設定を以下のように入力し、「レコードを作成」をクリックします。
+
+| 項目                 | 内容                                               |
+| -------------------- | -------------------------------------------------- |
+| レコード名           | 空欄                                               |
+| レコードタイプ       | A                                                  |
+| 値                   | EC2のハンズオンで作成したEC2のパブリックIPアドレス |
+| TTL（秒）            | 300                                                |
+| ルーティングポリシー | シンプルルーティング                               |
+### 2-4. NSレコードのFreenomへの登録
+AWSで取得したドメインの場合は2-3.までの設定で利用を開始できますが、Freenomなど外部でドメインを取得した場合は追加でドメインの取得先に対して設定が必要になります。  
+
+![](../../aws_cp_route53_hands_on_setting_route53_8.png)
+Freenomの取得ドメインの一覧を表示して、対象のドメインの「Manage Domain」をクリックします。
+
+![](../../aws_cp_route53_hands_on_setting_route53_9.png)
+「Management Tools」-「Nameservers」をクリックします。
+
+![](../../aws_cp_route53_hands_on_setting_route53_10.png)
+![](../../aws_cp_route53_hands_on_setting_route53_11.png)
+「Use custom nameservers（enter below）」を選択し、Route53の「タイプ」が「NS」のレコードの値をNameserver1～4の欄に入力して「Change Nameservers」をクリックします。  
+この設定を行うことで取得したドメインが利用するDNSサーバーをFreenomのサーバーからAWSのサーバーに切り替えることができます。
+
+## 3. 動作の確認
+![](../../aws_cp_route53_hands_on_setting_route53_12.png)
+ブラウザから取得したドメインにアクセスしてWebページが表示されることを確認します。  
+表示されなかった場合は時間を置いて再度確認してみましょう。

@@ -1,0 +1,34 @@
+# AWSアーキテクチャの設計原則
+## 1. ５つの設計原則
+![](../../aws_architecture_design_principles_five_design_principles_image.png)
+AWSでは各ユーザが上手くAWSを活用してもらえるようにWell-Architected Frameworkという５つの原則を定義しています。
+- 回復性の高いアーキテクチャを設計する　→　Reliability
+- パフォーマンスに優れたアーキテクチャを定義する　→　Performance Efficiency
+- セキュアなアプリケーションおよびアーキテクチャを規定する　→　Security
+- コスト最適化アーキテクチャを設計する　→　Cost Optimization
+- オペレーショナルエクセレンスを備えたアーキテクチャを定義する　→　Operational Excellence
+この５つの原則を理解して、バランス良く５つの原則に基づいたAWSの構成を作っていくことが重要です。
+## 2. Well-Architected Framework
+Well-Architected Frameworkは次の３つの内容で構成されます。
+1. Well-Architected Frameworkホワイトペーパー
+   →５つの原則について説明されているホワイトペーパー
+2. AWSのソリューションアーキテクト（SA）または認定パートナーによる支援制度
+   →SAはAWSの公認のサポーター社員
+3. セルフチェック向けのWell-Architected Tool
+   →自分たちでツールを使って設計原則に沿っているかを確認できる
+
+Well-Architected Frameworkはベストプラクティスを利用することで最適解や改善点を把握するためのもので、あくまで参考にとどめるもので絶対というわけではありません。  
+良いとこ取りをしつつ、必要に応じて柔軟に変更して対応することが必要です。
+
+要件定義～設計～構築～運用という基本的な開発の各フェイズにおいてWell-Architected Frameworkと照らし合わせてチェックすることでより良いAWSの構成を異維持できるようにしていくことができます。
+![](../../aws_architecture_design_principles_well-architectedframework_image.png)
+
+## 3. AWSの基本的な構成 - マルチAZ構成
+![](../../aws_architecture_design_principles_multi-az_image.png)
+２つのAZにサーバーやDBの冗長構成を確立させることで高い可用性を実現する構成のことをマルチAZ構成と呼び、AWSの基本的な構成になります。  
+２つのAZにサーバーやDBを配置し、ロードバランサーなどを利用して各AZのサーバーに通信を分配することで、片方のAZで問題が起きたとしてもサービスを止めずに運用し続けることができます。
+## 4. AWSの基本的な構成 - マルチリージョン構成
+![](../../aws_architecture_design_principles_multi-region_image.png)
+Route53を利用することで、複数の同じシステム構成を複数のリージョンでフェイルオーバーさせることが可能です。  
+マルチAZでは大規模な災害などが起きた際は両方のAZに障害が発生する可能性がありますが、マルチリージョンであれば構成にすることで大規模災害時でもサービスを継続させることができます。  
+システムごとマルチリージョン構成にすることは例えば銀行などのサービスが停止することで多大な影響が発生するようなサービスでしか行われないかもしれませんが、例えばバックアップだけ別のリージョンに退避させるようなことはそこまでの大規模なサービスでなくても行うことはありますので、マルチAZと共に基本的な構成として理解しておきましょう。
