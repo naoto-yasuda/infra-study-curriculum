@@ -1,0 +1,172 @@
+# ELBとAutoScalingによる冗長構成の構築（ハンズオン）
+このハンズオンでは以下の内容を実施していきます。
+1. ELBとターゲットグループを作成する
+2. EC2インスタンスのハンズオンで利用したAMIを利用して起動設定を作成する
+3. 起動設定を利用してAutoScalingグループを設定する
+4. AutoScalingによるスケーリングの動きを確認する
+
+今回のハンズオンでは一気に全て作成していきますが、通常はまずEC2を構築して、ELBを構築して、ELBにEC2をアタッチして、AutoScalingの設定というようにそれぞれの段階を踏んで設定をします。
+
+## 1. セキュリティグループの作成
+![](../../aws_cp_elb_and_autoscaling_hands_on_make_securitygroup_1.png)
+「test-elb」というセキュリティグループを作成し、インバウンドルールに以下のルールを追加してください。
+
+| 項目 | 設定値 |
+|-------|-------|
+| タイプ | HTTP |
+| ソース | 0.0.0.0/0 |
+
+## 2. ターゲットグループの作成
+### 2-1. ターゲットグループの管理コンソールの表示
+![](../../aws_cp_elb_and_autoscaling_hands_on_make_targetgroup_1.png)
+EC2の管理コンソールに移動し、左メニューの「ロードバランシング」-「ターゲットグループ」をクリックします。
+### 2-2. ターゲットグループの作成
+![](../../aws_cp_elb_and_autoscaling_hands_on_make_targetgroup_2.png)
+「Create target group」をクリックします。
+
+![](../../aws_cp_elb_and_autoscaling_hands_on_make_targetgroup_3.png)
+ターゲットグループの設定内容を以下のように入力して「Next」をクリックします。
+
+| 項目 | 設定内容 | 説明 |
+|-------|-------|-------|
+| Choose a target type | Instances | ターゲットの種類 |
+| Target group name | test | ターゲットグループの名前 |
+| Protocol | HTTP | ターゲットとの通信に使うプロトコル |
+| Port | 80 | ターゲットとの通信に使うポート |
+| VPC | ハンズオンで作成したVPC | 配置先のVPC |
+| Protocol version | HTTP1 | 通信に使うプロトコルのバージョン |
+| Health check protocol | HTTP | ヘルスチェックで使うプロトコル |
+| Health check path | / | ヘルスチェックで判定するパス |
+| Tags | デフォルトのまま | AWSリソースに割り当てるラベル |
+
+![](../../aws_cp_elb_and_autoscaling_hands_on_make_targetgroup_4.png)
+「Register targets」の画面で本来はバランシングさせる先のEC2インスタンスを選択してターゲットグループにアタッチしますが、今回はそのまま「Create target group」をクリックします。
+
+## 3. ELBの作成
+### 3-1. ELBの管理コンソールの表示
+![](../../aws_cp_elb_and_autoscaling_hands_on_make_elb_1.png)
+EC2の管理コンソールに移動し、左メニューの「ロードバランシング」-「ロードバランサー」をクリックします。
+### 3-2. ALBの作成
+![](../../aws_cp_elb_and_autoscaling_hands_on_make_elb_2.png)
+「ロードバランサーの作成」をクリックします。
+
+![](../../aws_cp_elb_and_autoscaling_hands_on_make_elb_3.png)
+「Application Load Balancer」の「Create」をクリックします。  
+なお「Gateway Load Balancer」はアップデートによって追加された更に新しいロードバランサーです。
+
+![](../../aws_cp_elb_and_autoscaling_hands_on_make_elb_4.png)
+ALBの設定内容を以下のように入力して、「Create load balancer」をクリックします。
+
+| 項目 | 設定内容 | 説明 |
+|-------|-------|-------|
+| Load balancer name | test | ロードバランサーの名前 |
+| Scheme | Internet-facing | パブリック用かプライベート用か |
+| IP address type | IPv4 | IPアドレスの種類 |
+| VPC | ハンズオンで作成したVPC | 作成先のVPC |
+| Mappings | AとC両方のAZにチェックを入れ、それぞれハンズオンで作成したサブネットを選択する |  |
+| Security groups | 作成したtest-elb | 設定されるセキュリティグループ |
+| Listeners and routing | Protocol：<br/>Port：80<br/>Default action：作成したtestターゲットグループ、HTTP<br/> | 通信の送受信のルール設定 |
+| Tags | デフォルトのまま | AWSリソースに割り当てるラベル |
+
+## 4. 起動設定の作成
+### 4-1. 起動設定の管理コンソールの表示
+![](../../aws_cp_elb_and_autoscaling_hands_on_make_launchsetting_1.png)
+左メニューの「AutoScaling」-「起動設定」をクリックします。
+### 4-2. 起動設定の作成
+![](../../aws_cp_elb_and_autoscaling_hands_on_make_launchsetting_2.png)
+「起動設定の作成」をクリックします。
+
+![](../../aws_cp_elb_and_autoscaling_hands_on_make_launchsetting_3.png)
+起動設定の内容を以下のように入力して、「起動設定の作成」をクリックします。
+
+| 項目 | 設定内容 | 説明 |
+|-------|-------|-------|
+| 名前 | test | 起動設定の名前 |
+| AMI | EC2ハンズオンの最後で取得したAMI | 基にするAMIイメージ |
+| インスタンスタイプ | t2.micro<br/>※無料枠が利用できるため | 利用するインスタンスタイプ |
+| 追加設定の各項目 | デフォルトのまま | 購入のオプションやモニタリングの拡張など追加機能の設定 |
+| ストレージ | デフォルトのまま | ストレージの設定 |
+| セキュリティグループ | 既存のセキュリティグループを選択する<br/>test-elb | セキュリティグループの設定 |
+| キーペアのオプション | 既存のキーペアの選択 | 新しくキーペアを発行するか既存のキーペアを利用するか |
+| 既存のキーペア | EC2のハンズオンで発行したキーペア | 利用する既存のキーペア |
+
+## 5. AutoScalingグループの作成
+### 5-1. AutoScalingグループの管理コンソールの表示
+![](../../aws_cp_elb_and_autoscaling_hands_on_make_autoscalinggroup_1.png)
+左メニューの「AutoScaling」-「AutoScalingグループ」をクリックします。
+
+### 5-2. AutoScalingグループの作成
+![](../../aws_cp_elb_and_autoscaling_hands_on_make_autoscalinggroup_2.png)
+「AutoScalingグループの作成」をクリックします。
+
+![](../../aws_cp_elb_and_autoscaling_hands_on_make_autoscalinggroup_3.png)
+「起動設定に切り替える」をクリックして起動設定の入力画面にしてから各項目を入力します。  
+入力内容は以下の通りで、入力したら「次へ」をクリックします。
+
+| 項目 | 設定内容 | 説明 |
+|-------|-------|-------|
+| AutoScalingグループ名 | test | AutoScalingグループの名前 |
+| 起動設定 | 作成した起動設定のtest | 利用する起動設定 |
+
+![](../../aws_cp_elb_and_autoscaling_hands_on_make_autoscalinggroup_4.png)
+設定の構成の内容を以下のように入力して、「次へ」をクリックします。
+
+| 項目 | 設定内容 | 説明 |
+|-------|-------|-------|
+| VPC | ハンズオンで作成したVPC | 利用するVPC |
+| サブネット | ハンズオンで作成したblueサブネット<br/>ハンズオンで作成したredサブネット | 利用するサブネット |
+
+![](../../aws_cp_elb_and_autoscaling_hands_on_make_autoscalinggroup_5.png)
+詳細オプションの内容を以下のように入力して、「次へ」をクリックします。
+
+| 項目 | 設定内容 | 説明 |
+|-------|-------|-------|
+| ロードバランシング | 既存のロードバランサーにアタッチ | ロードバランシングの方法 |
+| 既存のロードバランサーにアタッチ | ロードバランサーのターゲットグループから選択<br/>作成したターゲットグループのtest | 利用する既存のロードバランサーもしくはターゲットグループ |
+| ヘルスチェックのタイプ |  ELBにチェック| 利用するヘルスチェックのタイプ |
+| ヘルスチェックの猶予期間 | 300秒 | 新しいインスタンスが起動してからヘルスチェックが行われるまでの時間 |
+| モニタリング | チェックオン | CloudWatch内でグループメトリクスの収集を有効にするかしないか |
+
+![](../../aws_cp_elb_and_autoscaling_hands_on_make_autoscalinggroup_6.png)
+グループサイズとスケーリングポリシーの設定を以下のように入力して、「次へ」をクリックします。
+
+| 項目 | 設定内容 | 説明 |
+|-------|-------|-------|
+| 希望する容量 | 2 | AutoScalingで維持したい台数 |
+| 最小キャパシティ | 2 | AutoScalingで維持する最小台数 |
+| 最大キャパシティ | 4 | AutoScalingで維持する最大台数 |
+| スケーリングポリシー | ターゲット追跡スケーリングポリシー | スケーリングポリシーの設定 |
+| スケーリングポリシー名 | デフォルトのまま | スケーリングポリシーの名前 |
+| メトリクスタイプ | 平均CPU使用率 | スケーリングポリシーで利用するメトリクス |
+| ターゲット値 | 50 | スケーリングポリシーで利用するメトリクスのしきい値 |
+| メトリクスに含める前にウォームアップする秒数 | 300 | メトリクスの対象にするまでの猶予期間の秒数 |
+| スケールインを無効にしてスケールアウトポリシーのみを作成する | チェックしない | スケールアウトだけのポリシーにするかしないか |
+| インスタンスのスケールイン保護を有効にする | チェックしない | スケールアウトした後に需要が減ってスケールインする基準にマッチした場合にスケールアウトで作成されたインスタンスを削除するかどうか |
+
+![](../../aws_cp_elb_and_autoscaling_hands_on_make_autoscalinggroup_7.png)
+AutoScalingでスケールアウトやスケールインが発生した際に通知を行う設定をすることができます。  
+今回は追加せずに「次へ」をクリックします。
+
+![](../../aws_cp_elb_and_autoscaling_hands_on_make_autoscalinggroup_8.png)
+AutoScalingグループにタグを設定することができます。  
+今回は追加せずに「次へ」をクリックします。
+
+![](../../aws_cp_elb_and_autoscaling_hands_on_make_autoscalinggroup_9.png)
+設定内容を確認して、「AutoScalingグループを作成」をクリックします。
+
+## 6. AutoScalingの動作確認
+![](../../aws_cp_elb_and_autoscaling_hands_on_check_autoscaling_1.png)
+EC2の管理コンソールに移動して、インスタンスの一覧を確認してみましょう。  
+AutoScalingグループの作成が完了すると設定で「希望する容量」が「２」となっているので自動的にインスタンスが２台作成されています。
+
+![](../../aws_cp_elb_and_autoscaling_hands_on_check_autoscaling_2.png)
+ターゲットグループの管理コンソールに移動して、testターゲットグループの「Targets」タブをクリックします。  
+AutoScalingで作成されたインスタンスがターゲットグループに登録されていることが確認できます。
+
+![](../../aws_cp_elb_and_autoscaling_hands_on_check_autoscaling_3.png)
+再度EC2の管理コンソールに移動して、インスタンスの一覧からAutoScalingで作られたインスタンスを１台停止してみましょう。  
+
+![](../../aws_cp_elb_and_autoscaling_hands_on_check_autoscaling_4.png)
+停止を行うとAutoScalingグループ上では異常なインスタンスとして扱われるため、AutoScalingは「希望する容量」の「２」を維持するために新しいインスタンスを作成しています。
+
+このようにAutoScalingの機能を利用して高負荷な時や何かインスタンスで障害が起きた時などに対応できる構成を作ることができます。

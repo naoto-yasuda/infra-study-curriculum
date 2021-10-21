@@ -1,0 +1,31 @@
+# AutoScalingの削除
+AutoScalingをそのままにしておくとEC2インスタンスを削除しても新たにインスタンスが作成されてしまうので、AutoScalingの設定を削除します。  
+無料枠を利用しているため最初は無料ですが、ずっと利用をしていると課金がされてしまうため削除します。
+
+## 1. AutoScalingの設定の削除
+![](../../aws_cp_delete_autoscaling_delete_autoscalinggroup_1.png)
+AutoScalingグループの管理画面に移動し、AutoScalingグループの一覧からtestを選択して「削除」をクリックします。
+
+![](../../aws_cp_delete_autoscaling_delete_autoscalinggroup_2.png)
+確認ウィンドウが表示されるので、「削除」と入力欄に入力し、「削除」をクリックします。
+
+## 2. 自動起動したEC2インスタンスの削除
+自動起動したEC2インスタンスも別途削除が必要です。  
+
+![](../../aws_cp_delete_autoscaling_delete_ec2_instance_1.png)
+EC2の管理コンソールに移動し、EC2の一覧から自動起動したインスタンスを選択して、「インスタンスの状態」-「インスタンスを終了」をクリックします。
+
+![](../../aws_cp_delete_autoscaling_delete_ec2_instance_2.png)
+確認ウィンドウが表示されるので、「終了」をクリックします。
+
+## 3. ELBの削除
+合わせてELBを削除しておきます。  
+
+![](../../aws_cp_delete_autoscaling_delete_elb_1.png)
+ELBの管理コンソールに移動し、testを選択して、「アクション」-「削除」をクリックします。
+
+![](../../aws_cp_delete_autoscaling_delete_elb_2.png)
+確認ウィンドウが表示されるので、「はい、削除する」をクリックします。
+
+AutoScalingは自動でインスタンスを作成してくれる分、設定などが誤っていたり動作をちゃんと理解しないでいると、思わぬインスタンスが作られていて課金をされてしまうことがあります。  
+しっかりと今回のハンズオンで作成したインスタンスなどは削除しておきましょう。

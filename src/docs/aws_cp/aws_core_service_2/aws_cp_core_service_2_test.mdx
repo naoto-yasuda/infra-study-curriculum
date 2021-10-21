@@ -1,0 +1,51 @@
+# AWSのコアサービス２の模擬試験
+
+各問題の４つの選択肢から正解だと思うものを１つ選択してください。  
+答えが分からなかったり、間違えたりした箇所はリンクから各ページに飛んで復習してください。
+### 問題1. <br/>Well Architected Toolの内容について正しい内容を選択してください。
+<details><summary>1. 質問に回答することでアーキテクチャの問題点を検証できる</summary>正解です。<br/>。AWS Well-Architected Toolを利用すると、ワークロードの状態をレビューし、最新の AWSアーキテクチャのベストプラクティスと比較することができます。<br/>５つの設計原則に基づいた50問強の質問に回答することで、現状のアーキテクチャに対する改善点を発見することが可能です。</details><br/>
+<details><summary>2. AWSアーキテクチャにエージェントを導入することで、利用状況を解析してくれる</summary>2.は不正解です。<br/>AWSアーキテクチャにエージェントを導入する設定は必要ありません。</details><br/>
+<details><summary>3. AWSサポートプランの開発者プラン以上において利用可能である</summary>3.は不正解です。<br/>AWSサポートプランとは無関係に、全てのユーザーが利用できます。</details><br/>
+<details><summary>4. Trusted Advisorと連携してアーキテクチャ評価を実行する</summary>4.は不正解です。<br/>Trusted Advisorとは別個で利用可能です。</details>
+
+※このテーマは[Well-Architected Toolの確認](aws_cp_check_well_architectedtool)で取り上げました。
+
+### 問題2. <br/>Well Architected Frameworkを実行する上で、活用できるツールやサービスとして間違っている内容を選択してください。
+<details><summary>1. Well Architected Tool</summary>1.は不正解です。<br/>Well Architected Toolを利用して設計原則に沿った利用となっているかのセルフ検証ができます。</details><br/>
+<details><summary>2. ブラックベルト</summary>正解です。<br/>AWSのブラックベルトは無料で提供されているオンライトレーニングや関連する資料のことです。<br/>Well Architected Frameworkで利用するのはホワイトペーパーです。</details><br/>
+<details><summary>3. SA制度</summary>3.は不正解です。<br/>SAはAWS側のWell Architected Frameworkの支援スタッフです。</details><br/>
+<details><summary>4. 認定パートナー</summary>4.は不正解です。<br/>認定パートナーはWell Architected Frameworkの支援認定を受けた企業です。</details>
+
+※このテーマは[Well-Architected Toolの確認](aws_cp_check_well_architectedtool)で取り上げました。
+
+### 問題3. <br/>ELBの特徴について正しい内容を選択してください。
+<details><summary>1. </summary>正解です。<br/>Elastic Load Balancingは、アプリケーションへのトラフィックを複数のターゲット (Amazon EC2インスタンス、コンテナ、IPアドレスなど) に自動的に分散するロードバランサーです。</details><br/>
+<details><summary>2. </summary>2.は不正解です。<br/>EC2インスタンスのルーティングを実現するには、設置したサブネットに対するルートテーブルを利用することになります。</details><br/>
+<details><summary>3. </summary>3.は不正解です。<br/>EC2インスタンスのパフォーマンスを向上させることはありません。</details><br/>
+<details><summary>4. </summary>4.は不正解です。<br/>EC2インスタンスのネットワーク安全性を向上させるわけではありません。</details>
+
+※このテーマは[ELBの概要](aws_cp_elb_overview)で取り上げました。
+
+### 問題4. <br/>ELBの選択として正しい内容を選択してください。
+<details><summary>1. レイヤー７のみのトラフィック分散を実現するにはCLBを利用する</summary>1.は不正解です。<br/>L4/L7 リバースプロキシで機能するロードバランサ―です。<br/>"レイヤー７のみ"ではありません。</details><br/>
+<details><summary>2. レイヤー７でのトラフィック分散にはALBを利用する</summary>正解です。<br/>レイヤー７でのトラフィック分散にはALBを利用することになります。<br/>Application Load Balancerは、開放型システム間相互接続(OSI)モデルの第 7 層であるアプリケーションレイヤーで機能します。<br/>ロードバランサーはリクエストを受信すると、優先度順にリスナールールを評価して適用するルールを決定し、ルールアクションのターゲットグループからターゲットを選択します。</details><br/>
+<details><summary>3. レイヤー７でのトラフィック分散にはNLBを利用する</summary>3.は不正解です。<br/>NLBはL4 NATロードバランサーです。</details><br/>
+<details><summary>4. レイヤー７でのトラフィック分散には全てのELBタイプが利用できる</summary>4.は不正解です。<br/>レイヤー７で機能するのはCLBとALBとなります。</details>
+
+※このテーマは[ELBの概要](aws_cp_elb_overview)で取り上げました。
+
+### 問題5. <br/>AutoScalingの特徴について正しい内容を選択してください。
+<details><summary>1. AutoScalingはリクエスト発生時に課金が発生する</summary>1.は不正解です。<br/>AutoScalingは無料で利用することが可能です。</details><br/>
+<details><summary>2. AutoScalingの高性能なスケーリングポリシーの適用には料金がかかる</summary>2.は不正解です。<br/>AutoScalingは高性能なスケーリングポリシーの適用には料金がかかることはなく、全て無料で利用可能です。</details><br/>
+<details><summary>3. 不要なインスタンスを削除することができる</summary>正解です。<br/>AutoScalingは負荷が減少すると、不要なインスタンスを削除することができます。</details><br/>
+<details><summary>4. AutoScaling独自のヘルスチェックで異常を検知する</summary>4.は不正解です。<br/>AutoScalingはELBのヘルスチェックを利用します。</details>
+
+※このテーマは[AutoScalingの概要](aws_cp_autoscaling_overview)で取り上げました。
+
+### 問題6. <br/>ALBの特徴として間違っている内容を選択してください。
+<details><summary>1. TCPプロトコルを利用することができる</summary>正解です。<br/>Application Load Balancerリスナールールを使用してHTTPリクエストをHTTPSにリダイレクトするレイヤー７で機能するロードバランサーです。<br/>TCPプロトコルを利用することができません。<br/>TCPプロトコルを利用するためにはCLBなどを利用することが必要です。</details><br/>
+<details><summary>2. Lambdaを指定して利用することが可能である</summary>2.は不正解です。<br/>ターゲットにLambda関数を指定することができます。</details><br/>
+<details><summary>3. ターゲットグループにはEC2インスタンスとIPアドレスを設定可能である</summary>3.は不正解です。<br/>ターゲットグループにはEC2インスタンスとIPアドレスを設定が可能です。</details><br/>
+<details><summary>4. HTTP/HTTPSのL7に対応している</summary>4.は不正解です。<br/>ALBはHTTP/HTTPSのL7に対応しています。</details>
+
+※このテーマは[ELBの概要](aws_cp_elb_overview)で取り上げました。
