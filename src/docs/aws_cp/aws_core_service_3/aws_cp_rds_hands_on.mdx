@@ -1,0 +1,146 @@
+# RDSの構築（ハンズオン）
+## 1. このレクチャーで構築するDB構成
+![](../../aws_cp_rds_hands_on_hands_on_db_composition_1.png)
+RDSは通常構築する際は図のようにEC2を介して接続し操作することが一般的な利用方法になります。  
+RDSはDBで文字通りデータが入っているため、外部からアクセスされることが無いようにプライベートサブネットに配置し、パブリックサブネットに配置されているEC2を経由して接続を行うのです。
+
+![](../../aws_cp_rds_hands_on_hands_on_db_composition_2.png)
+ただし前述した構成は準備はEC2の構築が必要など手順が増えてしまいますので、このハンズオンではRDSをパブリックサブネットに配置して直接接続して操作する形で構築を行います。
+
+## 2. RDSの構築
+![](../../aws_cp_rds_hands_on_make_rds_1.png)
+左上の「サービス」をクリックして、「データベース」-「RDS」をクリックします。
+
+![](../../aws_cp_rds_hands_on_make_rds_2.png)
+「データベースの作成」をクリックします。
+
+![](../../aws_cp_rds_hands_on_make_rds_3.png)
+以下のように設定を入力して「データベースの作成」をクリックします。
+
+| 項目 | 設定値 | 説明 |
+|-------|-------|-------|
+| データベース作成方法を選択 | 標準作成 | 標準作成は各設定項目を自分で入力し、簡単作成は推奨されるベストプラクティス設定から選ぶ<br/>簡単に作成だと設定に制限がかかる部分があるので基本的には標準作成を選択する |
+| エンジンのタイプ | MySQL | 利用するDBエンジンのタイプ |
+| エディション | MySQL Community | 利用するDBエンジンのエディション |
+| バージョン | MySQL 8.0.26 | 利用するDBエンジンのバージョン |
+| テンプレート | 無料利用枠 | RDS設定のテンプレート |
+| DBインスタンス識別子 | MyDB1 | DBインスタンスの名前 |
+| マスターユーザー名 | test | DBインスタンスのマスターユーザ名 |
+| パスワードの自動生成 | チェックオフ | マスターユーザのパスワードを自動生成するかしないか |
+| マスターパスワード | 任意のパスワード | マスターユーザのパスワード |
+| パスワードを確認 | 任意のパスワード | マスターユーザのパスワード |
+| DBインスタンスクラス | バースト可能クラス<br/>db.t2.micro | DBインスタンスのインスタンスタイプ |
+| ストレージタイプ | 汎用SSD（gp2） | ストレージの種類 |
+| ストレージ割り当て | 20GB | ストレージのサイズ |
+| ストレージの自動スケーリングを有効にする | チェックオン | ストレージを自動でスケーリングさせるかさせないか |
+| 最大ストレージしきい値 | 1000GB | ストレージのスケーリングする最大値 |
+| Virtual Private Cloud（VPC） | Default VPC | 配置先のVPC |
+| サブネットグループ | デフォルト | 配置先のサブネットグループ |
+| パブリックアクセス | なし | パブリックからインスタンスがアクセスできるかできないか |
+| VPCセキュリティグループ | 既存の選択 | インスタンスに割り当てるセキュリティグループを既存から選択するか、新規作成するか |
+| 既存のVPCセキュリティグループ | デフォルトのまま | インスタンスに割り当てるセキュリティグループ |
+| アベイラビリティーゾーン | 指定なし | 配置先のAZ |
+| データベース認証オプション | パスワード認証 | データベースの認証方法 |
+| 追加設定 | デフォルトのまま | データベースのオプションやバックアップなどのオプション設定 |
+
+![](../../aws_cp_rds_hands_on_make_rds_4.png)
+データベースの一覧に作成したインスタンスが表示されていることを確認します。
+
+## 3. MySQL Workbenchのインストール
+作成したRDSインスタンスにアクセスするためにMySQL用のクライアントソフトをインストールします。
+
+![](../../aws_cp_rds_hands_on_install_workbench_1.png)
+[リンク](https://dev.mysql.com/downloads/workbench/)をクリックして、MySQL Workbenchのダウンロード画面を開き、適したOSを選択して「Download」をクリックします。
+
+![](../../aws_cp_rds_hands_on_install_workbench_2.png)
+「No thanks, just start my download.」をクリックします。
+
+![](../../aws_cp_rds_hands_on_install_workbench_3.png)
+「保存」をクリックします。
+
+![](../../aws_cp_rds_hands_on_install_workbench_4.png)
+ダウンロードしたインストーラを実行し、「Next」をクリックします。
+
+![](../../aws_cp_rds_hands_on_2install_workbench_5.png)
+インストール場所を選んで「Next」をクリックします。
+
+![](../../aws_cp_rds_hands_on_install_workbench_6.png)
+セットアップ方法を「Complete」を選んで、「Next」をクリックします。
+
+![](../../aws_cp_rds_hands_on_install_workbench_7.png)
+「Install」をクリックします。
+
+![](../../aws_cp_rds_hands_on_install_workbench_8.png)
+「Finish」をクリックします。
+## 4. RDSの設定変更
+### 4-1. パブリックアクセスの許可
+通常RDSはプライベートサブネットに配置し、EC2経由で接続するためパブリックアクセスはできないように設定を行います。  
+ただし今回のハンズオンでは直接接続を行う必要があるため設定の変更を実施します。
+
+![](../../aws_cp_rds_hands_on_change_setting_1.png)
+データベースの一覧で先ほど作成したインスタンスの「DB識別子」のリンクをクリックします。
+
+![](../../aws_cp_rds_hands_on_change_setting_2.png)
+「変更」をクリックします。
+
+![](../../aws_cp_rds_hands_on_change_setting_3.png)
+作成時と同じような設定画面が表示されるので、「接続」-「追加設定」-「パブリックアクセス」を「パブリックアクセス可能」に変更して、「続行」をクリックします。
+
+![](../../aws_cp_rds_hands_on_change_setting_4.png)
+「パブリックアクセシビリティ」を「すぐに適用」に変更して、「DBインスタンスを変更」をクリックします。
+
+![](../../aws_cp_rds_hands_on_change_setting_5.png)
+変更が反映されるまで少し時間がかかりますので、「ステータス」が「変更中」から「利用可能」になるのを待ちます。
+### 4-2. セキュリティグループの設定変更
+場合によってセキュリティグループの設定を変更する必要があるため、設定の確認および変更を行います。
+
+![](../../aws_cp_rds_hands_on_change_setting_6.png)
+作成したインスタンスの画面に移動し、「接続とセキュリティ」タブの「セキュリティ」-「VPCセキュリティグループ」のリンクをクリックします。
+
+![](../../aws_cp_rds_hands_on_change_setting_7.png)
+「Edit inbound rules」をクリックします。
+
+![](../../aws_cp_rds_hands_on_change_setting_8.png)
+「ルールを追加」をクリックして、以下のようなルールを追加します。
+
+| 項目 | 設定 |
+|-------|-------|
+| タイプ | MySQL/Aurora |
+| ソース | 0.0.0.0/0 |
+| 説明 | 空欄 |
+
+![](../../aws_cp_rds_hands_on_change_setting_9.png)
+元々あったルールの「削除」をクリックして、「ルールを保存」をクリックします。
+## 5. RDSへの接続
+### 5-1. MySQL Workbenchからの接続
+![](../../aws_cp_rds_hands_on_connect_workbench_1.png)
+MySQL Workbenchを起動し、「MySQL Connections」の「＋」をクリックします。
+
+![](../../aws_cp_rds_hands_on_connect_workbench_2.png)
+以下のように設定を入力して「Test Connection」をクリックします。
+
+| 項目 | 設定値 | 説明 |
+|-------|-------|-------|
+| Connection Name | test | 接続先の名前 |
+| Connection Method |Standard（TCP/IP） | 接続方法 |
+| Hostname | 作成したRDSインスタンスの「エンドポイント」の値 | 接続先のインスタンスのエンドポイント |
+| Port | 3306 | 接続に使用するポート |
+| Username | test | 接続に使用するユーザ名 |
+| Password | 作成時に設定したパスワード | 接続に使用するユーザのパスワード |
+| Default Schema | 空欄 | デフォルトのスキーマ設定 |
+
+![](../../aws_cp_rds_hands_on_connect_workbench_3.png)
+「Successfully made the MySQL connection」と表示されるのを確認して、「OK」をクリックします。
+
+![](../../aws_cp_rds_hands_on_connect_workbench_4.png)
+「OK」をクリックします。
+
+![](../../aws_cp_rds_hands_on_connect_workbench_5.png)
+作成した「test」のコネクションをクリックします。
+
+### 5-2. SQLコマンドの実行
+![](../../aws_cp_rds_hands_on_connect_workbench_6.png)
+データベースに接続できたことを確認して、クエリの入力欄に「show databases;」と入力してCtrl+Enterをクリックします。
+
+![](../../aws_cp_rds_hands_on_connect_workbench_7.png)
+実行結果が表示されることを確認します。

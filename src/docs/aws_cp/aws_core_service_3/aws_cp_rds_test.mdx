@@ -1,0 +1,35 @@
+# RDSに関する模擬試験
+
+各問題の４つの選択肢から正解だと思うものを１つ選択してください。  
+答えが分からなかったり、間違えたりした箇所はリンクから各ページに飛んで復習してください。
+### 問題1. <br/>RDSを利用してアプリケーションを実装していますが、データの読み取り負荷が高まっていることが問題となっています。<br/>次のうちで間違った対応を選択してください。
+<details><summary>1. リードレプリカの増加</summary>1.は不正解です。<br/>リードレプリカを増強することで、読み取り処理性能を向上させることができます。</details><br/>
+<details><summary>2. インスタンスサイズの変更</summary>2.は不正解です。<br/>インスタンスサイズをより高性能なもの変更することで、処理性能を向上させることができます。</details><br/>
+<details><summary>3. オートスケーリングの有効化</summary>正解です。<br/>RDSのオートスケーリングはデータ容量のスケーリングを実行するため、処理パフォーマンスを向上させることができません。</details><br/>
+<details><summary>4. ElastiCacheとの連携</summary>4.は不正解です。<br/>一部の読取クエリをElastiCache上で実行することで、高速なクエリ処理を実現することができます。</details>
+
+※このテーマは[RDSの概要](aws_cp_rds_overview)で取り上げました。
+
+### 問題2. <br/>RDSで選択できないDBソフトウェアは次のうちどれでしょうか
+<details><summary>1. MySQL</summary>1.は不正解です。<br/>Amazon RDSは、メモリ、パフォーマンス、またはI/Oに最適化されたいくつかのデータベースインスタンスタイプで利用でき、Amazon Aurora、PostgreSQL、MySQL、MariaDB、Oracleデータベース、SQLServer など、6 つの使い慣れたデータベースエンジンから選択できます。</details><br/>
+<details><summary>2. Oracle</summary>2.は不正解です。<br/>Amazon RDSは、メモリ、パフォーマンス、またはI/Oに最適化されたいくつかのデータベースインスタンスタイプで利用でき、Amazon Aurora、PostgreSQL、MySQL、MariaDB、Oracleデータベース、SQLServer など、6 つの使い慣れたデータベースエンジンから選択できます。</details><br/>
+<details><summary>3. DB2</summary>正解です。<br/>Amazon RDSは、メモリ、パフォーマンス、またはI/Oに最適化されたいくつかのデータベースインスタンスタイプで利用でき、Amazon Aurora、PostgreSQL、MySQL、MariaDB、Oracleデータベース、SQLServer など、6 つの使い慣れたデータベースエンジンから選択できます。</details><br/>
+<details><summary>4. MariaDB</summary>4.は不正解です。<br/>Amazon RDSは、メモリ、パフォーマンス、またはI/Oに最適化されたいくつかのデータベースインスタンスタイプで利用でき、Amazon Aurora、PostgreSQL、MySQL、MariaDB、Oracleデータベース、SQLServer など、6 つの使い慣れたデータベースエンジンから選択できます。</details>
+
+※このテーマは[RDSの概要](aws_cp_rds_overview)で取り上げました。
+
+### 問題3. <br/>RDSでMySQLを利用するためにDBインスタンスに設定するセキュリティグループで指定するポート番号はどれでしょうか。
+<details><summary>1. 3306</summary>正解です。<br/>RDSでMySQLを利用するためにDBインスタンスに設定するセキュリティグループで指定するポート番号は3306です。</details><br/>
+<details><summary>2. 25</summary>2.は不正解です。<br/>RDSでMySQLを利用するためにDBインスタンスに設定するセキュリティグループで指定するポート番号は3306です。</details><br/>
+<details><summary>3. 22</summary>3.は不正解です。<br/>RDSでMySQLを利用するためにDBインスタンスに設定するセキュリティグループで指定するポート番号は3306です。</details><br/>
+<details><summary>4. 400</summary>4.は不正解です。<br/>RDSでMySQLを利用するためにDBインスタンスに設定するセキュリティグループで指定するポート番号は3306です。</details>
+
+※このテーマは[RDSの構築（ハンズオン）](aws_cp_rds_hands_on)で取り上げました。
+
+### 問題4. <br/>SQLクエリを利用したトランザクション処理を実行するためのデータベースを選択してください。
+<details><summary>1. Amazon RDS</summary>1.は不正解です。<br/>Amazon RDS はマネージド型リレーショナルデータベースで、データベースエンジンを Amazon Aurora、MySQL、MariaDB、Oracle、Microsoft SQL Server、PostgreSQLといった一般的な6種類のエンジンから選択できます。<br/>SQLクエリを利用したトランザクション処理を実行するデータベースとしては標準的にRDSを選択することになります。</details><br/>
+<details><summary>2. Amazon Redshift</summary>2.は不正解です。<br/>Amazon Redshiftは高速でシンプルかつ費用対効果の高いデータウェアハウスサービスです。<br/>SQLクエリを実行しますが、これはトランザクション処理を実行するためではなく、データ解析用のクエリとなります。</details><br/>
+<details><summary>3. Amazon DynamoDB</summary>3.は不正解です。<br/>Amazon DynamoDBは、あらゆる規模で高性能かつ低レイテンシのデータアクセスを必要とするインターネットスケールのアプリケーションに向けた、クラウド内のNoSQLドキュメントデータベースサービスです。<br/>SQLクエリを実行することができません。</details><br/>
+<details><summary>4. Amazon Neptune</summary>4.は不正解です。<br/>Amazon Neptuneでは、一般的なグラフモデルであるPropertyGraphとW3CのRDF、それぞれのクエリ言語であるApache TinkerPopGremlinとSPARQLがサポートされていますが、一般的なSQLクエリを実行することができません。</details>
+
+※このテーマは[データベースの基礎](aws_cp_database_basics)で取り上げました。
