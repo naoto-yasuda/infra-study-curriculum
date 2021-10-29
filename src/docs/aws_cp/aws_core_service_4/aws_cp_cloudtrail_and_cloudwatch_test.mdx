@@ -1,0 +1,51 @@
+# CloudTrailとCloudWatchに関する模擬試験
+
+各問題の４つの選択肢から正解だと思うものを１つ選択してください。  
+答えが分からなかったり、間違えたりした箇所はリンクから各ページに飛んで復習してください。
+### 問題1. <br/>CloudTrailでログ管理設定で間違っている内容を選択してください。
+<details><summary>1. 複数アカウントのログ取得を１つのアカウントに集約する</summary>1.は不正解です。<br/>AWS Organizationsと連携することで、複数アカウントのログ取得を１つのアカウントに集約することができます。</details><br/>
+<details><summary>2. 複数リージョンのログ取得を１つのリージョンに集約する</summary>2.は不正解です。<br/>複数リージョンのログ取得を１つのリージョンに集約することが可能です。</details><br/>
+<details><summary>3. グローバルで１つのCloudTrailを利用することでログを集約する</summary>正解です。<br/>グローバルで１つのCloudTrailを利用することでログを集約するのではなく、それぞれのCloudTrailを各リージョンやアカウントで有効化した上で、１つのCloudTrailに集約化することになります。</details><br/>
+<details><summary>4. 取得したログデータはS3バケットに永続的に保存する</summary>4.は不正解です。<br/>取得したログデータはS3バケットに永続的に保存することが可能です。</details>
+
+※このテーマは[CloudTrailの概要](aws_cp_cloudtrail_overview)で取り上げました。
+
+### 問題2. <br/>次のうちCloudWatchについて間違っている内容を選択してください。
+<details><summary>1. AWS上で稼働するシステム監視サービスで、死活監視、性能監視、キャパシティ監視を実施できる</summary>1.は不正解です。<br/>CloudWatchはAWS上で稼働するシステム監視サービスで、死活監視、性能監視、キャパシティ監視を実施できます。</details><br/>
+<details><summary>2. EC2上のOS・アプリケーションのログを取得できる</summary>2.は不正解です。<br/>EC2インスタンスにエージェントをインストールすることで、EC2上のOS・アプリケーションのログを取得できます。</details><br/>
+<details><summary>3. 全て無料で利用できる</summary>正解です。<br/>CloudWatchは有料枠により利用内容を拡充できます。<br/>すべてのカスタムメトリックの料金は時間単位で請求され、メトリクスをCloudWatchに送信したときにのみ計算されます。</details><br/>
+<details><summary>4. AWSリソースに対するイベントをトリガーにアクションを実行できる</summary>4.は不正解です。<br/>CloudWatchイベントでAWSリソースに対するイベントをトリガーにアクションを実行できます。</details>
+
+※このテーマは[CloudWatchの概要](aws_cp_cloudwatch_overview)で取り上げました。
+
+### 問題3. <br/>APIコールの履歴を管理することができるサービスを選択してください。
+<details><summary>1. CloudTrail</summary>正解です。<br/>CloudTrailのキャプチャされるコールには、コンソールからの呼び出しと、APIオペレーションへのコード呼び出しが含まれます。</details><br/>
+<details><summary>2. CloudWatch</summary>2.は不正解です。<br/>CloudTrailのキャプチャされるコールには、コンソールからの呼び出しと、APIオペレーションへのコード呼び出しが含まれます。</details><br/>
+<details><summary>3. AWS Config</summary>3.は不正解です。<br/>CloudTrailのキャプチャされるコールには、コンソールからの呼び出しと、APIオペレーションへのコード呼び出しが含まれます。</details><br/>
+<details><summary>4. API Gateway</summary>4.は不正解です。<br/>CloudTrailのキャプチャされるコールには、コンソールからの呼び出しと、APIオペレーションへのコード呼び出しが含まれます。</details>
+
+※このテーマは[CloudTrailの概要](aws_cp_cloudtrail_overview)で取り上げました。
+
+### 問題4. <br/>CloudWatchアラームを設定する際に連携するサービスを選択してください。
+<details><summary>1. SQS</summary>1.は不正解です。<br/>CloudWatchアラームは取得したメトリクスにしきい値を設定し、しきい値を超えたら通知などを行うことができる機能です。<br/>Amazon SNSによるトピックを作成して通知を設定します。</details><br/>
+<details><summary>2. SES</summary>2.は不正解です。<br/>CloudWatchアラームは取得したメトリクスにしきい値を設定し、しきい値を超えたら通知などを行うことができる機能です。<br/>Amazon SNSによるトピックを作成して通知を設定します。</details><br/>
+<details><summary>3. SNS</summary>正解です。<br/>CloudWatchアラームは取得したメトリクスにしきい値を設定し、しきい値を超えたら通知などを行うことができる機能です。<br/>Amazon SNSによるトピックを作成して通知を設定します。</details><br/>
+<details><summary>4. MQ</summary>4.は不正解です。<br/>CloudWatchアラームは取得したメトリクスにしきい値を設定し、しきい値を超えたら通知などを行うことができる機能です。<br/>Amazon SNSによるトピックを作成して通知を設定します。</details>
+
+※このテーマは[CloudWatchの概要](aws_cp_cloudwatch_overview)で取り上げました。
+
+### 問題5. <br/>CloudWatchのカスタムメトリクスで取得できるEC２インスタンスのメトリクスを選択してください。
+<details><summary>1. メモリ空き容量</summary>正解です。<br/>Amazon CloudWatchのカスタムメトリクスを作成することで、メモリとディスクのメトリクスを取得することができます。<br/>メモリ空き容量は標準メトリクスでは取得することができません。</details><br/>
+<details><summary>2. トラフィック量</summary>2.は不正解です。<br/>Amazon CloudWatch カスタムメトリクスを作成することで、メモリとディスクのメトリクスを取得することができます。<br/>メモリ空き容量は標準メトリクスでは取得することができません。</details><br/>
+<details><summary>3. CPU使用率</summary>3.は不正解です。<br/>Amazon CloudWatchのカスタムメトリクスを作成することで、メモリとディスクのメトリクスを取得することができます。<br/>メモリ空き容量は標準メトリクスでは取得することができません。</details><br/>
+<details><summary>4. トラフィックログ</summary>4.は不正解です。<br/>Amazon CloudWatch カスタムメトリクスを作成することで、メモリとディスクのメトリクスを取得することができます。<br/>メモリ空き容量は標準メトリクスでは取得することができません。</details>
+
+※このテーマは[CloudWatchの概要](aws_cp_cloudwatch_overview)で取り上げました。
+
+### 問題6. <br/>EC2インスタンスのトラフィック情報を取得するために利用するべきサービスを選択してください。
+<details><summary>1. CloudWatch Logs</summary>正解です。<br/>CloudWatchログを利用することで、ネットワークインターフェイスの種類にかかわらず、Amazon EC2コンソールまたは Amazon EC2 APIを使用してネットワークインターフェイスのフローログを作成して、トラフィック情報を取得することができます。</details><br/>
+<details><summary>2. CloudWatch Agent</summary>2.は不正解です。<br/>CloudWatchログを利用することで、ネットワークインターフェイスの種類にかかわらず、Amazon EC2コンソールまたは Amazon EC2 APIを使用してネットワークインターフェイスのフローログを作成して、トラフィック情報を取得することができます。</details><br/>
+<details><summary>3. CloudWatch拡張モニタリング</summary>3.は不正解です。<br/>CloudWatchログを利用することで、ネットワークインターフェイスの種類にかかわらず、Amazon EC2コンソールまたは Amazon EC2 APIを使用してネットワークインターフェイスのフローログを作成して、トラフィック情報を取得することができます。</details><br/>
+<details><summary>4. CloudWatch Events</summary>4.は不正解です。<br/>CloudWatchログを利用することで、ネットワークインターフェイスの種類にかかわらず、Amazon EC2コンソールまたは Amazon EC2 APIを使用してネットワークインターフェイスのフローログを作成して、トラフィック情報を取得することができます。</details>
+
+※このテーマは[CloudWatchの概要](aws_cp_cloudwatch_overview)で取り上げました。

@@ -1,0 +1,91 @@
+# IAMユーザの作成（ハンズオン）
+このハンズオンでは以下の2つの設定を行います。
+1. AWSアカウントに対してMFA認証を実施する
+2. 権限管理が実行できるIAMユーザを作成して、利用ユーザとして設定する
+
+これらの設定はセキュリティの観点から通常AWSアカウント発行直後に行っておくことが望ましいですが、これまでのハンズオンでは一旦飛ばして学習を行ってきました。  
+今回はIAMのハンズオンになりますので、このタイミングでそれぞれ設定を行い、今後の作業はIAMユーザで行っていく形になります。
+
+## 1. AWSアカウントへのMFA認証の設定
+![](../../aws_cp_iam_hands_on_setting_mfa_1.png)
+左上の「サービス」をクリックして、「セキュリティ、ID、およびコンプライアンス」-「IAM」をクリックします。
+
+![](../../aws_cp_iam_hands_on_setting_mfa_2.png)
+「セキュリティに関するレコメンデーション」-「rootユーザーのMFAを追加する」-「MFAを追加」をクリックします。
+
+![](../../aws_cp_iam_hands_on_setting_mfa_3.png)
+「多要素認証（MFA）」-「MFAの有効化」をクリックします。
+
+![](../../aws_cp_iam_hands_on_setting_mfa_4.png)
+「仮想MFAデバイス」を選択して、「続行」をクリックします。
+
+![](../../aws_cp_iam_hands_on_setting_mfa_5.png)
+![](../../aws_cp_iam_hands_on_setting_mfa_6.png)
+ご自身のスマホにiOSの場合は[「Google Authenticator」](https://apps.apple.com/jp/app/google-authenticator/id388497605https://apps.apple.com/jp/app/google-authenticator/id388497605)、Androidの場合は[「Google認証システム」](https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2&hl=ja&gl=US)というアプリをインストールしてください。
+
+![](../../aws_cp_iam_hands_on_setting_mfa_7.png)
+AWS側の画面の「QRコードの表示」をクリックしてQRコードを表示しておいて、ダウンロードしたアプリを起動して「＋」をクリックして「QRコードをスキャン」をクリックして表示されたQRコードを撮影します。
+
+アプリに設定が追加されるので、表示されている6桁のMFAコードを２回分「MFAコード1」「MFAコード2」にそれぞれ入力して「MFAの割り当て」をクリックします。
+
+設定が完了した旨のウィンドウが表示されたら「閉じる」をクリックして設定完了です。
+
+## 2. IAMユーザの作成 - IAMグループによる権限付与
+![](../../aws_cp_iam_hands_on_make_iamuser_1.png)
+左メニューの「アクセス管理」-「ユーザー」をクリックします。
+
+![](../../aws_cp_iam_hands_on_make_iamuser_2.png)
+「ユーザーを追加」をクリックします。
+
+![](../../aws_cp_iam_hands_on_make_iamuser_3.png)
+以下のように情報を入力して、「次のステップ：アクセス権限」をクリックします。
+
+| 項目 | 設定値 | 説明 |
+|-------|-------|-------|
+| ユーザー名 | test_user | IAMユーザの名前 |
+| AWS認証情報タイプの選択 | 両方チェックオン | IAMユーザがAWSにアクセスする用途<br/><br/>今回はAPI等へのアクセスとAWSコンソールへのアクセス両方できるようにします |
+| コンソールのパスワード | カスタムパスワード<br/>任意のパスワードを入力 | IAMユーザのパスワード |
+| パスワードのリセットが必要 | チェックオン | IAMユーザの初回ログイン時にパスワード変更が必要かどうか |
+
+![](../../aws_cp_iam_hands_on_make_iamuser_4.png)
+「ユーザーをグループに追加」を選択して、「グループの作成」をクリックします。
+
+![](../../aws_cp_iam_hands_on_make_iamuser_5.png)
+以下のように情報を入力して、「グループの作成」をクリックします。
+
+| 項目 | 設定値 | 説明 |
+|-------|-------|-------|
+| グループ名 | administrator | IAMグループの名前 |
+| ポリシー | AdministratorAccessを選択 | IAMグループに設定するポリシー<br/>AdministratorAccessは全AWSサービスに対する管理権限を持てるポリシー |
+
+![](../../aws_cp_iam_hands_on_make_iamuser_6.png)
+「次のステップ：タグ」をクリックします。
+
+![](../../aws_cp_iam_hands_on_make_iamuser_7.png)
+タグはAWSリソースを管理するためのラベルですが、今回は試しに設定をしてみましょう。  
+以下のように情報を入力して、「次のステップ：確認」
+
+| キー | 値 |
+|-------|-------|
+| role | admin |
+
+![](../../aws_cp_iam_hands_on_make_iamuser_8.png)
+設定内容を確認して「ユーザーの作成」をクリックします。
+
+![](../../aws_cp_iam_hands_on_make_iamuser_9.png)
+「閉じる」をクリックします。
+## 3. IAMユーザの作成 - IAMポリシーによる権限付与
+先程はAdministratorAccessの権限を持つIAMグループを作成して、そこにIAMユーザを追加する形で権限を付与しました。  
+次はIAMユーザ自体に権限を付与する形で設定を行います。
+
+![](../../aws_cp_iam_hands_on_make_iamuser_10.png)
+先ほど作成したIAMユーザの「ユーザ名」をクリックします。
+
+![](../../aws_cp_iam_hands_on_make_iamuser_11.png)
+「アクセス権限の追加」をクリックします。
+
+![](../../aws_cp_iam_hands_on_make_iamuser_12.png)
+「既存のポリシーを直接アタッチ」を選択して、「AdministratorAccess」にチェックして、「次のステップ：確認」をクリックします。
+
+![](../../aws_cp_iam_hands_on_make_iamuser_13.png)
+設定内容を確認して、「アクセス権限の追加」をクリックします。

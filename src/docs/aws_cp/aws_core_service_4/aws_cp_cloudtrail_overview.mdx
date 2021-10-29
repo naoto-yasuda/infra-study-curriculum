@@ -1,0 +1,21 @@
+# CloudTrailの概要
+## 1. CloudTrailとは
+CloudTrailとはAWSユーザのAPI操作やサインインアクティビティといった操作をロギングするサービスです。  
+CloudTrailには以下のような特徴があります。
+- ルートアカウント／IAMユーザのオペレーションをトラッキングしてログを取得するサービス
+- CloudTrail ログファイルは暗号化されてS3に保存
+- KMSによる暗号化もサポート
+- 無料
+
+CloudTrailの有効化は必須で行っていくべき対応になります。
+## 2. CloudTrailの動き
+![](../../aws_cp_cloudtrail_overview_cloudtrail_flow_image.png)
+CloudTrailの動きとして、ユーザアクセスとAPIコールのログ情報をS3バケットに保存し、CloudWatch上で解析できます。  
+ユーザアクセスやAPIコールでEC2やRDSなど様々なAWSサービスにアクセスしたり、操作したりといった場合にその操作のログがCloudTrailにそれぞれ送られます。  
+そしてCloudTrailに送られたログがS3バケットの方に保存されていきます。  
+またCloudWatchLogsにも送ることができ、ログ解析や可視化をすることができるようになっています。
+
+## 3. マルチアカウントやマルチリージョンでの利用
+![](../../aws_cp_cloudtrail_overview_multi_account_and_multi_region.png)
+CloudTrailは設定でマルチアカウントで利用が可能で、複数のAWSアカウントの情報を１つのアカウントにログ情報を集約させることが可能です。  
+また複数のリージョンでCloudTrailを有効化した状態で、１つのリージョンにCloudTrailのログをまとめて統括するということもできます。

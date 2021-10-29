@@ -1,0 +1,67 @@
+# CloudTrailの設定（ハンズオン）
+## 1. CloudTrailの各画面の確認
+![](../../aws_cp_cloudtrail_hands_on_setting_cloudtrail_1.png)
+左上の「サービス」をクリックして、「管理とガバナンス」-「CloudTrail」をクリックします。
+
+![](../../aws_cp_cloudtrail_hands_on_setting_cloudtrail_2.png)
+左メニューの「ダッシュボード」をクリックします。
+
+![](../../aws_cp_cloudtrail_hands_on_setting_cloudtrail_3.png)
+ダッシュボードでは設定した証跡の一覧やCloudTrail Insightsの情報、イベントの履歴など総合的な情報を確認することができます。
+
+![](../../aws_cp_cloudtrail_hands_on_setting_cloudtrail_4.png)
+左メニューの「イベント履歴」をクリックします。
+
+![](../../aws_cp_cloudtrail_hands_on_setting_cloudtrail_5.png)
+イベント履歴では文字通りこのAWSアカウントで行った操作などのイベントが自動で取得されて表示されています。  
+実は証跡は有効化をしなくても自動的に取得されています。  
+ただし９０日間のみ保存するという期間限定のものになるため、それを永続化するために証跡を有効化する必要があります。
+
+![](../../aws_cp_cloudtrail_hands_on_setting_cloudtrail_6.png)
+左メニューの「Insights」をクリックします。
+
+![](../../aws_cp_cloudtrail_hands_on_setting_cloudtrail_7.png)
+Insightsは証跡に対しての解析結果を確認できる画面です。  
+デフォルトでは証跡の設定をしていないため何も表示されていません。
+
+## 2. 証跡の設定
+![](../../aws_cp_cloudtrail_hands_on_setting_cloudtrail_8.png)
+左メニューの「証跡」をクリックします。
+
+![](../../aws_cp_cloudtrail_hands_on_setting_cloudtrail_9.png)
+「証跡の作成」をクリックします。
+
+![](../../aws_cp_cloudtrail_hands_on_setting_cloudtrail_10.png)
+以下のように設定を入力して、「次へ」をクリックします。
+
+| 項目 | 設定値 | 説明 |
+|-------|-------|-------|
+| 証跡名 | test-admin-log | 証跡の名前 |
+| ストレージの場所 | 新しいS3バケットを作成します | 証跡のログを保存するバケットの指定方法 |
+| 証跡ログバケットおよびフォルダ | test-admin-log-<年月日> | 証跡のログを保存するバケット |
+| ログファイルのSSE-KMS暗号化 | チェックオフ | ログファイルを暗号化するかしないか<br/><br/>基本的には暗号化するのが推奨だが、別途KMSキーを用意する必要があるため今回のハンズオンでは暗号化しない設定とする |
+| ログファイルの検証 | チェックオン | ログファイルの検証をするかしないか |
+| SNS通知の配信 | チェックオン | SNS通知をするかしないか |
+| 新しいSNSトピックの作成 | 新規 | SNSトピックの指定方法 |
+| SNSトピック | デフォルトのまま | 使用するSNSトピック |
+| CloudWatch Logs | チェックオフ | CloudWatch Logsと連携するかしないか |
+| タグ | デフォルトのまま | AWSリソースを管理するためのラベル |
+
+![](../../aws_cp_cloudtrail_hands_on_setting_cloudtrail_11.png)
+以下のように設定を入力して、「次へ」をクリックします。
+
+| 項目 | 設定値 | 説明 |
+|-------|-------|-------|
+| イベントタイプ | 全てチェックオン | ログ記録するイベントのタイプ |
+| APIアクティビティ | 全てチェックオン | ログ記録するアクティビティ |
+| AWS KMSイベントの除外 | チェックオフ | 管理イベントからAWS KMSイベントを除外するかしないか |
+| Amazon RDSのデータAPIイベントを除外 | チェックオフ | 管理イベントからRDSのデータAPIイベントを除外するかしないか |
+| 高度なデータイベントセレクター | デフォルトのまま | 高度なカスタムのデータイベントセレクターの設定 |
+| データイベントソース | S3 | ログ記録するデータイベントのソース |
+| 現在および将来のすべてのS3バケット | 全てチェックオン | ログ記録するイベントの種別 |
+| 個々のバケットの選択 | デフォルトのまま | ログ記録する個々のバケットの選択 |
+| APIコールレート | チェックオン | ベースラインAPIコールボリュームに対して1分あたりに発生する書き込み専用管理APIの呼び出し回数の測定値 |
+
+![](../../aws_cp_cloudtrail_hands_on_setting_cloudtrail_12.png)
+設定内容を確認して、「証跡の作成」をクリックします。
+
