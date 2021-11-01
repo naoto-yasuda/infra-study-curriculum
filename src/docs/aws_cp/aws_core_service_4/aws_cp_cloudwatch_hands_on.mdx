@@ -1,0 +1,141 @@
+# CloudWatchの設定（ハンズオン）
+このハンズオンで実施する内容は以下のとおりです。
+1. 請求アラームを設定するためのアカウント設定を実施する
+2. CloudWatchアラームにより請求アラームを設定する
+3. CloudWatchメトリクスを確認する
+
+# 1. アカウント設定
+## 1-1. rootユーザでの再ログイン
+IAMユーザで請求情報を確認できるようにするためにはrootユーザで設定を行う必要があります。  
+なのでIAMアカウントでログインしている場合はログアウトして、rootユーザでログインし直してください。  
+
+![](../../aws_cp_cloudwatch_hands_on_account_setting_1.png)
+ログインしようとした際にこの画面が表示されている場合は、「ルートユーザーのEメールを使用したサインイン」をクリックしてください。
+
+![](../../aws_cp_cloudwatch_hands_on_account_setting_2.png)
+「パスワード」を入力して「サインイン」をクリックします。
+
+![](../../aws_cp_cloudwatch_hands_on_account_setting_3.png)
+rootユーザに対してMFAの設定を行ったため、認証コードの入力を求められます。  
+GoogleAuthenticatorに表示されている認証コードを入力して、「サインイン」をクリックします。
+## 1-2. 請求に関するアカウント設定
+![](../../aws_cp_cloudwatch_hands_on_account_setting_4.png)
+右上のユーザ名をクリックして、「マイアカウント」をクリックします。
+
+![](../../aws_cp_cloudwatch_hands_on_account_setting_5.png)
+「IAM ユーザー/ロールによる請求情報へのアクセス」の「編集」をクリックしてください。
+
+![](../../aws_cp_cloudwatch_hands_on_account_setting_6.png)
+「IAMアクセスのアクティブ化」にチェックを入れて、「更新」をクリックします。
+
+# 2. 請求アラームの設定
+## 2-1. マイ請求ダッシュボードの項目の確認
+![](../../aws_cp_cloudwatch_hands_on_demand_alarm_1.png)
+IAMユーザでログインをし直して、右上のアカウント名をクリックして、「マイ請求ダッシュボード」をクリックします。  
+マイ請求ダッシュボードには現在の利用料の概要や今月のサービス別利用料が表示されています。
+
+![](../../aws_cp_cloudwatch_hands_on_demand_alarm_2.png)
+左メニューの「請求書」をクリックします。
+
+![](../../aws_cp_cloudwatch_hands_on_demand_alarm_3.png)
+請求書の画面ではこれまでの利用料の請求書を確認することができます。  
+次に左メニューの「Cost Explorer」をクリックします。
+
+![](../../aws_cp_cloudwatch_hands_on_demand_alarm_4.png)
+Cost Explorerを利用することで現在のAWSの利用料に関してグラフを用いて予測コストなど様々な情報を確認することができます。  
+デフォルトでは有効になっていないので、利用する場合は有効化して暫く待つ必要があります。
+## 2-2. 無料利用枠の使用アラートの設定
+![](../../aws_cp_cloudwatch_hands_on_demand_alarm_5.png)
+左メニューの「請求設定」をクリックして、「無料利用枠の使用アラートを受信する」にチェックを入れ、「Eメールアドレス」に通知したいアドレスを入力して、「設定の保存」をクリックします。  
+こうすることでAWSの無料利用枠の使用制限に近づいたり、超えたりした場合にEメールで通知を受けることができます。
+
+## 2-3. CloudWatchへの請求アラームの設定
+![](../../aws_cp_cloudwatch_hands_on_demand_alarm_6.png)
+左上の「サービス」をクリックして、「管理とガバナンス」-「CloudWatch」をクリックします。
+
+![](../../aws_cp_cloudwatch_hands_on_demand_alarm_7.png)
+請求アラームの設定はバージニア北部リージョンで設定を行う必要があるため、右上の「東京」をクリックして、「バージニア北部」をクリックしてバージニア北部リージョンに切り替えを行います。
+
+![](../../aws_cp_cloudwatch_hands_on_demand_alarm_8.png)
+左メニューの「アラーム」-「請求」をクリックします。
+
+![](../../aws_cp_cloudwatch_hands_on_demand_alarm_9.png)
+「アラームの作成」をクリックします。
+
+![](../../aws_cp_cloudwatch_hands_on_demand_alarm_10.png)
+以下のように設定を入力して、「次へ」をクリックします。
+
+| 項目 | 設定値 | 説明 |
+|-------|-------|-------|
+| メトリクス名 | EstimatedCharges | メトリクスの名前 |
+| Currency | JP | 通貨の種類 |
+| 統計 | 最大 | 統計の方法 |
+| 期間 | ６時間 | メトリクスの取得期間 |
+| しきい値の種類 | 静的 | しきい値の種別 |
+| EstimatedChargesが次の時… | 以上 | アラーム条件 |
+| …よりも | 1000 | アラーム条件のしきい値 |
+| その他の設定 | デフォルトのまま | データポイントの条件や欠落データの処理に関する設定 |
+
+![](../../aws_cp_cloudwatch_hands_on_demand_alarm_11.png)
+以下のように設定を入力して、「新しいトピックの作成」の部分で「トピックの作成」をクリックしてSNSトピックを作成してから、「次へ」をクリックします。
+
+| 項目 | 設定値 | 説明 |
+|-------|-------|-------|
+| アラーム状態トリガー | アラーム状態 | アクションをトリガーするアラームの状態 |
+| SNSトピックの選択 | 新しいトピックの作成 | 通知を受信するSNSトピック |
+| 新規トピックの作成中 | Billing_Alert | 通知を受信するSNSトピックの名前 |
+| 通知を受け取るEメールエンドポイント | 任意のメールアドレス | 通知を受信するSNSトピックのメールアドレス |
+| AutoScalingアクション | デフォルトのまま | トリガー時に行うAutoScalingアクション |
+| EC2アクション | デフォルトのまま | トリガー時に行うEC2アクション |
+| SystemsManagerアクション | デフォルトのまま | トリガー時に行うSystemsManagerのアクション |
+
+![](../../aws_cp_cloudwatch_hands_on_demand_alarm_12.png)
+以下のように設定を入力して、「次へ」をクリックします。
+
+| 項目 | 設定値 | 説明 |
+|-------|-------|-------|
+| アラーム名 | billing_alarm | アラームの名前 |
+| アラームの説明 | billing_alarm | アラームの説明 |
+
+![](../../aws_cp_cloudwatch_hands_on_demand_alarm_13.png)
+設定内容を確認して、「アラームの作成」をクリックします。
+
+![](../../aws_cp_cloudwatch_hands_on_demand_alarm_14.png)
+アラームの設定が完了したら、リージョンを東京リージョンに戻しておきましょう。
+# 3. CloudWatchメトリクスの設定
+![](../../aws_cp_cloudwatch_hands_on_setting_metrics_1.png)
+左メニューの「メトリクス」-「すべてのメトリクス」をクリックします。
+
+![](../../aws_cp_cloudwatch_hands_on_setting_metrics_2.png)
+今回は試しにRDSのメトリクスを設定してみましょう。  
+「すべてのメトリクス」の中にある「RDS」をクリックします。
+
+![](../../aws_cp_cloudwatch_hands_on_setting_metrics_3.png)
+「データベース別メトリクス」をクリックします。
+
+![](../../aws_cp_cloudwatch_hands_on_setting_metrics_4.png)
+RDSのデータベース別のメトリクスの一覧が表示されますので、確認したいメトリクスを選択します。  
+今回は試しに以下のメトリクスにチェックを入れてみましょう。
+- CPUUtilization
+- FreeableMemory
+- FreeStorageSpace
+
+![](../../aws_cp_cloudwatch_hands_on_setting_metrics_5.png)
+「アクション」-「ダッシュボードに追加」をクリックします。
+
+![](../../aws_cp_cloudwatch_hands_on_setting_metrics_6.png)
+「ダッシュボードの選択」の「新規作成」をクリックします。
+
+![](../../aws_cp_cloudwatch_hands_on_setting_metrics_7.png)
+ダッシュボードの名前を入力して、チェックマークをクリックします。
+
+![](../../aws_cp_cloudwatch_hands_on_setting_metrics_8.png)
+以下のように設定を入力して、「ダッシュボードに追加」をクリックします。
+
+| 項目 | 設定値 | 説明 |
+|-------|-------|-------|
+| ウィジェットタイプの選択 | 線 | ウィジェットで表示するグラフのタイプ |
+| ウィジェットタイトルをカスタマイズ | CPUとメモリ空き容量とディスク空き容量 | ウィジェットに表示されるタイトル |
+
+![](../../aws_cp_cloudwatch_hands_on_setting_metrics_9.png)
+グラフが表示されるので項目名をクリックすることで表示のON/OFFを切り替えることができます。
