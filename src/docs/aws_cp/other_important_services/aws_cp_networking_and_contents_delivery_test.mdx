@@ -1,0 +1,44 @@
+# ネットワーキングとコンテンツ配信に関する模擬試験
+
+各問題の４つの選択肢から正解だと思うものを１つ選択してください。  
+答えが分からなかったり、間違えたりした箇所はリンクから各ページに飛んで復習してください。
+### 問題1. <br/>API Gatewayの特徴として間違っている内容を選択してください。
+<details><summary>1. Lambda関数と統合できる</summary>1.は不正解です。<br/>ElastiCacheと統合してキャッシュを利用するわけではなく、API Gatewayは独自のキャッシュを有効化して、大量のリクエスト数を処理できるように構成できます。<br/>残りの説明は全てAPI Gatewayの特徴として正しい内容です。</details><br/>
+<details><summary>2. WebSocketを利用可能である</summary>2.は不正解です。<br/>ElastiCacheと統合してキャッシュを利用するわけではなく、API Gatewayは独自のキャッシュを有効化して、大量のリクエスト数を処理できるように構成できます。<br/>残りの説明は全てAPI Gatewayの特徴として正しい内容です。</details><br/>
+<details><summary>3. CloudFrontと連携したエッジ処理が可能である</summary>3.は不正解です。<br/>ElastiCacheと統合してキャッシュを利用するわけではなく、API Gatewayは独自のキャッシュを有効化して、大量のリクエスト数を処理できるように構成できます。<br/>残りの説明は全てAPI Gatewayの特徴として正しい内容です。</details><br/>
+<details><summary>4. DDos攻撃対応にはAWS Shieldを利用する</summary>4.は不正解です。<br/>ElastiCacheと統合してキャッシュを利用するわけではなく、API Gatewayは独自のキャッシュを有効化して、大量のリクエスト数を処理できるように構成できます。<br/>残りの説明は全てAPI Gatewayの特徴として正しい内容です。</details><br/>
+<details><summary>5. ElastiCacheと統合してキャッシュを利用する</summary>正解です。<br/>ElastiCacheと統合してキャッシュを利用するわけではなく、API Gatewayは独自のキャッシュを有効化して、大量のリクエスト数を処理できるように構成できます。<br/>残りの説明は全てAPI Gatewayの特徴として正しい内容です。</details>
+
+※このテーマは[ネットワーキングとコンテンツ配信](aws_cp_networking_and_contents_delivery)で取り上げました。
+
+### 問題2. <br/>高速のコンテンツ配信を実現するためのどのサービスを選択しますか。
+<details><summary>1. CloudFront</summary>正解です。<br/>Amazon CloudFront は、低レイテンシーの高速転送によりデータ、ビデオ、アプリケーション、API をビューワーに安全に配信するグローバルコンテンツ配信ネットワーク (CDN) サービスです。</details><br/>
+<details><summary>2. Route53</summary>2.は不正解です。<br/>Amazon CloudFront は、低レイテンシーの高速転送によりデータ、ビデオ、アプリケーション、API をビューワーに安全に配信するグローバルコンテンツ配信ネットワーク (CDN) サービスです。</details><br/>
+<details><summary>3. ELB</summary>3.は不正解です。<br/>Amazon CloudFront は、低レイテンシーの高速転送によりデータ、ビデオ、アプリケーション、API をビューワーに安全に配信するグローバルコンテンツ配信ネットワーク (CDN) サービスです。</details><br/>
+<details><summary>4. Amazon CDN</summary>4.は不正解です。<br/>Amazon CloudFront は、低レイテンシーの高速転送によりデータ、ビデオ、アプリケーション、API をビューワーに安全に配信するグローバルコンテンツ配信ネットワーク (CDN) サービスです。</details>
+
+※このテーマは[ネットワーキングとコンテンツ配信](aws_cp_networking_and_contents_delivery)で取り上げました。
+
+### 問題3. <br/>次のうちCloudFrontの特徴として正しい内容を選択してください。
+<details><summary>1. オリジンサーバーにCloudFrontを設置する</summary>1.は不正解です。<br/>オリジンサーバーはCloudFrontを設定する配信元となるS3バケットやEC2インスタンスなどのサーバーを示しています。</details><br/>
+<details><summary>2. GZIP圧縮が利用可能</summary>正解です。<br/> CloudFrontはgzip圧縮をサポートしており、ウェブサイトをとても小さいファイルに圧縮して配信処理に利用することができます。<br/>これにより、効率的な配信が可能となります。</details><br/>
+<details><summary>3. 各リージョンのAZ内に展開する</summary>3.は不正解です。<br/>CloudFrontは各リージョンのAZ内ではなく、エッジロケーションに展開されます。</details><br/>
+<details><summary>4. ルーティングを実施する</summary>4.は不正解です。<br/>ルーティングを実施するのはRoute53です。</details>
+
+※このテーマは[ネットワーキングとコンテンツ配信](aws_cp_networking_and_contents_delivery)で取り上げました。
+
+### 問題4. <br/>オンプレミス環境にあるストレージに対して、AWS環境へとハイブリッド構成で拡張することができるサービスを選択してください。
+<details><summary>1. Direct Connect</summary>1.は不正解です。<br/>AWS Storage Gateway は、オンプレミスから実質無制限のクラウドストレージへのアクセスを提供するハイブリッドクラウドストレージサービスです。<br/>オンプレミス環境にあるストレージに対して、AWS環境へとハイブリッド構成で拡張することができます。</details><br/>
+<details><summary>2. AWS Storage Gateway</summary>正解です。<br/>AWS Storage Gateway は、オンプレミスから実質無制限のクラウドストレージへのアクセスを提供するハイブリッドクラウドストレージサービスです。<br/>オンプレミス環境にあるストレージに対して、AWS環境へとハイブリッド構成で拡張することができます。</details><br/>
+<details><summary>3. API Gateway</summary>3.は不正解です。<br/>AWS Storage Gateway は、オンプレミスから実質無制限のクラウドストレージへのアクセスを提供するハイブリッドクラウドストレージサービスです。<br/>オンプレミス環境にあるストレージに対して、AWS環境へとハイブリッド構成で拡張することができます。</details><br/>
+<details><summary>4. Glacier Deep Archive</summary>4.は不正解です。<br/>AWS Storage Gateway は、オンプレミスから実質無制限のクラウドストレージへのアクセスを提供するハイブリッドクラウドストレージサービスです。<br/>オンプレミス環境にあるストレージに対して、AWS環境へとハイブリッド構成で拡張することができます。</details>
+
+※このテーマは[ネットワーキングとコンテンツ配信](aws_cp_networking_and_contents_delivery)で取り上げました。
+
+### 問題5. <br/>オンプレミス環境にあるテープデータ管理を移行する際に利用するStorage Gatewayの機能を選択してください。
+<details><summary>1. AWS Storage Gatewayの保管型ボリュームゲートウェイ</summary>1.は不正解です。<br/>AWS Storage Gatewayのテープゲートウェイは仮想テープライブラリーを利用することができる機能です。<br/>オンプレミス環境にあるストレージのバックアップ管理を実施することができます。</details><br/>
+<details><summary>2. AWS Storage Gatewayのキャッシュ型ボリュームゲートウェイ</summary>2.は不正解です。<br/>AWS Storage Gatewayのテープゲートウェイは仮想テープライブラリーを利用することができる機能です。<br/>オンプレミス環境にあるストレージのバックアップ管理を実施することができます。</details><br/>
+<details><summary>3. AWS Storage Gatewayのファイルゲートウェイ</summary>3.は不正解です。<br/>AWS Storage Gatewayのテープゲートウェイは仮想テープライブラリーを利用することができる機能です。<br/>オンプレミス環境にあるストレージのバックアップ管理を実施することができます。</details><br/>
+<details><summary>4. AWS Storage Gatewayのテープゲートウェイ</summary>正解です。<br/>AWS Storage Gatewayのテープゲートウェイは仮想テープライブラリーを利用することができる機能です。<br/>オンプレミス環境にあるストレージのバックアップ管理を実施することができます。</details>
+
+※このテーマは[ネットワーキングとコンテンツ配信](aws_cp_networking_and_contents_delivery)で取り上げました。
