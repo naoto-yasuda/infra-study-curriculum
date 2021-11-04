@@ -1,0 +1,59 @@
+# データベースに関する模擬試験
+
+各問題の４つの選択肢から正解だと思うものを１つ選択してください。  
+答えが分からなかったり、間違えたりした箇所はリンクから各ページに飛んで復習してください。
+### 問題1. <br/>セッション管理を実施するためにNoSQL型のデータベースを選択してください。
+<details><summary>1. Amazon RDS</summary>1.は不正解です。<br/>Amazon DynamoDB は、規模に関係なく数ミリ秒台のパフォーマンスを実現する、key-value およびドキュメントデータベースです。<br/>例えば、ゲームアプリでは、アプリケーションのセッション履歴、リーダーボードを含むプラットフォームのすべての機能に DynamoDB を使用しています。</details><br/>
+<details><summary>2. Amazon Redshift</summary>2.は不正解です。<br/>Amazon DynamoDB は、規模に関係なく数ミリ秒台のパフォーマンスを実現する、key-value およびドキュメントデータベースです。<br/>例えば、ゲームアプリでは、アプリケーションのセッション履歴、リーダーボードを含むプラットフォームのすべての機能に DynamoDB を使用しています。</details><br/>
+<details><summary>3. Amazon DynamoDB</summary>正解です。<br/>Amazon DynamoDB は、規模に関係なく数ミリ秒台のパフォーマンスを実現する、key-value およびドキュメントデータベースです。<br/>例えば、ゲームアプリでは、アプリケーションのセッション履歴、リーダーボードを含むプラットフォームのすべての機能に DynamoDB を使用しています。</details><br/>
+<details><summary>4. Amazon Neptune</summary>4.は不正解です。<br/>Amazon DynamoDB は、規模に関係なく数ミリ秒台のパフォーマンスを実現する、key-value およびドキュメントデータベースです。<br/>例えば、ゲームアプリでは、アプリケーションのセッション履歴、リーダーボードを含むプラットフォームのすべての機能に DynamoDB を使用しています。</details>
+
+※このテーマは[データベース](aws_cp_database)で取り上げました。
+
+### 問題2. <br/>AWSを利用してS3内部のビッグデータを直接解析する仕組みを構築しています。<br/>SQLクエリによって解析することが可能なビッグデータ解析用のサービスを選択してください。
+<details><summary>1. Amazon RDS</summary>1.は不正解です。<br/>Redshift Spectrum テーブルを複数の Amazon Redshift クラスターに追加し、同じ AWS リージョン内のあらゆるクラスターから Amazon S3 の同じデータにクエリを実行できます。<br/>データレイクをS3を利用して構成して、S3データをクエリで解析する場合に利用する仕組みとなります。</details><br/>
+<details><summary>2. Amazon Redshift</summary>正解です。<br/>Redshift Spectrum テーブルを複数の Amazon Redshift クラスターに追加し、同じ AWS リージョン内のあらゆるクラスターから Amazon S3 の同じデータにクエリを実行できます。<br/>データレイクをS3を利用して構成して、S3データをクエリで解析する場合に利用する仕組みとなります。</details><br/>
+<details><summary>3. Amazon DynamoDB</summary>3.は不正解です。<br/>Redshift Spectrum テーブルを複数の Amazon Redshift クラスターに追加し、同じ AWS リージョン内のあらゆるクラスターから Amazon S3 の同じデータにクエリを実行できます。<br/>データレイクをS3を利用して構成して、S3データをクエリで解析する場合に利用する仕組みとなります。</details><br/>
+<details><summary>4. Amazon Neptune</summary>4.は不正解です。<br/>Redshift Spectrum テーブルを複数の Amazon Redshift クラスターに追加し、同じ AWS リージョン内のあらゆるクラスターから Amazon S3 の同じデータにクエリを実行できます。<br/>データレイクをS3を利用して構成して、S3データをクエリで解析する場合に利用する仕組みとなります。</details>
+
+※このテーマは[データベース](aws_cp_database)で取り上げました。
+
+### 問題3. <br/>インメモリキャッシュによって、RDSのクエリ処理を高速化するためのサービスを選択してください。
+<details><summary>1. Amazon Aurora</summary>1.は不正解です。<br/>ElastiCacheはRDSと併用して、RDSへのクエリ結果をElastiCacheにキャッシュさせることで、キャッシュがある場合はElastiCacheのキャッシュを使い、キャッシュが無い場合のみRDSにDBアクセスという連携が可能です。</details><br/>
+<details><summary>2. Amazon ElastiCache</summary>正解です。<br/>ElastiCacheはRDSと併用して、RDSへのクエリ結果をElastiCacheにキャッシュさせることで、キャッシュがある場合はElastiCacheのキャッシュを使い、キャッシュが無い場合のみRDSにDBアクセスという連携が可能です。</details><br/>
+<details><summary>3. Amazon DynamoDB</summary>3.は不正解です。<br/>ElastiCacheはRDSと併用して、RDSへのクエリ結果をElastiCacheにキャッシュさせることで、キャッシュがある場合はElastiCacheのキャッシュを使い、キャッシュが無い場合のみRDSにDBアクセスという連携が可能です。</details><br/>
+<details><summary>4. Amazon Neptune</summary>4.は不正解です。<br/>ElastiCacheはRDSと併用して、RDSへのクエリ結果をElastiCacheにキャッシュさせることで、キャッシュがある場合はElastiCacheのキャッシュを使い、キャッシュが無い場合のみRDSにDBアクセスという連携が可能です。</details>
+
+※このテーマは[データベース](aws_cp_database)で取り上げました。
+
+### 問題4. <br/>Apache Spark Streming処理を実行するために利用するAWSサービスを選択してください。
+<details><summary>1. Amazon EMR</summary>正解です。<br/>Amazon EMR は、Apache Spark、Apache Hive、Presto などのオープンソースのビッグデータフレームワークを使用して、膨大な量のデータを処理して分析するサービスです。</details><br/>
+<details><summary>2. Amazon Kinesis Data Streams</summary>2.は不正解です。<br/>Amazon EMR は、Apache Spark、Apache Hive、Presto などのオープンソースのビッグデータフレームワークを使用して、膨大な量のデータを処理して分析するサービスです。</details><br/>
+<details><summary>3. Amazon Redshift</summary>3.は不正解です。<br/>Amazon EMR は、Apache Spark、Apache Hive、Presto などのオープンソースのビッグデータフレームワークを使用して、膨大な量のデータを処理して分析するサービスです。</details><br/>
+<details><summary>4. Amazon Athena</summary>4.は不正解です。<br/>Amazon EMR は、Apache Spark、Apache Hive、Presto などのオープンソースのビッグデータフレームワークを使用して、膨大な量のデータを処理して分析するサービスです。</details>
+
+※このテーマは[データベース](aws_cp_database)で取り上げました。
+
+### 問題5. <br/>データレイクを構築する際にデータ蓄積用に利用すべきサービスを選択してください。
+<details><summary>1. Amazon RDS</summary>1.は不正解です。<br/>Amazon Simple Storage Service (S3) は、構造化データと非構造化データ向けの最大級かつ最もパフォーマンスに優れたオブジェクトストレージサービスであり、データレイクの構築に最適のストレージサービスです。<br/>Amazon S3 を使用すると、99.999999999% (イレブンナイン) の耐久性でデータを保護する安全な環境で、あらゆるサイズのデータレイクをコスト効率よく構築し、スケールすることができます。</details><br/>
+<details><summary>2. S3</summary>正解です。<br/>Amazon Simple Storage Service (S3) は、構造化データと非構造化データ向けの最大級かつ最もパフォーマンスに優れたオブジェクトストレージサービスであり、データレイクの構築に最適のストレージサービスです。<br/>Amazon S3 を使用すると、99.999999999% (イレブンナイン) の耐久性でデータを保護する安全な環境で、あらゆるサイズのデータレイクをコスト効率よく構築し、スケールすることができます。</details><br/>
+<details><summary>3. Amazon Redshift</summary>3.は不正解です。<br/>Amazon Simple Storage Service (S3) は、構造化データと非構造化データ向けの最大級かつ最もパフォーマンスに優れたオブジェクトストレージサービスであり、データレイクの構築に最適のストレージサービスです。<br/>Amazon S3 を使用すると、99.999999999% (イレブンナイン) の耐久性でデータを保護する安全な環境で、あらゆるサイズのデータレイクをコスト効率よく構築し、スケールすることができます。</details><br/>
+<details><summary>4. Amazon Aurora</summary>4.は不正解です。<br/>Amazon Simple Storage Service (S3) は、構造化データと非構造化データ向けの最大級かつ最もパフォーマンスに優れたオブジェクトストレージサービスであり、データレイクの構築に最適のストレージサービスです。<br/>Amazon S3 を使用すると、99.999999999% (イレブンナイン) の耐久性でデータを保護する安全な環境で、あらゆるサイズのデータレイクをコスト効率よく構築し、スケールすることができます。</details>
+
+※このテーマは[データベース](aws_cp_database)で取り上げました。
+
+### 問題6. <br/>次のうちAuroraについて正しい内容を選択してください。
+<details><summary>1. AuroraはNoSQL型の分散高速処理が可能なデータベースである</summary>1.は不正解です。<br/>AuroraはRDSで選択できるリレーショナルデータベースソフトウェアの一種です。</details><br/>
+<details><summary>2. 高速分散処理によって通常のRDSの５倍の性能が保証されている</summary>2.は不正解です。<br/>Auroraは高速分散処理によって通常のRDSの5倍の性能が保証されていません。<br/>あくまでも検証段階で5倍性能がでるケースがあるということです。</details><br/>
+<details><summary>3. 高速分散処理が可能である分、通常のRDSよりもコストを要する</summary>3.は不正解です。<br/>RDSよりも低コストになる可能性があります。</details><br/>
+<details><summary>4. マルチAZに跨ってクラスター構成を生成する</summary>正解です。<br/>Aurora DB クラスターはマルチAZに跨って仮想ボリュームを構成されています。<br/>1 つ以上の DB インスタンスと、これらの DB インスタンスのデータを管理する 1 つのクラスターボリュームで構成されます。<br/>Aurora クラスターボリュームは、複数のアベイラビリティーゾーンにまたがる仮想データベースストレージボリュームです。<br/>各アベイラビリティーゾーンには DB クラスターデータのコピーが保存されます。<br/>Aurora DB クラスターは 2 種類の DB インスタンスで構成されます。</details>
+
+※このテーマは[データベース](aws_cp_database)で取り上げました。
+
+### 問題7. <br/>次のうちDynamoDBを利用すべきではないユースケースを選択してください。
+<details><summary>1. ゲームの行動記録処理</summary>1.は不正解です。<br/>顧客データの業務処理にはSQL型のトランザクション処理を実行することが必要となるケースが多いため、リレーショナルデータベースを利用することが必要となります。</details><br/>
+<details><summary>2. 顧客データの業務処理</summary>正解です。<br/>顧客データの業務処理にはSQL型のトランザクション処理を実行することが必要となるケースが多いため、リレーショナルデータベースを利用することが必要となります。</details><br/>
+<details><summary>3. セッションデータ管理</summary>3.は不正解です。<br/>顧客データの業務処理にはSQL型のトランザクション処理を実行することが必要となるケースが多いため、リレーショナルデータベースを利用することが必要となります。</details><br/>
+<details><summary>4. IoTデータの蓄積</summary>4.は不正解です。<br/>顧客データの業務処理にはSQL型のトランザクション処理を実行することが必要となるケースが多いため、リレーショナルデータベースを利用することが必要となります。</details>
+
+※このテーマは[データベース](aws_cp_database)で取り上げました。
