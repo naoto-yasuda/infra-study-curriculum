@@ -1,0 +1,78 @@
+# 移行と移転
+## 1. 移行と移転に関するサービス
+AWSクラウドへのインフラ移行やデータ移行に利用するサービスとして以下のようなものがあります。
+
+| サービス名 | 説明 |
+|-------|-------|
+| AWS Application Discovery Service | サーバーの設定データ、使用状況データ、動作データが収集してサーバーの使用率データや依存関係のマッピングなどの移行に必要な情報を提供するサービス |
+| AWS Database Migration Service | データベースを短期間で安全に AWS に移行することが可能、データベース移行ツール |
+| AWS Server Migration Service | 数千のオンプレミスワークロードを従来よりも簡単に、かつ短時間で AWS に移行できるエージェントレスサービス |
+| AWS Snow ファミリー | エッジでデータを収集して処理し、AWS との間でデータを移行する、非常に安全なポータブルデバイス |
+
+![](../../aws_cp_transition_and_relocation_plan_transition_operation_service.png)
+AWSには図のような形で、
+- 既存環境からの移行計画を作る際に活用できるサービス
+- 既存環境から実際にサーバーやデータベース、データベースのテーブル構成、ストレージなどを移行する際に活用できるサービス
+- 移行後のAWS環境で運用していく際に活用できるサービス
+
+というように移行における各フェイズで活用できるサービスが複数あります。
+## 2. AWS Application Discovery Service
+AWS Application Discovery Serviceとは、オンプレ等AWSとは別環境で稼働しているサーバ（物理/仮想問わない）のスペック、負荷状況等を収集できるサービスです。  
+以下のようなことを行うことが出来ます。
+- クラウドに何を移行するのか対象機器の情報把握（VMware/Windows/Linux環境の情報把握）
+- 現状の機器やソフトウェアの依存関係の把握
+- 手作業による手間を省く
+- 収集したデータを元にAWSに移行る場合の必要スペック（インスタンスタイプ）を設計し、移行計画を立案する
+## 3. AWS Database Migration Service
+![](../../aws_cp_transition_and_relocation_dms_image.png)
+AWS Database Migration Serviceとは、データベースを短期間で安全に AWS に移行することが可能なデータベース移行ツールです。  
+オンプレミス～AWS間、オンプレミス～オンプレミス間のデータ移行を支援します。
+## 4. AWS Server Migration Service
+### 4-1. AWS Server Migration Serviceとは
+AWS Server Migration Serviceとは、数千のオンプレミスワークロード・サーバーを従来よりも簡単に、かつ短時間で AWS に移行できるエージェントレスサービスです。
+### 4-2. AWS Server Migration Serviceの特徴
+AWS Server Migration Serviceには以下のような特徴があります。
+- 簡単に大量のサーバーを移行できるサービスで、1アカウントで同時に50VMまで移行可能
+- エージェントレス型で移行を実施
+- オンプレミスのVMwareに対して増分変更をキャプチャして、AWSに自動的に転送するVM専用の移行ツール
+- 移行先のAWSでAMIを作成して、EC2インスタンスに移行することが可能
+## 5. AWS Snowファミリー
+### 5-1. AWS Snowファミリーとは
+![](../../aws_cp_transition_and_relocation_snowfamily_image.png)
+AWS Snowファミリーとは、物理ストレージデバイスを使用することで、インターネットを迂回してAWSに直接大容量データを転送するサービスです。
+### 5-2. Snowball
+Snowballはペタバイト規模のデータ移行の際に利用するアプライアンスですが、現在はSnowball Edgeに世代交代済になります。  
+Snowballには以下のような特徴があります。
+- オンプレミスのデータストレージロケーションとAmazon S3 との間でデータのインポートおよびエクスポートができる。
+- Snowball ではすべてのリージョンで 80 TB モデルを使用可能
+- 暗号化が強制、保管中や輸送中のデータを保護
+- AWS Snowball マネジメントコンソール を使用
+- オンプレミスのデータセンターと Snowball 間でローカルデータ転送を実行
+- Snowball はそれ自体が配送コンテナ
+
+またユースケースとしては以下のようなものがあります。
+- 移行
+- 災害対策のデータ移行
+- データセンター統合
+- コンテンツ配信に伴るデータ移行
+### 5-3. SnowballとSnowball Edge
+Snowball EdgeはSnowball＋コンピューティングという高性能な機能を有しており、そのため現在AWSはSnowball Edge利用を推奨しています。  
+それぞれの機能を比較すると以下のようになります。
+#### 5-3-1. Snowball
+- クライアント側で暗号化を実施
+- クライアント側にリッチなリソースが必要で、クライアント側のソフトウェアによるデータ転送を実施
+- 容量：80TB／アプライアンス
+- 用途：データ移行
+- クラスタリング：不可
+- ラックマウント：不可
+- 最大保持日数：90日
+#### 5-3-2. Snowball Edge
+- Edge側で暗号化を実施
+- 書込時にLambda関数を利用したデータ処理可能
+- アプライアンスに組み込まれたS3 Adapter For Snowballによりデータ転送を実施
+- 容量：100TB（80TB利用）／アプライアンス
+- 用途：データ移行＋ローカルプロセッシング・ストレージとして利用
+- クラスタリング：可
+- ラックマウント：可
+- 最大保持日数360日
+- Snowball Edge Compute OptimizedのSnowball Edge Storage Optimizedの2タイプ
