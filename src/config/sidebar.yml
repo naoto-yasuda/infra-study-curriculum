@@ -224,3 +224,9 @@
       link: '/aws_cp/other_important_services/aws_cp_other_services'
     - label: 'その他のサービスに関する模擬試験'
       link: '/aws_cp/other_important_services/aws_cp_other_services_test'
+- label: 'AWSクラウドプラクティショナー資格学習 - 模擬試験'
+  items:
+    - label: '模擬試験１'
+      link: '/aws_cp/practice_exam/aws_cp_practice_exam_1'
+    - label: '模擬試験２'
+      link: '/aws_cp/practice_exam/aws_cp_practice_exam_2'

@@ -1,0 +1,395 @@
+# 模擬試験２
+
+各問題の４つの選択肢から正解だと思うものを１つ選択してください。  
+答えが分からなかったり、間違えたりした箇所はリンクから各ページに飛んで復習してください。
+### 問題1. <br/>NATゲートウェイの特徴について正しい内容を選択してください。
+<details><summary>1. NATゲートウェイはインターネットからプライベートサブネットへとアクセスを可能にするため、プライベートサブネットに設置する</summary>1.は不正解です。<br/>NATゲートウェイはパブリックサブネットに設置する必要があります。</details><br/>
+<details><summary>2. NATゲートウェイはプライベートサブネットからインターネットへとアクセスを可能にするため、プライベートサブネットに設置する</summary>2.は不正解です。<br/>NATゲートウェイはパブリックサブネットに設置する必要があります。</details><br/>
+<details><summary>3. NATゲートウェイはプライベートサブネットからインターネットへとアクセスを可能にするため、パブリックサブネットに設置する</summary>正解です。<br/>NATゲートウェイはプライベートサブネットからインターネットへの返信を可能にするため、パブリックサブネットに設置します。<br/>その上で、プライベートサブネットのルートテーブルにNATゲートウェイへのルートを設定することが必要です。<br/>これにより、NATゲートウェイはプライベートサブネットからのパブリックサブネットに送信されるトラフィックに対してアドレス変換処理をして、インターネットゲートウェイへとトラフィックを渡します。<br/>これで、パブリックサブネットを通してインターネットへと返答できるようになります。</details><br/>
+<details><summary>4. NATゲートウェイはインターネットからプライベートサブネットへとアクセスを可能にするため、パブリックサブネットに設置する</summary>4.は不正解です。<br/>NATゲートウェイがあってもインターネットからプライベートサブネットへとアクセスは遮断されたままです。</details><br/>
+
+### 問題2. <br/>リージョンの説明として正しい内容を選択してください。（２つ選択してください）
+<details><summary>1. 各リージョンは地理的に離れている</summary>正解です。<br/>各リージョンは地理的に離れた場所に設置されてます。<br/>そのため、災害対応として別リージョンにバックアップを保存するなどに利用することができます。<br/>また、全てのリージョンに接続することができるわけではなく、中国内部のリージョンは中国内での利用に限定されています。</details><br/>
+<details><summary>2. リージョン同士は接続されていない</summary>2.は不正解です。<br/>すべてのリージョン同士はAWS側で専用線によって接続されているわけではなく、中国内部のリージョンのように離れているリージョンも存在します。</details><br/>
+<details><summary>3. AWSの全てのリージョンは専用線で接続して連携が可能である</summary>3.は不正解です。<br/>すべてのリージョン同士はAWS側で専用線によって接続されているわけではなく、中国内部のリージョンのように離れているリージョンも存在します。</details><br/>
+<details><summary>4. 一部のリージョンへの接続が制限されている</summary>正解です。<br/>各リージョンは地理的に離れた場所に設置されてます。<br/>そのため、災害対応として別リージョンにバックアップを保存するなどに利用することができます。<br/>また、全てのリージョンに接続することができるわけではなく、中国内部のリージョンは中国内での利用に限定されています。</details><br/>
+<details><summary>5. あらゆるリージョンが世界のどこにいても利用可能である</summary>5.は不正解です。<br/>各リージョンは地理的に離れた場所に設置されてます。<br/>そのため、災害対応として別リージョンにバックアップを保存するなどに利用することができます。<br/>また、全てのリージョンに接続することができるわけではなく、中国内部のリージョンは中国内での利用に限定されています。</details><br/>
+
+### 問題3. <br/>AWSのデータセンターに対する説明として正しい内容を選択してください。
+<details><summary>1. 全てのデータセンターのセキュリティはAWSが責任を負っている</summary>正解です。<br/>全てのデータセンターのセキュリティはAWSが責任を負っており、ユーザー側でアクセスしたり、検証したりすることもできません。</details><br/>
+<details><summary>2. 申請によってデータセンターに対する訪問が可能である</summary>2.は不正解です。<br/>AWSユーザーも関連部署にいないAWS社員はデータセンターへのアクセスは許可されません。</details><br/>
+<details><summary>3. 必ず１つのデータセンターが１つのAZを構成している</summary>3.は不正解です。<br/>AZは１つ以上のデータセンターで構成されており、大きなところでは複数のデータセンターが利用されています。</details><br/>
+<details><summary>4. データセンターの場所が公開されている</summary>4.は不正解です。<br/>データセンターの場所は非公開です。</details><br/>
+
+### 問題4. <br/>AWS WAFの適用するサービスとして正しくないものはどれでしょうか。
+<details><summary>1. Route53</summary>正解です。<br/>オプション１が対象外のサービスであり、正解となります。<br/>AWS WAF は、CDN ソリューションの一部として Amazon CloudFront にデプロイでき、EC2 上で動作するウェブサーバーやオリジンサーバーの手前に配置した Application Load Balancer や、API を使用するための Amazon API Gateway にデプロイできます。<br/>したがって、それ以外であるRoute53が対象外となっています。</details><br/>
+<details><summary>2. API Gateway</summary>2.は不正解です。<br/>オプション１が対象外のサービスであり、正解となります。<br/>AWS WAF は、CDN ソリューションの一部として Amazon CloudFront にデプロイでき、EC2 上で動作するウェブサーバーやオリジンサーバーの手前に配置した Application Load Balancer や、API を使用するための Amazon API Gateway にデプロイできます。<br/>したがって、それ以外であるRoute53が対象外となっています。</details><br/>
+<details><summary>3. ELB</summary>3.は不正解です。<br/>オプション１が対象外のサービスであり、正解となります。<br/>AWS WAF は、CDN ソリューションの一部として Amazon CloudFront にデプロイでき、EC2 上で動作するウェブサーバーやオリジンサーバーの手前に配置した Application Load Balancer や、API を使用するための Amazon API Gateway にデプロイできます。<br/>したがって、それ以外であるRoute53が対象外となっています。</details><br/>
+<details><summary>4. CloudFront</summary>4.は不正解です。<br/>オプション１が対象外のサービスであり、正解となります。<br/>AWS WAF は、CDN ソリューションの一部として Amazon CloudFront にデプロイでき、EC2 上で動作するウェブサーバーやオリジンサーバーの手前に配置した Application Load Balancer や、API を使用するための Amazon API Gateway にデプロイできます。<br/>したがって、それ以外であるRoute53が対象外となっています。</details><br/>
+
+### 問題5. <br/>Glacierの暗号化の仕組みとして正しい内容を選択してください。
+<details><summary>1. S3で管理する暗号化キーを利用することが出来る</summary>1.は不正解です。<br/>GlacierはS3とは暗号化の仕組みが異なり、暗号化を有効化しなくても自動で暗号化が実行されます。</details><br/>
+<details><summary>2. デフォルトで暗号化が実行される</summary>正解です。<br/>Glacierはデフォルトで自動的に暗号化が実行されます。<br/>鍵を指定するといった対応も必要ありません。<br/>ブロック暗号の中で最も強力である 256 ビット Advanced Encryption Standard（AES-256）が使用されます。</details><br/>
+<details><summary>3. AWS KMSを利用して暗号化を実行する</summary>3.は不正解です。<br/>ユーザー側でAWS KMSや独自の暗号化キーを利用して暗号化を実行する必要はありません。</details><br/>
+<details><summary>4. クライアント独自の暗号化キーを利用できる</summary>4.は不正解です。<br/>ユーザー側でAWS KMSや独自の暗号化キーを利用して暗号化を実行する必要はありません。</details><br/>
+
+### 問題6. <br/>EC2インスタンスの無料枠を利用してEC2インスタンスを立ち上げました。<br/>課金はどのようになるでしょうか。
+<details><summary>1. ずっと無料で利用可能である</summary>1.は不正解です。<br/>AWSの無料利用枠には限度枠があります。</details><br/>
+<details><summary>2. 無料利用枠の期限や容量を超過すると課金される</summary>正解です。<br/>無料枠で利用を開始したEC2インスタンスも利用期間やアタッチされているEBSのボリューム容量が超過すると制限を超えて課金が発生します。</details><br/>
+<details><summary>3. 12ヶ月の無料期間の間はずっと無料である</summary>3.は不正解です。<br/>たとえ12か月経過しなくても、無料利用枠の上限を超える利用時間やデータ量が発生すると有料となります。</details><br/>
+<details><summary>4. EC2インスタンスへのリクエスト量が無料枠を超過すると課金される</summary>4.は不正解です。<br/>EC2インスタンスへのリクエスト量はEC２インスタンスの課金要素ではありません。<br/>EC2インスタンスの利用時間を超過した場合に課金が発生します。</details><br/>
+
+### 問題7. <br/>AMIの特徴について正しい内容を選択してください。
+<details><summary>1. AMIは複数アカウント間での共有が可能である</summary>正解です。<br/>AMI は一般公開せずに特定の AWS アカウントと共有することができます。<br/>AMIの共有に必要な情報は共有先のAWS アカウント ID のみです。<br/>共有化可能なAMIは暗号化されていないボリュームと、カスタマーマネージド CMK で暗号化されたボリュームを持つ AMI のみです。<br/>AMI を暗号化されたボリュームと共有する場合、ボリュームの暗号化に使用した CMK も共有する必要があります。</details><br/>
+<details><summary>2. 独自のAMIは設定することが出来ない</summary>2.は不正解です。<br/>ユーザーが独自のAMIを作成することができます。</details><br/>
+<details><summary>3. AMIにはOSの構成情報が設定されており、EBSデータは複製されない</summary>3.は不正解です。<br/>AMIにはEBSのボリュームデータも含められています。</details><br/>
+<details><summary>4. AMIはグローバルに共有されているので、１つのAMIから複数リージョンでの展開が可能である</summary>4.は不正解です。<br/>AMIを別リージョンに展開する場合はコピーをする必要があり、コピー先のAMIとして別AMIのIDが付与されてしまいます。</details><br/>
+
+### 問題8. <br/>会社のセキュリティポリシーによりクラウドサーバーの物理領域を、自社内であっても他部署と共有することが不可能であるとされています。<br/>どのような形式であればEC2インスタンスを利用してサーバーを活用することが可能でしょうか。
+<details><summary>1. Dedicated Host</summary>正解です。<br/>Dedicated hostはEC2インスタンスを物理的に占有する場合に選択するオプション設定です。<br/>たとえ同じAWSアカウント内でも別のIAMグループやユーザーとは物理的なサーバーを共有することがありません。</details><br/>
+<details><summary>2. ハードウェア専有インスタンス</summary>2.は不正解です。<br/>ハードウェア専有インスタンスは、ユーザー専用のハードウェアの VPC で実行される Amazon EC2 インスタンスです。<br/>これはホストハードウェアのレベルで、他の AWS アカウントに属するインスタンスから物理的に分離されています。<br/>しかしながら、同じAWSアカウントであれば、他のIAMグループとインスタンスを共有する可能性があります。</details><br/>
+<details><summary>3. ベアメタルサーバー</summary>3.は不正解です。<br/>ベアメタルサーバーは物理サーバーに対してプロセッサーやストレージなどのリソースをユーザーがコントロールすることができます。</details><br/>
+<details><summary>4. オンデマンド</summary>4.は不正解です。<br/>オンデマンドインスタンスは一般的なクラウドのインスタンスの利用方法です。<br/>これは他のユーザーとサーバーを共有します。</details><br/>
+
+### 問題9. <br/>EC2インスタンスに対するSSH接続の際にアクセスに失敗した場合の原因として可能性が高いものを選択してください。
+<details><summary>1. セキュリティグループからの設定でクライアントからの22番ポートのアクセスが許可されていない</summary>正解です。<br/>セキュリティグループの設定でクライアントからの22番ポートのインバウンドアクセスが許可されていないとSSHでの接続ができません。</details><br/>
+<details><summary>2. セキュリティグループからの設定でクライアントからの80番ポートのアクセスが許可されていない</summary>2.は不正解です。<br/>80番ポートはHTTPプロトコルに利用されます。</details><br/>
+<details><summary>3. セキュリティグループからの設定でクライアントからの400番ポートのアクセスが許可されていない</summary>3.は不正解です。<br/>400番ポートはHTTPSプロトコルに利用されます。</details><br/>
+<details><summary>4. セキュリティグループからの設定でクライアントからの110番ポートのアクセスが許可されていない</summary>4.は不正解です。<br/>110番ポートはPOP3に利用されます。</details><br/>
+
+### 問題10. <br/>SQLインジェクションに対する保護が可能なサービスはどれでしょうか。
+<details><summary>1. AWS Shield</summary>1.は不正解です。<br/>AWS Shield はマネージド型の分散サービス妨害 (DDoS) に対する保護サービスで、AWS で実行しているアプリケーションを保護します。<br/>SQL インジェクションやクロスサイトスクリプティングなどにはWAFを利用します。</details><br/>
+<details><summary>2. AWS WAF</summary>正解です。<br/>AWS WAF では、SQL インジェクションやクロスサイトスクリプティングなどの一般的な攻撃パターンをブロックするセキュリティルールと、定義した特定のトラフィックパターンを除外するルールを作成できるため、トラフィックがアプリケーションに到達する方法を制御できます。</details><br/>
+<details><summary>3. Amazon Inspector</summary>3.は不正解です。<br/>Amazon Inspector は自動的にアプリケーションを評価し、露出、脆弱性、ベストプラクティスからの逸脱がないかどうかを確認する評価ツールです。</details><br/>
+<details><summary>4. Amazon GuardDuty</summary>4.は不正解です。<br/>Amazon GuardDuty は、AWS アカウントとワークロードを継続的にモニタリングし、悪意のあるアクティビティや不正なアクティビティから保護します。<br/>SQL インジェクションやクロスサイトスクリプティングなどにはWAFを利用します。</details><br/>
+
+### 問題11. <br/>EBSのスナップショットの特徴で間違っている内容を次の中から選択してください。（２つ選択してください）
+<details><summary>1. スナップショット作成時はデータ整合性を保つため静止点を設けることが推奨される</summary>1.は不正解です。<br/>スナップショット作成時はデータ整合性を保つため静⽌点を設けることが推奨されています。</details><br/>
+<details><summary>2. 保存期間や世代数は無制限である</summary>2.は不正解です。<br/>保存期間や世代数は無制限となっています。</details><br/>
+<details><summary>3. 別のEBSに保存されている</summary>正解です。<br/>スナップショットはS3に保存されています。</details><br/>
+<details><summary>4. AWS CLIから操作できる</summary>4.は不正解です。<br/>AWS CLIから操作して、EBSを作成したり削除することが可能です。</details><br/>
+<details><summary>5. 他リージョンでは利用できない</summary>正解です。<br/>EBSのスナップショットは他リージョンにコピーすることで利用可能です。</details><br/>
+
+### 問題12. <br/>DDoS攻撃に対して保護するために利用されるサービスはどれでしょうか。
+<details><summary>1. Amazon Inspector</summary>1.は不正解です。<br/>Amazon Inspector は自動的にアプリケーションを評価し、露出、脆弱性、ベストプラクティスからの逸脱がないかどうかを確認する評価ツールです。</details><br/>
+<details><summary>2. AWS Shield</summary>正解です。<br/>AWS Shield はマネージド型の分散サービス妨害 (DDoS) に対する保護サービスで、AWS で実行しているアプリケーションを保護します。</details><br/>
+<details><summary>3. AWS Artifact</summary>3.は不正解です。<br/>AWS Artifact は、重要なコンプライアンス関連情報の頼りになる一元管理型のリソースです。<br/>AWS Artifact では、AWS のセキュリティおよびコンプライアンスレポートと特定のオンライン契約にオンデマンドでアクセスできます。</details><br/>
+<details><summary>4. AWS X-ray</summary>4.は不正解です。<br/>X-Ray を使用すると、アプリケーションやその基盤となるサービスの実行状況を把握し、パフォーマンスの問題やエラーの根本原因を特定して、トラブルシューティングを行えます。</details><br/>
+
+### 問題13. <br/>EBSの特徴として正しい内容を選択してください。
+<details><summary>1. EBSは必ず１つのEC2インスタンスでしか利用できない</summary>1.は不正解です。<br/>EBSは必ず１つのEC２インスタンスでしかアタッチできないわけではありません。<br/>プロビジョンドIOPSは複数インスタンスで共有可能です。</details><br/>
+<details><summary>2. EBSはインターネットから直接にストレージとして利用可能である</summary>2.は不正解です。<br/>EBSはインターネットから直接に利用できません。インターネットからアクセス可能なストレージとして利用できるのはS3です。</details><br/>
+<details><summary>3. EBSは複数AZにデータがバックアップされている</summary>3.は不正解です。<br/>複数AZにEBSデータがバックアップされてはいません。</details><br/>
+<details><summary>4. EBSはAZ内の複数サーバーでデータがレプリケーションされている</summary>正解です。<br/>EBSはデフォルトでAZ内の複数サーバーにデータがレプリケーションされているため、冗長化されています。</details><br/>
+
+### 問題14. <br/>S3においてオブジェクト単位でデータアクセス権限を設定する方法を選択してください。
+<details><summary>1. S3バケットポリシーを設定する</summary>1.は不正解です。<br/>バケットポリシーはバケット全体に対するアクセス制御を実施する場合に利用します。</details><br/>
+<details><summary>2. アクセスコントロールポリシーを設定する</summary>正解です。<br/>S3のオブジェクト単位でアクセス管理を実施する場合は、オブジェクトに対するアクセスコントロールポリシーを設定することが必要です。</details><br/>
+<details><summary>3. パブリックアクセスブロックを設定する</summary>3.は不正解です。<br/>パブリックアクセスブロックはバケット全体にインターネットからのアクセスを許可する場合に利用します。</details><br/>
+<details><summary>4. IAMポリシーを設定する</summary>4.は不正解です。<br/>IAMポリシーはS3の利用権限をユーザーや他のリソースに付与する場合に利用します。</details><br/>
+
+### 問題15. <br/>利用頻度は低いため中長期保存したいデータがあります。<br/>しかしながら、たまにデータの取り出しが発生するため、取り出しに時間がかかるようでは業務に支障があります。<br/>このデータはそれほど重要ではありません。<br/>最もコストを抑えたい場合にどのストレージタイプを選択するべきでしょうか？
+<details><summary>1. STANDARD</summary>1.は不正解です。<br/>S3の標準ストレージクラスはS３の中では最もコストが高い頻繁に利用するデータストレージとして利用します。</details><br/>
+<details><summary>2. STANDARD-IA</summary>2.は不正解です。<br/>Amazon S3 Standard-IA は、アクセスが頻繁ではない重要なマスターデータの長期保存に適しています。</details><br/>
+<details><summary>3. One Zone-IA</summary>正解です。<br/>S3 One Zone-IA はアクセス頻度が低いデータをレジリエンスが低い単一アベイラビリティーゾーンに保存することでデータ保存コストを節約します。<br/>S3 One Zone-IAはバックアップのコピーや再作成可能なデータサマリーなど、アクセス頻度が低い重要ではないデータを低価格で保存するのに向いており、最適なストレージタイプとなります。</details><br/>
+<details><summary>4. RRS</summary>4.は不正解です。<br/>RRSは現在AWSで非推奨とされているストレージタイプです。</details><br/>
+
+### 問題16. <br/>VPCの特徴として間違っている内容を選択してください。
+<details><summary>1. 各リージョンにデフォルトVPCは１つずつ自動で設置される</summary>1.は不正解です。<br/>AWSアカウントを登録すると各リージョンにデフォルトVPCが１つずつ自動で設置されます。</details><br/>
+<details><summary>2. プライベートネットワークを構成することが出来る</summary>2.は不正解です。<br/>VPC内にプライベートサブネットを構成することでプライベートネットワークを構成することができます。</details><br/>
+<details><summary>3. １つ以上のVPCをリージョン内に設置することが出来る</summary>3.は不正解です。<br/>各リージョンに１つ以上のVPCを利用して、インフラを設置することが可能です。</details><br/>
+<details><summary>4. VPCはAZを指定して設置する</summary>正解です。<br/>VPCはリージョンを指定して設置するため、AZを指定する必要はありません。<br/>サブネットを作成する際にリージョン内のAZを指定する必要があります。</details><br/>
+
+### 問題17. <br/>次のうちネットワークACLの特徴を選択してください。
+<details><summary>1. インスタンスのトラフィックをコントロールする</summary>1.は不正解です。<br/>インスタンスのトラフィックをコントロールするのはセキュリティグループです。</details><br/>
+<details><summary>2. VPC全体のトラフィックをコントロールする</summary>2.は不正解です。<br/>VPC全体のトラフィックをコントロールするのではなく、サブネットのトラフィックを制御します。</details><br/>
+<details><summary>3. ステートレスである</summary>正解です。<br/>ネットワークACLはステートレスであるため、インバウンドとアウトバウンドの両方を設定することが必要です。</details><br/>
+<details><summary>4. 通常はインバウンドの許可設定のみを行う</summary>4.は不正解です。<br/>通常はインバウンドの許可設定のみを行うだけで良いのはステートフルであるセキュリティグループです。</details><br/>
+
+### 問題18. <br/>AWSのデータベースサービスを利用して顧客データのトランザクション処理を実行しつつ、そのデータ内容に基づいたレポート生成を実行するために最適なデータベースを選択してください。
+<details><summary>1. アプリケーションにRDSを利用して、リードレプリカでレポーティング処理を実行する</summary>正解です。<br/>顧客データ処理にRDSを利用して、リードレプリカでレポーティング処理を実行することができます。<br/>リードレプリカは読取専用のRDSの追加インスタンスです。<br/>これをレポート処理などの読取専用処理に利用することで負荷分散を実現することができます。</details><br/>
+<details><summary>2. アプリケーションにRDSを利用して、Redshiftでレポーティング処理を実行する</summary>2.は不正解です。<br/>Redshiftはレポーティング処理向けではなく、データ解析用です。<br/>RDSと連携してレポーティングすることができないため不適切です。</details><br/>
+<details><summary>3. アプリケーションにRedshiftを利用して、レポーティング処理を実行する</summary>3.は不正解です。<br/>顧客データ処理にRedshiftを利用するのは最適なデータベース構成ではありません。</details><br/>
+<details><summary>4. アプリケーションにRedshiftを利用して、QuickSightでレポーティング処理を実行する</summary>4.は不正解です。<br/>顧客データ処理にRedshiftを利用するのは最適なデータベース構成ではありません。</details><br/>
+
+### 問題19. <br/>E社のシステムはグローバルに利用されておりSQL型のRDBと連携しています。<br/>AWSに移行する際のポイントはなんでしょうか？
+<details><summary>1. RDSを利用して、既に利用しているMySQLを使ってすぐに移行を実施する</summary>1.は不正解です。<br/>RDS MySQLを使ってすぐに移行を実施するのは正しくありません。</details><br/>
+<details><summary>2. RDSの制限事項が適合しているかどうかの検証を実施する</summary>正解です。<br/>MySQLをRDSに移行する際は、RDSの制限事項が適合しているかを検証することは必要不可欠です。<br/>したがって、RDS MySQLを使ってすぐに移行を実施するのは正しくありません。<br/>データベース仕様のギャップ分析をおこなって、現状のデータ処理が適用可否を判断して、移行方法を判定します。</details><br/>
+<details><summary>3. RDSのMySQLのバージョンにおいて、最新版を適用する</summary>3.は不正解です。<br/>現在利用しているSQL業務と比較して、最適なバージョンを選択することが正しいです。<br/>必ずしも最新版にするべきではありません。</details><br/>
+<details><summary>4. まずはEC2インスタンスにデータベースエンジンをインストールしてRDBSを移行することを検討する</summary>4.は不正解です。<br/>EC2インスタンスにデータベースエンジンをインストールしてRDBSを移行する場合は、RDSが要件に合わないと判断された場合です。</details><br/>
+
+### 問題20. <br/>EC2インスタンスのトラフィック情報を取得するために利用するべきサービスを選択してください。
+<details><summary>1. CloudWatch Logs</summary>正解です。<br/>Amazon CloudWatch Logs を使用して、Amazon Elastic Compute Cloud (Amazon EC2) インスタンス、AWS CloudTrail、Route 53、およびその他のソースのトラフィックのログファイルの監視、保存、アクセスができます。</details><br/>
+<details><summary>2. CloudWatch Agent</summary>2.は不正解です。<br/>CloudWatch AgentはEC2インスタンス内部のメトリクスを取得するためにインストールするエージェントです。<br/>トラフィックログを取得する際には必要ありません。</details><br/>
+<details><summary>3. CloudWatch拡張モニタリング</summary>3.は不正解です。<br/>CloudWatch拡張モニタリングはAmazon RDS DB インスタンスが実行されているオペレーティングシステム (OS) のリアルタイムのメトリクスを取得する機能です。</details><br/>
+<details><summary>4. CloudWatch Events</summary>4.は不正解です。<br/>CloudWatch Events を使用して、アマゾン ウェブ サービス (AWS) リソースでの変更を示すイベントをモニタリングすることができます。</details><br/>
+
+### 問題21. <br/>CloudWatchの特徴として正しい内容を選択してください。
+<details><summary>1. CloudWatchを有効化することで、初めてモニタリングを開始する</summary>1.は不正解です。<br/>CloudWatchのモニタリング対象となるAWSリソースに応じて、AWSリソースを利用すると同時に自動でモニタリングを開始します。</details><br/>
+<details><summary>2. CloudWatchのモニタリングはオンプレミス環境には適用できない</summary>2.は不正解です。<br/>CloudWatchのモニタリングをオンプレミス環境に適用する設定が可能です。</details><br/>
+<details><summary>3. CloudWatchを自社のデータセンターに構築することが出来る</summary>正解です。<br/>AWS Outposts を利用することでCloudWatchをオンプレミス環境にインストールして利用することができます。<br/>AWS OutpostsはAWS のインフラストラクチャ、AWS のサービス、API、およびツールをほぼすべてのデータセンター、コロケーションスペース、オンプレミスの施設に拡張して利用することができるサービスです。<br/>これを利用して、CloudWatchを自社のデータセンターに構築することができます。</details><br/>
+<details><summary>4. CloudWatchは全て無料で利用できる</summary>4.は不正解です。<br/>CloudWatchは拡張モニタリングなどを利用する際に料金がかかります。</details><br/>
+
+### 問題22. <br/>AWS Organizationsを利用することによって、値段が安くなる可能性があるサービスを選択してください。
+<details><summary>1. S3</summary>正解です。<br/>AWS Organizationsを利用して、複数アカウントを統合することでボリュームディスカウントをまとめることができます。<br/>利用データ量が多ければ多いほど、単価が安くなるようにボリュームディスカウントの価格帯がS3には設定されています。<br/>したがって、個別のAWSアカウントで支払いをするよりも、全アカウントの利用量を統合する方がS3の利用料金が安くなる可能性があります。</details><br/>
+<details><summary>2. EC2インスタンス</summary>2.は不正解です。<br/>AWS Organizationsを利用して、EC2インスタンスのリザーブドインスタンスをアカウント間で共有することができますが、これはボリュームディスカウントではありません。</details><br/>
+<details><summary>3. CloudWatchの有料オプション</summary>3.は不正解です。<br/>CloudWatchは有料オプションがありますが、ボリュームディスカウントはありません。</details><br/>
+<details><summary>4. ElastiCache</summary>4.は不正解です。<br/>ElastiCacheにはボリュームディスカウントはありません。</details><br/>
+
+### 問題23. <br/>１年間利用するアプリケーション用にEC２インスタンスを購入しようと考えています。<br/>このインスタンスは一定の処理量がコンスタントに決まっています。<br/>この場合に選択するべき購入オプションを選択してください。
+<details><summary>1. Saving Planを利用する</summary>正解です。<br/>Savings Plans は1 年または 3 年の期間で、一貫したコンピューティング使用量 (例: USD/時間で測定) を利用するという契約することで割引価格が適用される料金モデルです。<br/>このモデルではEC2、Lambda、Fargateに低額な利用料金が設定されています。<br/>EC2 InstanceのSavings Plans では最大 72% の節約を提供します。</details><br/>
+<details><summary>2. リザーブドインスタンスを利用する</summary>2.は不正解です。<br/>リザーブドインスタンスは１年間の利用期間を予約する購入が可能です。<br/>しかしながら、インスタンスは一定の処理量がコンスタントに決まっている場合は、一貫したコンピューティング使用量を契約するSavings Plans の方が適切な購入方式となります。</details><br/>
+<details><summary>3. スケジュールドリザーブドインスタンスを利用する</summary>3.は不正解です。<br/>スケジュールドリザーブドインスタンスは週１日24時間利用するといった定期利用を契約する購入オプションです。</details><br/>
+<details><summary>4. スポットインスタンスを利用する</summary>4.は不正解です。<br/>１年間利用するアプリケーション用にスポットインスタンスは利用できません。</details><br/>
+
+### 問題24. <br/>VPC peeringの特徴として間違っているものを選択してください。
+<details><summary>1. 異なるAWSアカウント間のVPC間をピア接続可能</summary>1.は不正解です。<br/>ピア接続先となるAWSアカウントでの承認手続きが必要となりますが、異なるAWSアカウントのVPC間をピア接続は可能です。</details><br/>
+<details><summary>2. 全リージョン間で異なるVPC間のピア接続が可能である</summary>正解です。<br/>VPC Pearingを利用することで全てのリージョンのVPC間のピア接続が可能となるわけではありません。<br/>例えば、中国国外のVPCから中国内部のリージョン内にあるVPCには接続することができません。</details><br/>
+<details><summary>3. 単一障害点や帯域幅のボトルネックは存在しない</summary>3.は不正解です。<br/>AWS側で単一障害点や帯域幅のボトルネックは存在しないように管理されています。</details><br/>
+<details><summary>4. 特定のVPCは接続したいVPCと直接Peeringする必要がある</summary>4.は不正解です。<br/>接続したいVPCとは直接Peeringする必要があります。</details><br/>
+
+### 問題25. <br/>EFSについて正しい内容を選択してください。
+<details><summary>1. EFSはマルチリージョンにファイルを分散保持している</summary>1.は不正解です。<br/>EFSはマルチリージョンではなくて、複数AZにファイルを分散して保存しています。</details><br/>
+<details><summary>2. SMBプロトコルを利用できる</summary>2.は不正解です。<br/>EFSはSMBプロトコルを利用できません。SMBプロトコルを利用できるのはAmazon FSx for Windowsです。</details><br/>
+<details><summary>3. EFSは複数のEC2インスタンスから利用できる</summary>正解です。<br/>EFSは複数のEC２インスタンスから利用できるファイル型ストレージです。</details><br/>
+<details><summary>4. Windowsファイルサーバーと互換性がある</summary>4.は不正解です。<br/>Windowsファイルサーバーと互換性があるのはAmazon FSx for Windowsです。</details><br/>
+
+### 問題26. <br/>サーバーを利用しないでNodeJsのプログラムコードを実行したい場合のサービスを選択してください。
+<details><summary>1. Lambda</summary>正解です。<br/>AWS Lambda を使用すれば、サーバーのプロビジョニングや管理なしにコードを実行できます。<br/>LambdaはNodeJsのプログラムコードを実行することができます。</details><br/>
+<details><summary>2. EC2</summary>2.は不正解です。<br/>EC2は仮想サーバーを構成するサービスです。</details><br/>
+<details><summary>3. Lightsail</summary>3.は不正解です。<br/>Lightsailは小規模なWEBアプリケーションなどに最適な仮想プライベートサーバーです。</details><br/>
+<details><summary>4. Amazon ECS</summary>4.は不正解です。<br/>ECSはEC2などのサーバー型の起動タイプを利用してアプリケーションを実行します。</details><br/>
+
+### 問題27. <br/>次の中でユーザーの責任範囲でセキュリティ対応として必要なタスクはどれでしょうか。
+<details><summary>1. EC2インスタンスが起動しているサーバーの脆弱性対応</summary>1.は不正解です。<br/>EC2インスタンスが起動している物理的なサーバーの脆弱性対応はAWSのインフラ運用管理の範囲となります。</details><br/>
+<details><summary>2. ハイパーバイザーのアップデート</summary>2.は不正解です。<br/>ハイパーバイザーのアップデートはAWSの仮想化環境の管理であり、AWSが対応します。</details><br/>
+<details><summary>3. EC2インスタンスで利用しているデータ保護</summary>正解です。<br/>EC2インスタンスをサーバーとして利用すると、そこで利用するデータはEBSまたはインスタンスストアに保存されます。<br/>そして、ユーザーがEBSのデータ保護は有効化するなどの対応が求められます。</details><br/>
+<details><summary>4. ネットワーク機器の保護</summary>4.は不正解です。<br/>ネットワーク機器の保護はインフラ環境の保護であるため、AWSが対応します。</details><br/>
+
+### 問題28. <br/>次のうちKinesisについて正しい内容を選択してください。
+<details><summary>1. </summary>1.は不正解です。<br/></details><br/>
+<details><summary>2. </summary>2.は不正解です。<br/></details><br/>
+<details><summary>3. </summary>正解です。<br/></details><br/>
+<details><summary>4. </summary>4.は不正解です。<br/></details><br/>
+
+### 問題29. <br/>
+<details><summary>1. </summary>1.は不正解です。<br/></details><br/>
+<details><summary>2. </summary>2.は不正解です。<br/></details><br/>
+<details><summary>3. </summary>3.は不正解です。<br/></details><br/>
+<details><summary>4. </summary>4.は不正解です。<br/></details><br/>
+
+### 問題30. <br/>
+<details><summary>1. </summary>1.は不正解です。<br/></details><br/>
+<details><summary>2. </summary>2.は不正解です。<br/></details><br/>
+<details><summary>3. </summary>3.は不正解です。<br/></details><br/>
+<details><summary>4. </summary>4.は不正解です。<br/></details><br/>
+
+### 問題31. <br/>
+<details><summary>1. </summary>1.は不正解です。<br/></details><br/>
+<details><summary>2. </summary>2.は不正解です。<br/></details><br/>
+<details><summary>3. </summary>3.は不正解です。<br/></details><br/>
+<details><summary>4. </summary>4.は不正解です。<br/></details><br/>
+
+### 問題32. <br/>
+<details><summary>1. </summary>1.は不正解です。<br/></details><br/>
+<details><summary>2. </summary>2.は不正解です。<br/></details><br/>
+<details><summary>3. </summary>3.は不正解です。<br/></details><br/>
+<details><summary>4. </summary>4.は不正解です。<br/></details><br/>
+
+### 問題33. <br/>
+<details><summary>1. </summary>1.は不正解です。<br/></details><br/>
+<details><summary>2. </summary>2.は不正解です。<br/></details><br/>
+<details><summary>3. </summary>3.は不正解です。<br/></details><br/>
+<details><summary>4. </summary>4.は不正解です。<br/></details><br/>
+
+### 問題34. <br/>
+<details><summary>1. </summary>1.は不正解です。<br/></details><br/>
+<details><summary>2. </summary>2.は不正解です。<br/></details><br/>
+<details><summary>3. </summary>3.は不正解です。<br/></details><br/>
+<details><summary>4. </summary>4.は不正解です。<br/></details><br/>
+
+### 問題35. <br/>
+<details><summary>1. </summary>1.は不正解です。<br/></details><br/>
+<details><summary>2. </summary>2.は不正解です。<br/></details><br/>
+<details><summary>3. </summary>3.は不正解です。<br/></details><br/>
+<details><summary>4. </summary>4.は不正解です。<br/></details><br/>
+
+### 問題36. <br/>
+<details><summary>1. </summary>1.は不正解です。<br/></details><br/>
+<details><summary>2. </summary>2.は不正解です。<br/></details><br/>
+<details><summary>3. </summary>3.は不正解です。<br/></details><br/>
+<details><summary>4. </summary>4.は不正解です。<br/></details><br/>
+
+### 問題37. <br/>
+<details><summary>1. </summary>1.は不正解です。<br/></details><br/>
+<details><summary>2. </summary>2.は不正解です。<br/></details><br/>
+<details><summary>3. </summary>3.は不正解です。<br/></details><br/>
+<details><summary>4. </summary>4.は不正解です。<br/></details><br/>
+
+### 問題38. <br/>
+<details><summary>1. </summary>1.は不正解です。<br/></details><br/>
+<details><summary>2. </summary>2.は不正解です。<br/></details><br/>
+<details><summary>3. </summary>3.は不正解です。<br/></details><br/>
+<details><summary>4. </summary>4.は不正解です。<br/></details><br/>
+
+### 問題39. <br/>
+<details><summary>1. </summary>1.は不正解です。<br/></details><br/>
+<details><summary>2. </summary>2.は不正解です。<br/></details><br/>
+<details><summary>3. </summary>3.は不正解です。<br/></details><br/>
+<details><summary>4. </summary>4.は不正解です。<br/></details><br/>
+
+### 問題40. <br/>
+<details><summary>1. </summary>1.は不正解です。<br/></details><br/>
+<details><summary>2. </summary>2.は不正解です。<br/></details><br/>
+<details><summary>3. </summary>3.は不正解です。<br/></details><br/>
+<details><summary>4. </summary>4.は不正解です。<br/></details><br/>
+
+### 問題41. <br/>
+<details><summary>1. </summary>1.は不正解です。<br/></details><br/>
+<details><summary>2. </summary>2.は不正解です。<br/></details><br/>
+<details><summary>3. </summary>3.は不正解です。<br/></details><br/>
+<details><summary>4. </summary>4.は不正解です。<br/></details><br/>
+
+### 問題42. <br/>
+<details><summary>1. </summary>1.は不正解です。<br/></details><br/>
+<details><summary>2. </summary>2.は不正解です。<br/></details><br/>
+<details><summary>3. </summary>3.は不正解です。<br/></details><br/>
+<details><summary>4. </summary>4.は不正解です。<br/></details><br/>
+
+### 問題43. <br/>
+<details><summary>1. </summary>1.は不正解です。<br/></details><br/>
+<details><summary>2. </summary>2.は不正解です。<br/></details><br/>
+<details><summary>3. </summary>3.は不正解です。<br/></details><br/>
+<details><summary>4. </summary>4.は不正解です。<br/></details><br/>
+
+### 問題44. <br/>
+<details><summary>1. </summary>1.は不正解です。<br/></details><br/>
+<details><summary>2. </summary>2.は不正解です。<br/></details><br/>
+<details><summary>3. </summary>3.は不正解です。<br/></details><br/>
+<details><summary>4. </summary>4.は不正解です。<br/></details><br/>
+
+### 問題45. <br/>
+<details><summary>1. </summary>1.は不正解です。<br/></details><br/>
+<details><summary>2. </summary>2.は不正解です。<br/></details><br/>
+<details><summary>3. </summary>3.は不正解です。<br/></details><br/>
+<details><summary>4. </summary>4.は不正解です。<br/></details><br/>
+
+### 問題46. <br/>
+<details><summary>1. </summary>1.は不正解です。<br/></details><br/>
+<details><summary>2. </summary>2.は不正解です。<br/></details><br/>
+<details><summary>3. </summary>3.は不正解です。<br/></details><br/>
+<details><summary>4. </summary>4.は不正解です。<br/></details><br/>
+
+### 問題47. <br/>
+<details><summary>1. </summary>1.は不正解です。<br/></details><br/>
+<details><summary>2. </summary>2.は不正解です。<br/></details><br/>
+<details><summary>3. </summary>3.は不正解です。<br/></details><br/>
+<details><summary>4. </summary>4.は不正解です。<br/></details><br/>
+
+### 問題48. <br/>
+<details><summary>1. </summary>1.は不正解です。<br/></details><br/>
+<details><summary>2. </summary>2.は不正解です。<br/></details><br/>
+<details><summary>3. </summary>3.は不正解です。<br/></details><br/>
+<details><summary>4. </summary>4.は不正解です。<br/></details><br/>
+
+### 問題49. <br/>
+<details><summary>1. </summary>1.は不正解です。<br/></details><br/>
+<details><summary>2. </summary>2.は不正解です。<br/></details><br/>
+<details><summary>3. </summary>3.は不正解です。<br/></details><br/>
+<details><summary>4. </summary>4.は不正解です。<br/></details><br/>
+
+### 問題50. <br/>
+<details><summary>1. </summary>1.は不正解です。<br/></details><br/>
+<details><summary>2. </summary>2.は不正解です。<br/></details><br/>
+<details><summary>3. </summary>3.は不正解です。<br/></details><br/>
+<details><summary>4. </summary>4.は不正解です。<br/></details><br/>
+
+### 問題51. <br/>
+<details><summary>1. </summary>1.は不正解です。<br/></details><br/>
+<details><summary>2. </summary>2.は不正解です。<br/></details><br/>
+<details><summary>3. </summary>3.は不正解です。<br/></details><br/>
+<details><summary>4. </summary>4.は不正解です。<br/></details><br/>
+
+### 問題52. <br/>
+<details><summary>1. </summary>1.は不正解です。<br/></details><br/>
+<details><summary>2. </summary>2.は不正解です。<br/></details><br/>
+<details><summary>3. </summary>3.は不正解です。<br/></details><br/>
+<details><summary>4. </summary>4.は不正解です。<br/></details><br/>
+
+### 問題53. <br/>
+<details><summary>1. </summary>1.は不正解です。<br/></details><br/>
+<details><summary>2. </summary>2.は不正解です。<br/></details><br/>
+<details><summary>3. </summary>3.は不正解です。<br/></details><br/>
+<details><summary>4. </summary>4.は不正解です。<br/></details><br/>
+
+### 問題54. <br/>
+<details><summary>1. </summary>1.は不正解です。<br/></details><br/>
+<details><summary>2. </summary>2.は不正解です。<br/></details><br/>
+<details><summary>3. </summary>3.は不正解です。<br/></details><br/>
+<details><summary>4. </summary>4.は不正解です。<br/></details><br/>
+
+### 問題55. <br/>
+<details><summary>1. </summary>1.は不正解です。<br/></details><br/>
+<details><summary>2. </summary>2.は不正解です。<br/></details><br/>
+<details><summary>3. </summary>3.は不正解です。<br/></details><br/>
+<details><summary>4. </summary>4.は不正解です。<br/></details><br/>
+
+### 問題56. <br/>
+<details><summary>1. </summary>1.は不正解です。<br/></details><br/>
+<details><summary>2. </summary>2.は不正解です。<br/></details><br/>
+<details><summary>3. </summary>3.は不正解です。<br/></details><br/>
+<details><summary>4. </summary>4.は不正解です。<br/></details><br/>
+
+### 問題57. <br/>
+<details><summary>1. </summary>1.は不正解です。<br/></details><br/>
+<details><summary>2. </summary>2.は不正解です。<br/></details><br/>
+<details><summary>3. </summary>3.は不正解です。<br/></details><br/>
+<details><summary>4. </summary>4.は不正解です。<br/></details><br/>
+
+### 問題58. <br/>
+<details><summary>1. </summary>1.は不正解です。<br/></details><br/>
+<details><summary>2. </summary>2.は不正解です。<br/></details><br/>
+<details><summary>3. </summary>3.は不正解です。<br/></details><br/>
+<details><summary>4. </summary>4.は不正解です。<br/></details><br/>
+
+### 問題59. <br/>
+<details><summary>1. </summary>1.は不正解です。<br/></details><br/>
+<details><summary>2. </summary>2.は不正解です。<br/></details><br/>
+<details><summary>3. </summary>3.は不正解です。<br/></details><br/>
+<details><summary>4. </summary>4.は不正解です。<br/></details><br/>
+
+### 問題60. <br/>
+<details><summary>1. </summary>1.は不正解です。<br/></details><br/>
+<details><summary>2. </summary>2.は不正解です。<br/></details><br/>
+<details><summary>3. </summary>3.は不正解です。<br/></details><br/>
+<details><summary>4. </summary>4.は不正解です。<br/></details><br/>
+
+### 問題61. <br/>
+<details><summary>1. </summary>1.は不正解です。<br/></details><br/>
+<details><summary>2. </summary>2.は不正解です。<br/></details><br/>
+<details><summary>3. </summary>3.は不正解です。<br/></details><br/>
+<details><summary>4. </summary>4.は不正解です。<br/></details><br/>
+
+### 問題62. <br/>
+<details><summary>1. </summary>1.は不正解です。<br/></details><br/>
+<details><summary>2. </summary>2.は不正解です。<br/></details><br/>
+<details><summary>3. </summary>3.は不正解です。<br/></details><br/>
+<details><summary>4. </summary>4.は不正解です。<br/></details><br/>
+
+### 問題63. <br/>
+<details><summary>1. </summary>1.は不正解です。<br/></details><br/>
+<details><summary>2. </summary>2.は不正解です。<br/></details><br/>
+<details><summary>3. </summary>3.は不正解です。<br/></details><br/>
+<details><summary>4. </summary>4.は不正解です。<br/></details><br/>
+
+### 問題64. <br/>
+<details><summary>1. </summary>1.は不正解です。<br/></details><br/>
+<details><summary>2. </summary>2.は不正解です。<br/></details><br/>
+<details><summary>3. </summary>3.は不正解です。<br/></details><br/>
+<details><summary>4. </summary>4.は不正解です。<br/></details><br/>
+
+### 問題65. <br/>
+<details><summary>1. </summary>1.は不正解です。<br/></details><br/>
+<details><summary>2. </summary>2.は不正解です。<br/></details><br/>
+<details><summary>3. </summary>3.は不正解です。<br/></details><br/>
+<details><summary>4. </summary>4.は不正解です。<br/></details><br/>
