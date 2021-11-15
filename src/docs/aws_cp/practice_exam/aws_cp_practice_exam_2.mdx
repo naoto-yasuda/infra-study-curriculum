@@ -167,229 +167,237 @@
 <details><summary>4. ネットワーク機器の保護</summary>4.は不正解です。<br/>ネットワーク機器の保護はインフラ環境の保護であるため、AWSが対応します。</details><br/>
 
 ### 問題28. <br/>次のうちKinesisについて正しい内容を選択してください。
-<details><summary>1. </summary>1.は不正解です。<br/></details><br/>
-<details><summary>2. </summary>2.は不正解です。<br/></details><br/>
-<details><summary>3. </summary>正解です。<br/></details><br/>
-<details><summary>4. </summary>4.は不正解です。<br/></details><br/>
+<details><summary>1. Amazon Kinesis Data Streamsはクラスター処理によりデータを並列処理する</summary>1.は不正解です。<br/>Amazon Kinesis Data Streamsはシャードによりデータを並列処理することができます。</details><br/>
+<details><summary>2. Amazon Kinesis Data Firehoseはストリームデータを収集することが出来る</summary>2.は不正解です。<br/>Amazon Kinesis Data Firehose は、データストリームを AWS データストアにキャプチャ、変換、ロードする配信処理用のサービスです。</details><br/>
+<details><summary>3. Amazon Kinesis Data Analyticsを利用することでリアルタイム解析が可能である</summary>正解です。<br/>Amazon Kinesis Data Analytics はストリーミングデータのリアルタイム分析を実施します。<br/>ユーザーはこれを利用してApache Flink アプリ、ストリーミング Java アプリ、リアルタイム SQL クエリを構築することが可能です。</details><br/>
+<details><summary>4. Kinesis AgentはKinesisデータを蓄積する</summary>4.は不正解です。<br/>Amazon Kinesis エージェントはスタンドアロンの Java ソフトウェアアプリケーションにインストールすることで、データ収集をサポートするツールです。<br/>エージェントから Kinesis Data Firehose にデータを送信しますが、データを蓄積することはできません。</details><br/>
 
-### 問題29. <br/>
-<details><summary>1. </summary>1.は不正解です。<br/></details><br/>
-<details><summary>2. </summary>2.は不正解です。<br/></details><br/>
-<details><summary>3. </summary>3.は不正解です。<br/></details><br/>
-<details><summary>4. </summary>4.は不正解です。<br/></details><br/>
+### 問題29. <br/>3年間利用するために購入していたリザーブドインスタンスが1年で必要がなくなりました。<br/>このリザーブドインスタンスはコンバーティブルタイプです。<br/>どのような対応をするべきでしょうか。
+<details><summary>1. AWS Marketplaceで販売する</summary>1.は不正解です。<br/>AWS Maketplaceにおいて販売可能なリザーブドインスタンスはスタンダードタイプです。</details><br/>
+<details><summary>2. Amazon Marketplaceで販売する</summary>2.は不正解です。<br/>Amazon MaketplaceはAmazonのECサイトです。</details><br/>
+<details><summary>3. 何も出来ない</summary>正解です。<br/>リザーブドインスタンスのコンバーティブルタイプは販売することも、スタンダードに変更することもできません。</details><br/>
+<details><summary>4. スタンダードに変更する</summary>4.は不正解です。<br/>コンバーティブルタイプからスタンダードに変更することはできません。</details><br/>
 
-### 問題30. <br/>
-<details><summary>1. </summary>1.は不正解です。<br/></details><br/>
-<details><summary>2. </summary>2.は不正解です。<br/></details><br/>
-<details><summary>3. </summary>3.は不正解です。<br/></details><br/>
-<details><summary>4. </summary>4.は不正解です。<br/></details><br/>
+### 問題30. <br/>AWSへと移行する際の計画段階で利用できるサービスを選択してください。（２つ選択してください）
+<details><summary>1. AWS ADS</summary>正解です。<br/>AWS Application Discovery Service では、オンプレミス環境にあるアプリケーションに対するプロファイルが自動的に作成されて以降に必要なデータを取得できます。<br/>このサービスはAWS へのアプリケーションの迅速かつ確実な移行計画を立案する際に利用できます。</details><br/>
+<details><summary>2. TCO計算ツール</summary>正解です。<br/>TCO計算ツールを利用してAWSクラウドを利用した場合のコスト予測を算出することができます。<br/>これを利用して計画段階において、AWS利用の費用対効果を分析して評価することが可能です。</details><br/>
+<details><summary>3. 簡易見積りツール</summary>3.は不正解です。<br/>簡易見積もりツールは個別のAWSリソースの利用料金を算出する際に利用します。<br/>移行計画段階で利用するツールではありません。</details><br/>
+<details><summary>4. AWS DMS</summary>4.は不正解です。<br/>AWS DMSはデータベースの移行に利用するツールです。<br/>移行計画段階で利用するツールではありません。</details><br/>
+<details><summary>5. AWS SMS</summary>5.は不正解です。<br/>AWS SMSはサーバー移行に利用するツールです。<br/>移行計画段階で利用するツールではありません。</details><br/>
 
-### 問題31. <br/>
-<details><summary>1. </summary>1.は不正解です。<br/></details><br/>
-<details><summary>2. </summary>2.は不正解です。<br/></details><br/>
-<details><summary>3. </summary>3.は不正解です。<br/></details><br/>
-<details><summary>4. </summary>4.は不正解です。<br/></details><br/>
+### 問題31. <br/>オンプレミス環境にあるMySQLデータベースをAmazon RDSへと移行するために利用するべきサービスを選択してください。
+<details><summary>1. Amazon SNS</summary>1.は不正解です。<br/>Amazon SNSはフルマネージド型メッセージングサービスです。データベース移行には利用されません。</details><br/>
+<details><summary>2. Amazon DMS</summary>正解です。<br/>AWS Database Migration Service を使用すると、データベースを短期間で安全に AWS に移行できます。<br/>オンプレミス環境のデータベースをAmazon RDS、 Amazon Aurora、Amazon Redshift、 Amazon DynamoDB、または Amazon DocumentDB (MongoDB 互換) に移行する場合に利用することが可能です。</details><br/>
+<details><summary>3. Amazon AMS</summary>3.は不正解です。<br/>AMSはAmazon Marketing Services の略称であり、Amazon ECサイト内のサービスです。</details><br/>
+<details><summary>4. Amazon DLM</summary>4.は不正解です。<br/>Amazon Data Lifecycle Managerを使用すると、AWSリソースのライフサイクルを管理できます。<br/>指定されたリソースの操作を自動化するために使用されるライフサイクルポリシーを作成します。<br/>データベース移行には利用されません。</details><br/>
 
-### 問題32. <br/>
-<details><summary>1. </summary>1.は不正解です。<br/></details><br/>
-<details><summary>2. </summary>2.は不正解です。<br/></details><br/>
-<details><summary>3. </summary>3.は不正解です。<br/></details><br/>
-<details><summary>4. </summary>4.は不正解です。<br/></details><br/>
+### 問題32. <br/>契約関連の管理に利用するためのレポートを提供するサービスはどれでしょうか？
+<details><summary>1. Amazon GuardDuty</summary>1.は不正解です。<br/>Amazon GuardDuty は、AWS アカウントとワークロードを継続的にモニタリングし、悪意のあるアクティビティや不正なアクティビティから保護します。<br/>契約管理やレポートを提供するサービスではありません。</details><br/>
+<details><summary>2. IAM Access Analyzer</summary>2.は不正解です。<br/>AWS IAM Access Analyzer は外部エンティティと共有されている Amazon S3 バケットや IAM ロールを識別して、それらのアクセス分析を実施します。<br/>契約管理やレポートを提供するサービスではありません。</details><br/>
+<details><summary>3. CloudTrail</summary>3.は不正解です。<br/>CloudTrail ではAWS アカウントアクティビティのイベント履歴を把握できます。<br/>契約管理やレポートを提供するサービスではありません。</details><br/>
+<details><summary>4. AWS Artifact</summary>正解です。<br/>AWS Artifactは AWS との契約を確認、承認、管理できます。<br/>AWS Artifactは組織内の現在および将来のすべてのアカウントにおけるAWS との契約に適用することができます。</details><br/>
 
-### 問題33. <br/>
-<details><summary>1. </summary>1.は不正解です。<br/></details><br/>
-<details><summary>2. </summary>2.は不正解です。<br/></details><br/>
-<details><summary>3. </summary>3.は不正解です。<br/></details><br/>
-<details><summary>4. </summary>4.は不正解です。<br/></details><br/>
+### 問題33. <br/>利用中のAWSリソースのWell Architected Frameworkとの適合状況を解析・評価してくれるサポートプランはどれでしょうか。
+<details><summary>1. ベーシック</summary>1.は不正解です。<br/>エンタープライズプラン以外のサポートプランでは、Well Architected Frameworkに基づいた適用評価を受けることができません。</details><br/>
+<details><summary>2. 開発者</summary>2.は不正解です。<br/>エンタープライズプラン以外のサポートプランでは、Well Architected Frameworkに基づいた適用評価を受けることができません。</details><br/>
+<details><summary>3. ビジネス</summary>3.は不正解です。<br/>エンタープライズプラン以外のサポートプランでは、Well Architected Frameworkに基づいた適用評価を受けることができません。</details><br/>
+<details><summary>4. エンタープライズ</summary>正解です。<br/>AWSサポートエンタープライズプランユーザーは、利用しているAWSリソースや構築したアプリケーションに対して、Well Architected Frameworkに基づいた適用評価を受けることができます。</details><br/>
 
-### 問題34. <br/>
-<details><summary>1. </summary>1.は不正解です。<br/></details><br/>
-<details><summary>2. </summary>2.は不正解です。<br/></details><br/>
-<details><summary>3. </summary>3.は不正解です。<br/></details><br/>
-<details><summary>4. </summary>4.は不正解です。<br/></details><br/>
+### 問題34. <br/>AWS Lake Formationと連携可能なサービスとして間違っている内容を選択してください。
+<details><summary>1. Amazon Athena</summary>1.は不正解です。<br/>Lake FormationはS3などのサービスを利用したデータレイク構成を簡単に実現するためのサービスです。<br/>Lake Formationはデータベースとオブジェクトストレージからデータを収集およびカタログ化することで、S3へのデータ移動と解析を容易にします。<br/>機械学習アルゴリズムを使用してデータをクリーンアップおよび分類し、機密データへのアクセスを保護します。<br/><br/>これらのタスクが完了すると、ユーザーは一元化されたデータカタログにアクセスできるようになります。<br/>この データカタログ は、利用可能なデータセットおよびその適切な使用方法を示します。<br/>ユーザーはこのカタログを利用してApache Spark 向け Amazon Redshift、Amazon Athena、および (ベータ版) Amazon EMR などの分析や機械学習サービスと連携してデータレイクのデータ利用を構成できます。<br/>したがって、オプション１と２と４は連携可能なサービスであり、不正解の選択肢です。<br/><br/>したがって、Kinesisとの直接的な連携はないため、オプション３が正解となります。</details><br/>
+<details><summary>2. Amazon EMR</summary>2.は不正解です。<br/>Lake FormationはS3などのサービスを利用したデータレイク構成を簡単に実現するためのサービスです。<br/>Lake Formationはデータベースとオブジェクトストレージからデータを収集およびカタログ化することで、S3へのデータ移動と解析を容易にします。<br/>機械学習アルゴリズムを使用してデータをクリーンアップおよび分類し、機密データへのアクセスを保護します。<br/><br/>これらのタスクが完了すると、ユーザーは一元化されたデータカタログにアクセスできるようになります。<br/>この データカタログ は、利用可能なデータセットおよびその適切な使用方法を示します。<br/>ユーザーはこのカタログを利用してApache Spark 向け Amazon Redshift、Amazon Athena、および (ベータ版) Amazon EMR などの分析や機械学習サービスと連携してデータレイクのデータ利用を構成できます。<br/>したがって、オプション１と２と４は連携可能なサービスであり、不正解の選択肢です。<br/><br/>したがって、Kinesisとの直接的な連携はないため、オプション３が正解となります。</details><br/>
+<details><summary>3. Kinesis</summary>正解です。<br/>Lake FormationはS3などのサービスを利用したデータレイク構成を簡単に実現するためのサービスです。<br/>Lake Formationはデータベースとオブジェクトストレージからデータを収集およびカタログ化することで、S3へのデータ移動と解析を容易にします。<br/>機械学習アルゴリズムを使用してデータをクリーンアップおよび分類し、機密データへのアクセスを保護します。<br/><br/>これらのタスクが完了すると、ユーザーは一元化されたデータカタログにアクセスできるようになります。<br/>この データカタログ は、利用可能なデータセットおよびその適切な使用方法を示します。<br/>ユーザーはこのカタログを利用してApache Spark 向け Amazon Redshift、Amazon Athena、および (ベータ版) Amazon EMR などの分析や機械学習サービスと連携してデータレイクのデータ利用を構成できます。<br/>したがって、オプション１と２と４は連携可能なサービスであり、不正解の選択肢です。<br/><br/>したがって、Kinesisとの直接的な連携はないため、オプション３が正解となります。</details><br/>
+<details><summary>4. S3</summary>4.は不正解です。<br/>Lake FormationはS3などのサービスを利用したデータレイク構成を簡単に実現するためのサービスです。<br/>Lake Formationはデータベースとオブジェクトストレージからデータを収集およびカタログ化することで、S3へのデータ移動と解析を容易にします。<br/>機械学習アルゴリズムを使用してデータをクリーンアップおよび分類し、機密データへのアクセスを保護します。<br/><br/>これらのタスクが完了すると、ユーザーは一元化されたデータカタログにアクセスできるようになります。<br/>この データカタログ は、利用可能なデータセットおよびその適切な使用方法を示します。<br/>ユーザーはこのカタログを利用してApache Spark 向け Amazon Redshift、Amazon Athena、および (ベータ版) Amazon EMR などの分析や機械学習サービスと連携してデータレイクのデータ利用を構成できます。<br/>したがって、オプション１と２と４は連携可能なサービスであり、不正解の選択肢です。<br/><br/>したがって、Kinesisとの直接的な連携はないため、オプション３が正解となります。</details><br/>
 
-### 問題35. <br/>
-<details><summary>1. </summary>1.は不正解です。<br/></details><br/>
-<details><summary>2. </summary>2.は不正解です。<br/></details><br/>
-<details><summary>3. </summary>3.は不正解です。<br/></details><br/>
-<details><summary>4. </summary>4.は不正解です。<br/></details><br/>
+### 問題35. <br/>コンシェルジュサービスを利用可能なAWSサポートプランを選択してください。
+<details><summary>1. ベーシック</summary>1.は不正解です。<br/>ベーシック、開発者、ビジネスの各プランではコンシェルジュサポートは利用できません。</details><br/>
+<details><summary>2. 開発者</summary>2.は不正解です。<br/>ベーシック、開発者、ビジネスの各プランではコンシェルジュサポートは利用できません。</details><br/>
+<details><summary>3. ビジネス</summary>3.は不正解です。<br/>ベーシック、開発者、ビジネスの各プランではコンシェルジュサポートは利用できません。</details><br/>
+<details><summary>4. エンタープライズ</summary>正解です。<br/>AWSサポートのコンシェルジュサポートは技術以外の人的なサポートです。<br/>課金およびアカウントレベルのすべての質問に対処します。<br/>AWSサポートのエンタープライズプランのユーザーが利用可能となります。</details><br/>
 
-### 問題36. <br/>
-<details><summary>1. </summary>1.は不正解です。<br/></details><br/>
-<details><summary>2. </summary>2.は不正解です。<br/></details><br/>
-<details><summary>3. </summary>3.は不正解です。<br/></details><br/>
-<details><summary>4. </summary>4.は不正解です。<br/></details><br/>
+### 問題36. <br/>ElastiCache for Memcachedの特徴として正しい内容を選択してください。
+<details><summary>1. シンプルな構成で実施する</summary>正解です。<br/>Amazon ElastiCache Memcached  は、Memcached と互換性のあるインメモリ key-value ストアサービスです。<br/>Amazon ElastiCache Redisと比較して、Memcachedはシンプルな構成でタスク処理することができます。</details><br/>
+<details><summary>2. スナップショットを取得できる</summary>2.は不正解です。<br/>これらの特徴はすべてRedisの特徴です。</details><br/>
+<details><summary>3. フェイルオーバーを実施できる</summary>3.は不正解です。<br/>これらの特徴はすべてRedisの特徴です。</details><br/>
+<details><summary>4. レプリケーションが実施可能</summary>4.は不正解です。<br/>これらの特徴はすべてRedisの特徴です。</details><br/>
 
-### 問題37. <br/>
-<details><summary>1. </summary>1.は不正解です。<br/></details><br/>
-<details><summary>2. </summary>2.は不正解です。<br/></details><br/>
-<details><summary>3. </summary>3.は不正解です。<br/></details><br/>
-<details><summary>4. </summary>4.は不正解です。<br/></details><br/>
+### 問題37. <br/>アプリケーションに対するセキュリティやコンプライアンスに関する改善点などをレポートするサービスはどれでしょうか。
+<details><summary>1. Amazon Inspector</summary>正解です。<br/>Amazon Inspector は自動化されたセキュリティ評価サービスで、AWS にデプロイしたアプリケーションのセキュリティとコンプライアンスを向上させることができます。<br/>Amazon Inspector では、自動的にアプリケーションを評価し、露出、脆弱性、ベストプラクティスからの逸脱がないかどうかを確認できます。</details><br/>
+<details><summary>2. AWS Shield</summary>2.は不正解です。<br/>AWS Shield はマネージド型の分散サービス妨害 (DDoS) に対する保護サービスで、AWS で実行しているアプリケーションを保護します。</details><br/>
+<details><summary>3. AWS Artifact</summary>3.は不正解です。<br/>AWS Artifact は、重要なコンプライアンス関連情報の頼りになる一元管理型のリソースです。<br/>AWS Artifact では、AWS のセキュリティおよびコンプライアンスレポートと特定のオンライン契約にオンデマンドでアクセスできます。</details><br/>
+<details><summary>4. AWS X-ray</summary>4.は不正解です。<br/>X-Ray を使用すると、アプリケーションやその基盤となるサービスの実行状況を把握し、パフォーマンスの問題やエラーの根本原因を特定して、トラブルシューティングを行えます。</details><br/>
 
-### 問題38. <br/>
-<details><summary>1. </summary>1.は不正解です。<br/></details><br/>
-<details><summary>2. </summary>2.は不正解です。<br/></details><br/>
-<details><summary>3. </summary>3.は不正解です。<br/></details><br/>
-<details><summary>4. </summary>4.は不正解です。<br/></details><br/>
+### 問題38. <br/>AWS Shiledが自動的に適用されるサービスはどれでしょうか。
+<details><summary>1. CloudTrail</summary>1.は不正解です。<br/>その他のサービスはAWS Shield は自動で適用されません。</details><br/>
+<details><summary>2. ElastiCache</summary>2.は不正解です。<br/>その他のサービスはAWS Shield は自動で適用されません。</details><br/>
+<details><summary>3. EC2</summary>3.は不正解です。<br/>その他のサービスはAWS Shield は自動で適用されません。</details><br/>
+<details><summary>4. CloudFront</summary>正解です。<br/>AWS Shield Standard版はELB、CloudFront、Route53に自動的に適用されることで、DDoS攻撃から保護してくれています。</details><br/>
 
-### 問題39. <br/>
-<details><summary>1. </summary>1.は不正解です。<br/></details><br/>
-<details><summary>2. </summary>2.は不正解です。<br/></details><br/>
-<details><summary>3. </summary>3.は不正解です。<br/></details><br/>
-<details><summary>4. </summary>4.は不正解です。<br/></details><br/>
+### 問題39. <br/>AWSリソースの変更履歴を確認することができるサービスを選択してください。
+<details><summary>1. CloudTrail</summary>1.は不正解です。<br/>AWS CloudTrail はAWSのアクティビティログを取得するサービスです。<br/>CloudTrail を使用すると、AWS インフラストラクチャ全体でアカウントアクティビティをログに記録し、継続的に監視し、保持できます。</details><br/>
+<details><summary>2. CloudWatch</summary>2.は不正解です。<br/>CloudWatch はAWSリソースのモニタリングサービスです。<br/>アプリケーションを監視し、システム全体におけるパフォーマンスの変化に対応して、リソース使用率の最適化を行い、運用上の健全性を統括的に把握するためのデータと実用的なインサイトが提供されます。</details><br/>
+<details><summary>3. AWS Config</summary>正解です。<br/>AWS Config を使用すると、AWS リソース間の設定や関連性の変更状況を確認して、詳細なリソース設定の履歴を調べることできます。<br/>これにより、AWSリソース構成が社内基準に即しているのか検証することができ、コンプライアンス上のモニタリングを実行できます。</details><br/>
+<details><summary>4. API Gateway</summary>4.は不正解です。<br/>API Gateway はAPIを作成・管理するサービスです。<br/>リアルタイム双方向通信アプリケーションを実現する RESTful API および WebSocket API を作成することができます。</details><br/>
 
-### 問題40. <br/>
-<details><summary>1. </summary>1.は不正解です。<br/></details><br/>
-<details><summary>2. </summary>2.は不正解です。<br/></details><br/>
-<details><summary>3. </summary>3.は不正解です。<br/></details><br/>
-<details><summary>4. </summary>4.は不正解です。<br/></details><br/>
+### 問題40. <br/>AWSのインフラ設定をコード化してユーザー間で共有できるサービスを選択してください。
+<details><summary>1. AWS CloudFormation</summary>正解です。<br/>AWS CloudFormation は、JSONまたやYAMLコーディングファイルに基づいて、AWS環境で AWSリソースのモデリングおよびプロビジョニングを実施することができます。<br/>これにより、共通のインフラ設定をユーザー間で共有することが可能です。</details><br/>
+<details><summary>2. AWS Config</summary>2.は不正解です。<br/>AWS Config を使用すると、AWS リソース間の設定や関連性の変更状況を確認して、詳細なリソース設定の履歴を調べることできます。</details><br/>
+<details><summary>3. CodeDeploy</summary>3.は不正解です。<br/>AWS CodeDeploy は、Amazon EC2、AWS Fargate、AWS Lambda、オンプレミスで実行されるサーバーなど、さまざまなコンピューティングサービスへのソフトウェアのデプロイを自動化する、フルマネージド型のサービスです。</details><br/>
+<details><summary>4. ElasticBeansTalk</summary>4.は不正解です。<br/>ElasticBeansStalkはWEBアプリケーションをデプロイし、バージョン管理するサービスです。</details><br/>
 
-### 問題41. <br/>
-<details><summary>1. </summary>1.は不正解です。<br/></details><br/>
-<details><summary>2. </summary>2.は不正解です。<br/></details><br/>
-<details><summary>3. </summary>3.は不正解です。<br/></details><br/>
-<details><summary>4. </summary>4.は不正解です。<br/></details><br/>
+### 問題41. <br/>３年間で54％との割引率を適用可能なインスタンスの購入方法を選択してください。
+<details><summary>1. リザーブドインスタンス（コンバーティブル）</summary>正解です。<br/>リザーブドインスタンスのコンバーティブルは3年（54%割引）までの割引を適用することができます。</details><br/>
+<details><summary>2. リザーブドインスタンス（スタンダード）</summary>2.は不正解です。<br/>リザーブドインスタンス（スタンダード）は3年（60%割引）までの割引を適用することができます。</details><br/>
+<details><summary>3. Saving Plan</summary>3.は不正解です。<br/>Saving Planは最大72％までの割引を適用することができます。</details><br/>
+<details><summary>4. スポットインスタンス</summary>4.は不正解です。<br/>スポットインスタンスは最大90％までの割引を適用することができます。</details><br/>
 
-### 問題42. <br/>
-<details><summary>1. </summary>1.は不正解です。<br/></details><br/>
-<details><summary>2. </summary>2.は不正解です。<br/></details><br/>
-<details><summary>3. </summary>3.は不正解です。<br/></details><br/>
-<details><summary>4. </summary>4.は不正解です。<br/></details><br/>
+### 問題42. <br/>AutoScalingのAutoScalingグループの設定において選択可能なインスタンスのうちで最大の割引率を獲得できるインスタンスを選択してください。
+<details><summary>1. オンデマンドインスタンス</summary>1.は不正解です。<br/>AutoScaling設定時に選択可能なインスタンスはオンデマンドインスタンスかスポットインスタンスです。<br/>スポットインスタンスは最大90％割引で利用できるインスタンスです。<br/>スポットインスタンス では未使用の EC2 インスタンスを静止状態割引でリクエストできるため、Amazon EC2 のコストを大幅に削減できます｡</details><br/>
+<details><summary>2. スポットインスタンス</summary>正解です。<br/>AutoScaling設定時に選択可能なインスタンスはオンデマンドインスタンスかスポットインスタンスです。<br/>スポットインスタンスは最大90％割引で利用できるインスタンスです。<br/>スポットインスタンス では未使用の EC2 インスタンスを静止状態割引でリクエストできるため、Amazon EC2 のコストを大幅に削減できます｡</details><br/>
+<details><summary>3. リザーブドインスタンス</summary>3.は不正解です。<br/>AutoScaling設定時に選択可能なインスタンスはオンデマンドインスタンスかスポットインスタンスです。<br/>スポットインスタンスは最大90％割引で利用できるインスタンスです。<br/>スポットインスタンス では未使用の EC2 インスタンスを静止状態割引でリクエストできるため、Amazon EC2 のコストを大幅に削減できます｡</details><br/>
+<details><summary>4. Dedicated Host</summary>4.は不正解です。<br/>AutoScaling設定時に選択可能なインスタンスはオンデマンドインスタンスかスポットインスタンスです。<br/>スポットインスタンスは最大90％割引で利用できるインスタンスです。<br/>スポットインスタンス では未使用の EC2 インスタンスを静止状態割引でリクエストできるため、Amazon EC2 のコストを大幅に削減できます｡</details><br/>
 
-### 問題43. <br/>
-<details><summary>1. </summary>1.は不正解です。<br/></details><br/>
-<details><summary>2. </summary>2.は不正解です。<br/></details><br/>
-<details><summary>3. </summary>3.は不正解です。<br/></details><br/>
-<details><summary>4. </summary>4.は不正解です。<br/></details><br/>
+### 問題43. <br/>パブリックサブネットを設置するために必要となる設定を選択してください。
+<details><summary>1. インターネットゲートウェイをルートテーブルに設定する</summary>正解です。<br/>サブネットを作成するとデフォルトではパブリックサブネットではなくプライベートサブネットになります。<br/>VPCに配置したインターネットゲートウェイへのルートをルートテーブルに設定することでパブリックサブネットとして機能します。</details><br/>
+<details><summary>2. ルートテーブルにおいてインターネットとのアクセス設定をオープンにする</summary>2.は不正解です。<br/>ルートテーブルにおいてインターネットとのアクセス設定をオープンにするといった設定はありません。</details><br/>
+<details><summary>3. インターネットゲートウェイをサブネットに配置する</summary>3.は不正解です。<br/>インターネットゲートウェイをサブネットに配置するのではなく、ルートテーブルに設定します。</details><br/>
+<details><summary>4. パブリックとプライベートの設定選択においてパブリックを選択する</summary>4.は不正解です。<br/>パブリックとプライベートの設定選択においてパブリックを選択するといった設定方式はありません。</details><br/>
 
-### 問題44. <br/>
-<details><summary>1. </summary>1.は不正解です。<br/></details><br/>
-<details><summary>2. </summary>2.は不正解です。<br/></details><br/>
-<details><summary>3. </summary>3.は不正解です。<br/></details><br/>
-<details><summary>4. </summary>4.は不正解です。<br/></details><br/>
+### 問題44. <br/>EC2インスタンスの設置場所はどこでしょうか。
+<details><summary>1. 特定のVPC</summary>1.は不正解です。<br/>EC2インスタンスは特定のリージョンの特定のアベイラビリティゾーンに設置するサービスとなります。</details><br/>
+<details><summary>2. 特定のAZ</summary>正解です。<br/>EC2インスタンスは特定のリージョンの特定のアベイラビリティゾーンに設置するサービスとなります。</details><br/>
+<details><summary>3. 特定のリージョン</summary>3.は不正解です。<br/>EC2インスタンスは特定のリージョンの特定のアベイラビリティゾーンに設置するサービスとなります。</details><br/>
+<details><summary>4. 特定のサブネット</summary>4.は不正解です。<br/>EC2インスタンスは特定のリージョンの特定のアベイラビリティゾーンに設置するサービスとなります。</details><br/>
 
-### 問題45. <br/>
-<details><summary>1. </summary>1.は不正解です。<br/></details><br/>
-<details><summary>2. </summary>2.は不正解です。<br/></details><br/>
-<details><summary>3. </summary>3.は不正解です。<br/></details><br/>
-<details><summary>4. </summary>4.は不正解です。<br/></details><br/>
+### 問題45. <br/>AWS Personal Health Dashboardの機能として正しい内容を選択してください。（２つ選択してください）
+<details><summary>1. パーソナライズされた表示を利用できる</summary>正解です。<br/>Personal Health Dashboard では、アプリケーションを稼働している AWS サービス状態に関するパーソナライズされた表示を確認できるため、発生中の課題を即座に確認できます。<br/>たとえば、EC2 インスタンスのいずれかに関連付けられている EBS ボリュームが失われた場合に、関連するサービスの状態をすばやく確認でき、根本的な原因を特定するのに役立ちます。<br/>したがって、オプション１が正解となります。<br/><br/>AWS Personal Health Dashboard には、アカウントに影響する可能性がある AWSリソースに対する異常と正常が確認できるヘルスイベントの情報が表示されます。<br/>したがって、オプション５が正解となります。</details><br/>
+<details><summary>2. アプリケーションのトラブルシューティングに利用する</summary>2.は不正解です。<br/>Personal Health Dashboard では、アプリケーションを稼働している AWS サービス状態に関するパーソナライズされた表示を確認できるため、発生中の課題を即座に確認できます。<br/>たとえば、EC2 インスタンスのいずれかに関連付けられている EBS ボリュームが失われた場合に、関連するサービスの状態をすばやく確認でき、根本的な原因を特定するのに役立ちます。<br/>したがって、オプション１が正解となります。<br/><br/>AWS Personal Health Dashboard には、アカウントに影響する可能性がある AWSリソースに対する異常と正常が確認できるヘルスイベントの情報が表示されます。<br/>したがって、オプション５が正解となります。</details><br/>
+<details><summary>3. コスト最適化に向けた課題を把握することが出来る</summary>3.は不正解です。<br/>Personal Health Dashboard では、アプリケーションを稼働している AWS サービス状態に関するパーソナライズされた表示を確認できるため、発生中の課題を即座に確認できます。<br/>たとえば、EC2 インスタンスのいずれかに関連付けられている EBS ボリュームが失われた場合に、関連するサービスの状態をすばやく確認でき、根本的な原因を特定するのに役立ちます。<br/>したがって、オプション１が正解となります。<br/><br/>AWS Personal Health Dashboard には、アカウントに影響する可能性がある AWSリソースに対する異常と正常が確認できるヘルスイベントの情報が表示されます。<br/>したがって、オプション５が正解となります。</details><br/>
+<details><summary>4. 不正なアクセス状況を確認することが出来る</summary>4.は不正解です。<br/>Personal Health Dashboard では、アプリケーションを稼働している AWS サービス状態に関するパーソナライズされた表示を確認できるため、発生中の課題を即座に確認できます。<br/>たとえば、EC2 インスタンスのいずれかに関連付けられている EBS ボリュームが失われた場合に、関連するサービスの状態をすばやく確認でき、根本的な原因を特定するのに役立ちます。<br/>したがって、オプション１が正解となります。<br/><br/>AWS Personal Health Dashboard には、アカウントに影響する可能性がある AWSリソースに対する異常と正常が確認できるヘルスイベントの情報が表示されます。<br/>したがって、オプション５が正解となります。</details><br/>
+<details><summary>5. サービスの異常／正常がリスト化される</summary>正解です。<br/>Personal Health Dashboard では、アプリケーションを稼働している AWS サービス状態に関するパーソナライズされた表示を確認できるため、発生中の課題を即座に確認できます。<br/>たとえば、EC2 インスタンスのいずれかに関連付けられている EBS ボリュームが失われた場合に、関連するサービスの状態をすばやく確認でき、根本的な原因を特定するのに役立ちます。<br/>したがって、オプション１が正解となります。<br/><br/>AWS Personal Health Dashboard には、アカウントに影響する可能性がある AWSリソースに対する異常と正常が確認できるヘルスイベントの情報が表示されます。<br/>したがって、オプション５が正解となります。</details><br/>
 
-### 問題46. <br/>
-<details><summary>1. </summary>1.は不正解です。<br/></details><br/>
-<details><summary>2. </summary>2.は不正解です。<br/></details><br/>
-<details><summary>3. </summary>3.は不正解です。<br/></details><br/>
-<details><summary>4. </summary>4.は不正解です。<br/></details><br/>
+### 問題46. <br/>AWS Trusted Adviserによって利用可能となるサービスを選択してください。
+<details><summary>1. コスト最適化に向けたガイドを利用することが出来る</summary>正解です。<br/>Trusted Advisorはカスタマイズされたクラウドエキスパートのようにユーザーの AWS リソースと構築されたアプリケーションを分析し、以下の5 つのカテゴリーに基づいて推奨されるガイダンスを提供する評価ツールです。<br/><br/>・コストの最適化<br/>・パフォーマンス<br/>・セキュリティ<br/>・耐障害性<br/>・サービスの制限<br/><br/>したがって、オプション２と３と４は不正解です。</details><br/>
+<details><summary>2. 不正アクセスの検知が実施可能である</summary>2.は不正解です。<br/>Trusted Advisorはカスタマイズされたクラウドエキスパートのようにユーザーの AWS リソースと構築されたアプリケーションを分析し、以下の5 つのカテゴリーに基づいて推奨されるガイダンスを提供する評価ツールです。<br/><br/>・コストの最適化<br/>・パフォーマンス<br/>・セキュリティ<br/>・耐障害性<br/>・サービスの制限<br/><br/>したがって、オプション２と３と４は不正解です。</details><br/>
+<details><summary>3. コストのモニタリングを実施できる</summary>3.は不正解です。<br/>Trusted Advisorはカスタマイズされたクラウドエキスパートのようにユーザーの AWS リソースと構築されたアプリケーションを分析し、以下の5 つのカテゴリーに基づいて推奨されるガイダンスを提供する評価ツールです。<br/><br/>・コストの最適化<br/>・パフォーマンス<br/>・セキュリティ<br/>・耐障害性<br/>・サービスの制限<br/><br/>したがって、オプション２と３と４は不正解です。</details><br/>
+<details><summary>4. 障害発生を検知できる</summary>4.は不正解です。<br/>Trusted Advisorはカスタマイズされたクラウドエキスパートのようにユーザーの AWS リソースと構築されたアプリケーションを分析し、以下の5 つのカテゴリーに基づいて推奨されるガイダンスを提供する評価ツールです。<br/><br/>・コストの最適化<br/>・パフォーマンス<br/>・セキュリティ<br/>・耐障害性<br/>・サービスの制限<br/><br/>したがって、オプション２と３と４は不正解です。</details><br/>
 
-### 問題47. <br/>
-<details><summary>1. </summary>1.は不正解です。<br/></details><br/>
-<details><summary>2. </summary>2.は不正解です。<br/></details><br/>
-<details><summary>3. </summary>3.は不正解です。<br/></details><br/>
-<details><summary>4. </summary>4.は不正解です。<br/></details><br/>
+### 問題47. <br/>個々のサービスの利用料金の見積りを実施するために利用する見積もりツールを選択してください。
+<details><summary>1. AWS簡易見積りツール</summary>1.は不正解です。<br/>サービスの応じた見積もりはAWS簡易見積もりツールでも対応は可能です。<br/>しかしながら、このツールは今後利用が停止され、今後はAWS 料金計算ツールが利用されることになります。</details><br/>
+<details><summary>2. AWS料金計算ツール（AWS Pricing Calculator）</summary>正解です。<br/>AWS 料金計算ツールはAWS製品およびサービスの個人のニーズに適合するコスト見積もりを実施できます。<br/>このツールを利用するとEC2やS3といったサービスを特定して、その利用時間やリクエスト数などから見積もりを実施することができます。</details><br/>
+<details><summary>3. 総所要コスト（TCO）計算ツール</summary>3.は不正解です。<br/>総所要コスト計算ツールによりAWSを利用したトータルコストを算出して、オンプレミス環境や他のAWSサービスとの比較することができます。<br/>これは個々のリソースの見積りには利用されません。</details><br/>
+<details><summary>4. AWS Cost Explorer</summary>4.は不正解です。<br/>AWS Cost ExplorerはAWSリソースの利用状況をグラフを利用して可視化・分析することができます。<br/>これは個々のリソースの見積りには利用されません。</details><br/>
 
-### 問題48. <br/>
-<details><summary>1. </summary>1.は不正解です。<br/></details><br/>
-<details><summary>2. </summary>2.は不正解です。<br/></details><br/>
-<details><summary>3. </summary>3.は不正解です。<br/></details><br/>
-<details><summary>4. </summary>4.は不正解です。<br/></details><br/>
+### 問題48. <br/>コンプライアンスと脆弱性に関するリアルタイムのモニタリングを提供するサービスはどれですか？ （３つ選択してください）
+<details><summary>1. AWS Config</summary>正解です。<br/>AWS Configはコンプライアンスに関するリアルタイムでのモニタリングを提供するサービスの1つです。<br/>AWS Config コンソール、AWS CLI、または AWS Config API を使用して、ルールとリソースのコンプライアンス状態を確認できます。</details><br/>
+<details><summary>2. CloudWatch</summary>2.は不正解です。<br/>CloudWatchは一般的なシステムのモニタリングサービスです。</details><br/>
+<details><summary>3. AWS Trusted Advisor</summary>正解です。<br/>AWS Trusted Advisorはコンプライアンスと脆弱性に関するリアルタイムモニタリングを提供するサービスの1つです。<br/>AWS Trusted Advisor はコスト最適化、セキュリティ、耐障害性、パフォーマンス、およびサービスの制限の5 つのカテゴリに基づいて、AWSリソースの状態の脆弱性などの課題を確認することができます。<br/>チェックされた状態はダッシュボードページに色分けして表示されます。</details><br/>
+<details><summary>4. Amazon Inspector</summary>正解です。<br/>Amazon Inspector はコンプライアンスと脆弱性に関するリアルタイムモニタリングを提供するサービスの1つです。<br/>Amazon Inspector は自動化されたセキュリティ評価サービスで、AWS にデプロイしたアプリケーションのセキュリティとコンプライアンスを向上させることができます。</details><br/>
+<details><summary>5. CloudTrail</summary>5.は不正解です。<br/>CloudTrailはあくまでもユーザーのアクセスログ取得のサービスです。</details><br/>
 
-### 問題49. <br/>
-<details><summary>1. </summary>1.は不正解です。<br/></details><br/>
-<details><summary>2. </summary>2.は不正解です。<br/></details><br/>
-<details><summary>3. </summary>3.は不正解です。<br/></details><br/>
-<details><summary>4. </summary>4.は不正解です。<br/></details><br/>
+### 問題49. <br/>S3ストレージのコストに影響する要素を選択してください。（３つ選択してください）
+<details><summary>1. データ容量</summary>正解です。<br/>S3は保存したデータ量におうじて課金されるのが基本となっています。</details><br/>
+<details><summary>2. データタイプ</summary>2.は不正解です。<br/>S3はデータタイプや転送速度に応じて料金は変更されません。</details><br/>
+<details><summary>3. データ取得リクエスト数</summary>正解です。<br/>S3はデータ取得する際のリクエスト数におうじても課金がされます。</details><br/>
+<details><summary>4. データ転送の速度</summary>4.は不正解です。<br/>S3はデータタイプや転送速度に応じて料金は変更されません。</details><br/>
+<details><summary>5. 設置場所</summary>正解です。<br/>S3は設置したリージョンに応じて料金設定に多少の差があります。<br/>したがって、リージョンに応じて料金が決まります。</details><br/>
 
-### 問題50. <br/>
-<details><summary>1. </summary>1.は不正解です。<br/></details><br/>
-<details><summary>2. </summary>2.は不正解です。<br/></details><br/>
-<details><summary>3. </summary>3.は不正解です。<br/></details><br/>
-<details><summary>4. </summary>4.は不正解です。<br/></details><br/>
+### 問題50. <br/>AWS全体のコストを削減したい場合に、実施すべき調査方法として何を実施するべきですか？ （３つ選択してください）
+<details><summary>1. コスト配分タグを有効化する</summary>正解です。<br/>タグはユーザーまたはAWSがAWSリソースに割り当てるラベルのことです。<br/>各タグはキーと値で構成されます。<br/>ユーザーはコスト配分タグを使用してAWSコストを詳細レベルで追跡できます。<br/>コスト配分タグをアクティブにすると、AWSはコスト配分タグを使用して、コスト配分レポートでリソースコストを整理し、AWSコストの分類と追跡を容易にします。</details><br/>
+<details><summary>2. AWS料金リストを利用する</summary>2.は不正解です。<br/>AWS料金リストというサービスはありません。</details><br/>
+<details><summary>3. CloudWatchを利用する</summary>正解です。<br/>CloudWatchを使用して請求アラートを有効にすると、支出の追跡と管理が簡単になります。<br/>請求アラートにより、AWSアカウントへの請求額がしきい値を超えるとアラームがトリガーされます。</details><br/>
+<details><summary>4. Cost Explorerを利用する</summary>正解です。<br/>Cost Explorer は、コストと使用状況を表示および分析するために使用できるツールです。<br/>グラフや分析レポートにより過去 13 か月までのデータが表示され、今後 3 か月間にどれくらい費やす可能性が高いかを予測することができます。</details><br/>
+<details><summary>5. AWS料金計算ツール（AWS Pricing Calculator）を利用する</summary>5.は不正解です。<br/>AWS料金計算ツール（AWS Pricing Calculator）は個々のAWSリソースの見積もりツールです。<br/>コストの調査には利用できません。</details><br/>
 
-### 問題51. <br/>
-<details><summary>1. </summary>1.は不正解です。<br/></details><br/>
-<details><summary>2. </summary>2.は不正解です。<br/></details><br/>
-<details><summary>3. </summary>3.は不正解です。<br/></details><br/>
-<details><summary>4. </summary>4.は不正解です。<br/></details><br/>
+### 問題51. <br/>ある会社では割引率を適用するために３年契約で６つのEC2インスタンスのリザーブドインスタンスを購入しましたが、 需要の急変によって10か月後にマーケットプレイスで２つのインスタンスを販売することになりました。<br/>これが可能である購入方式と販売方式を選択してください。（２つ選択してください）
+<details><summary>1. リザーブドインスタンスのスタンダードを購入した</summary>正解です。<br/>リザーブドインスタンスのスタンダードを購入することで、マーケットプレイスで販売することが可能です。<br/>リザーブドインスタンスマーケットプレイス で販売できるのは、Amazon EC2 スタンダード リザーブドインスタンス のみになります。<br/>コンバーティブルリザーブドインスタンス は販売できません。<br/>スタンダード リザーブドインスタンス の有効期間が 1 か月以上残っている必要があります。</details><br/>
+<details><summary>2. リザーブドインスタンスのコンバーティブルを購入した</summary>2.は不正解です。<br/>リザーブドインスタンスのコンバーティブルはAWSマーケットプレイスで販売できません。</details><br/>
+<details><summary>3. インスタンスの前払い価格を設定することが出来る</summary>正解です。<br/>Amazon EC2リザーブドインスタンスをマーケットプレイスで販売する場合、インスタンスの前払い価格を設定するオプションのみ対応することができます。</details><br/>
+<details><summary>4. インスタンスの前払い価格オプションは設定できない</summary>4.は不正解です。<br/>Amazon EC2リザーブドインスタンスをマーケットプレイスで販売する場合、インスタンスの前払い価格を設定するオプションのみ対応することができます。</details><br/>
+<details><summary>5. 利用料金及びその他の構成は変更することが可能である</summary>5.は不正解です。<br/>販売時に利用料金およびその他の構成は自由に変更できるわけではありません。</details><br/>
 
-### 問題52. <br/>
-<details><summary>1. </summary>1.は不正解です。<br/></details><br/>
-<details><summary>2. </summary>2.は不正解です。<br/></details><br/>
-<details><summary>3. </summary>3.は不正解です。<br/></details><br/>
-<details><summary>4. </summary>4.は不正解です。<br/></details><br/>
+### 問題52. <br/>アクセス頻度が低いデータをEC２インスタンスで利用する場合に、どのEBSボリュームタイプを設定するべきですか？
+<details><summary>1. 汎用SSD</summary>1.は不正解です。<br/>汎用SSDは幅広いトランザクションワークロードに対応できる価格とパフォーマンスのバランスが取れたボリュームです。</details><br/>
+<details><summary>2. スループット最適化HDD</summary>2.は不正解です。<br/>スループット最適化HDDは高いスループットを必要とするアクセス頻度の高いワークロード向けにボリュームです。プロビジョンドIOPSよりも低コストに利用できます。</details><br/>
+<details><summary>3. コールドHDD</summary>正解です。<br/>アクセス頻度の低いワークロード用に設計された低コストボリュームはコールドHDDです。</details><br/>
+<details><summary>4. マグネティック</summary>4.は不正解です。<br/>マグネティックは旧世代の古いボリュームです。</details><br/>
 
-### 問題53. <br/>
-<details><summary>1. </summary>1.は不正解です。<br/></details><br/>
-<details><summary>2. </summary>2.は不正解です。<br/></details><br/>
-<details><summary>3. </summary>3.は不正解です。<br/></details><br/>
-<details><summary>4. </summary>4.は不正解です。<br/></details><br/>
+### 問題53. <br/>AWS Sheildはどのロケーションに設置されてDDos攻撃からAWSリソースを保護していますか？
+<details><summary>1. エッジロケーション</summary>正解です。<br/>AWS Shield は、世界中の Amazon CloudFront、AWS Global Accelerator、Amazon Route 53 のエッジロケーションのすべてで利用されます。<br/>例えばCloudFrontを適用するとAWS Shieldが自動的に適用され、エッジロケーションでDDos攻撃を防御します。</details><br/>
+<details><summary>2. Lambdaエッジ</summary>2.は不正解です。<br/>AWS Shield は、世界中の Amazon CloudFront、AWS Global Accelerator、Amazon Route 53 のエッジロケーションのすべてで利用されます。<br/>例えばCloudFrontを適用するとAWS Shieldが自動的に適用され、エッジロケーションでDDos攻撃を防御します。</details><br/>
+<details><summary>3. エッジサーバー</summary>3.は不正解です。<br/>AWS Shield は、世界中の Amazon CloudFront、AWS Global Accelerator、Amazon Route 53 のエッジロケーションのすべてで利用されます。<br/>例えばCloudFrontを適用するとAWS Shieldが自動的に適用され、エッジロケーションでDDos攻撃を防御します。</details><br/>
+<details><summary>4. ローカルリージョン</summary>4.は不正解です。<br/>AWS Shield は、世界中の Amazon CloudFront、AWS Global Accelerator、Amazon Route 53 のエッジロケーションのすべてで利用されます。<br/>例えばCloudFrontを適用するとAWS Shieldが自動的に適用され、エッジロケーションでDDos攻撃を防御します。</details><br/>
 
-### 問題54. <br/>
-<details><summary>1. </summary>1.は不正解です。<br/></details><br/>
-<details><summary>2. </summary>2.は不正解です。<br/></details><br/>
-<details><summary>3. </summary>3.は不正解です。<br/></details><br/>
-<details><summary>4. </summary>4.は不正解です。<br/></details><br/>
+### 問題54. <br/>プライベートサブネットの特徴として合っている内容を選択してください。
+<details><summary>1. プライベートサブネット内のインスタンスにはパブリックサブネットからのアクセスも出来ない</summary>1.は不正解です。<br/>プライベートサブネット内のインスタンスにはパブリックサブネットからのアクセスは可能です。</details><br/>
+<details><summary>2. NATゲートウェイを利用することで、プライベートサブネット内のリソースに対してインターネットからのアクセスが可能となる</summary>2.は不正解です。<br/>NATゲートウェイを設置してもインターネットからの直接アクセスは不可能です。</details><br/>
+<details><summary>3. NATゲートウェイを利用することで、インターネットへの返信が可能となる</summary>正解です。<br/>プライベートサブネットはNATゲートウェイにルーティングすることで、インターネットからのアクセスを防ぎつつも、インターネット側への返信が可能となります。</details><br/>
+<details><summary>4. プライベートサブネット内のインスタンスにはSSHを利用すればクライアントPCからのアクセスが可能となる</summary>4.は不正解です。<br/>プライベートサブネット内のインスタンスに対するSSHを利用したクライアントPCからのアクセスは、インターネットからのアクセスが防がれているため直接は不可能です。</details><br/>
 
-### 問題55. <br/>
-<details><summary>1. </summary>1.は不正解です。<br/></details><br/>
-<details><summary>2. </summary>2.は不正解です。<br/></details><br/>
-<details><summary>3. </summary>3.は不正解です。<br/></details><br/>
-<details><summary>4. </summary>4.は不正解です。<br/></details><br/>
+### 問題55. <br/>ユーザー側で既に出来上がったサービスをサブスクリプションなどで利用するクラウド形式はどれでしょうか。
+<details><summary>1. PaaS</summary>1.は不正解です。<br/>Platform as a Serviceにより、ユーザーは基盤となるインフラストラクチャ（通常はハードウェアとオペレーティングシステム）やランタイムなどのミドルウェアを管理する必要がなくなり、アプリケーションの展開と管理に集中できます。</details><br/>
+<details><summary>2. IaaS</summary>2.は不正解です。<br/>Infrastructure as a service（IaaS）は、インターネットを介してプロビジョニングされサービスとして提供されるサーバーなどのインフラストラクチャです。<br/>OS選択やミドルウェアの管理はユーザーが実施します。</details><br/>
+<details><summary>3. SaaS</summary>正解です。<br/>Software as a Service（SaaS）は、必要な機能やサービスを必要な分だけサービスとして利用できるようにしたクラウド形式のソフトウェアのことです。<br/>インターネット経由で利用できるソフトウェアを示すこともあります。</details><br/>
+<details><summary>4. DaaS</summary>4.は不正解です。<br/>Desktop as a Service（DaaS）は仮想デスクトップサービスのことです。<br/>インターネットを介してPC内の設定や機能をデスクトップに提供します。</details><br/>
 
-### 問題56. <br/>
-<details><summary>1. </summary>1.は不正解です。<br/></details><br/>
-<details><summary>2. </summary>2.は不正解です。<br/></details><br/>
-<details><summary>3. </summary>3.は不正解です。<br/></details><br/>
-<details><summary>4. </summary>4.は不正解です。<br/></details><br/>
+### 問題56. <br/>AWSサービスの作成や削除などの操作を直接に実施できるツールを選択してください。（２つ選択してください）
+<details><summary>1. AWSマネジメントコンソール</summary>正解です。<br/>AWS マネジメントコンソールはWEBベースの操作コンソールです。<br/>シンプルで直感的なウェブベースのユーザーインターフェイスから AWS にアクセスして、AWSリソースを管理できます。</details><br/>
+<details><summary>2. AWS CLI</summary>正解です。<br/>AWS CLIはスクリプトを使用して複数のAWSサービスの管理するために利用されるサービスです。<br/>コマンドラインから複数の AWS サービスを制御し、スクリプトを使用してこれらを設定・管理することができます。</details><br/>
+<details><summary>3. AWS Systems Manager</summary>3.は不正解です。<br/>AWS Systems Manager は、他のクラウド環境の VM 、Amazon EC2 インスタンス、オンプレミスサーバー、および仮想マシン (VM) の設定と管理を簡単に行うことができる AWS の運用管理サービスです。</details><br/>
+<details><summary>4. IAM</summary>4.は不正解です。<br/>IAMはAWS リソースへのアクセス管理に利用するユーザー管理サービスです。</details><br/>
+<details><summary>5. コマンドプロンプト</summary>5.は不正解です。<br/>コマンドプロンプトはAWS CLIを利用する際にインストール先として利用しますが、これ自体はAWSの操作には利用できません。</details><br/>
 
-### 問題57. <br/>
-<details><summary>1. </summary>1.は不正解です。<br/></details><br/>
-<details><summary>2. </summary>2.は不正解です。<br/></details><br/>
-<details><summary>3. </summary>3.は不正解です。<br/></details><br/>
-<details><summary>4. </summary>4.は不正解です。<br/></details><br/>
+### 問題57. <br/>IAMポリシーによりユーザーにアクセス権限を与える際に順守すべき原則はどれでしょうか？
+<details><summary>1. 最小権限の原則</summary>正解です。<br/>リソースやユーザーに対してIAM ポリシーを設定する場合、最小権限の原則にそってタスクの実行に必要なアクセス許可のみ付与します。<br/>ユーザー (およびロール) に必要なタスクを定義して、それらのタスクのみを許可するポリシーを作成します。<br/>このように、最小限のアクセス権限から開始し、必要に応じて追加のアクセス権限を付与することが重要です。</details><br/>
+<details><summary>2. 限定権限の原則</summary>2.は不正解です。<br/>リソースやユーザーに対してIAM ポリシーを設定する場合、最小権限の原則にそってタスクの実行に必要なアクセス許可のみ付与します。<br/>ユーザー (およびロール) に必要なタスクを定義して、それらのタスクのみを許可するポリシーを作成します。<br/>このように、最小限のアクセス権限から開始し、必要に応じて追加のアクセス権限を付与することが重要です。</details><br/>
+<details><summary>3. 最大権限の原則</summary>3.は不正解です。<br/>リソースやユーザーに対してIAM ポリシーを設定する場合、最小権限の原則にそってタスクの実行に必要なアクセス許可のみ付与します。<br/>ユーザー (およびロール) に必要なタスクを定義して、それらのタスクのみを許可するポリシーを作成します。<br/>このように、最小限のアクセス権限から開始し、必要に応じて追加のアクセス権限を付与することが重要です。</details><br/>
+<details><summary>4. ２重認証の原則</summary>4.は不正解です。<br/>リソースやユーザーに対してIAM ポリシーを設定する場合、最小権限の原則にそってタスクの実行に必要なアクセス許可のみ付与します。<br/>ユーザー (およびロール) に必要なタスクを定義して、それらのタスクのみを許可するポリシーを作成します。<br/>このように、最小限のアクセス権限から開始し、必要に応じて追加のアクセス権限を付与することが重要です。</details><br/>
 
-### 問題58. <br/>
-<details><summary>1. </summary>1.は不正解です。<br/></details><br/>
-<details><summary>2. </summary>2.は不正解です。<br/></details><br/>
-<details><summary>3. </summary>3.は不正解です。<br/></details><br/>
-<details><summary>4. </summary>4.は不正解です。<br/></details><br/>
+### 問題58. <br/>次の中でエッジロケーションで利用できないサービスを選択してください。
+<details><summary>1. Lambda</summary>1.は不正解です。<br/>エッジロケーションは、コンテンツ配信のためのデータセンターとして設置されており、世界的なCDN向けのネットワークを構成しています。<br/>この場所では、配信用サービスであるCoudFront、Route53、Lambdaエッジなどが利用可能です。</details><br/>
+<details><summary>2. Lightsail</summary>正解です。<br/>エッジロケーションは、コンテンツ配信のためのデータセンターとして設置されており、世界的なCDN向けのネットワークを構成しています。<br/>この場所では、配信用サービスであるCoudFront、Route53、Lambdaエッジなどが利用可能です。</details><br/>
+<details><summary>3. CloudFront</summary>3.は不正解です。<br/>エッジロケーションは、コンテンツ配信のためのデータセンターとして設置されており、世界的なCDN向けのネットワークを構成しています。<br/>この場所では、配信用サービスであるCoudFront、Route53、Lambdaエッジなどが利用可能です。</details><br/>
+<details><summary>4. Route53</summary>4.は不正解です。<br/>エッジロケーションは、コンテンツ配信のためのデータセンターとして設置されており、世界的なCDN向けのネットワークを構成しています。<br/>この場所では、配信用サービスであるCoudFront、Route53、Lambdaエッジなどが利用可能です。</details><br/>
 
-### 問題59. <br/>
-<details><summary>1. </summary>1.は不正解です。<br/></details><br/>
-<details><summary>2. </summary>2.は不正解です。<br/></details><br/>
-<details><summary>3. </summary>3.は不正解です。<br/></details><br/>
-<details><summary>4. </summary>4.は不正解です。<br/></details><br/>
+### 問題59. <br/>オンデマンドEC2インスタンスの利用時に料金に影響する項目として間違っている説明を選択してください。
+<details><summary>1. 秒単位での利用時間</summary>1.は不正解です。<br/>オンデマンドインスタンスは秒単位または時間単位での利用時間に基づいて課金されます。</details><br/>
+<details><summary>2. 保持するボリューム内のデータ量</summary>2.は不正解です。<br/>EC2インスタンスにアタッチされたEBSボリュームのデータ量に応じて課金されます。</details><br/>
+<details><summary>3. 他リージョンへのデータ転送料金</summary>3.は不正解です。<br/>同一リージョン内の同じAZにあるEC2インスタンス内のデータ通信料は無料です。<br/>他のAZや他リージョンへのデータ転送する場合は料金が発生します。</details><br/>
+<details><summary>4. 同一リージョン内・AZでのデータ転送料金</summary>正解です。<br/>同一リージョン内でのデータ転送については課金されません。</details><br/>
 
-### 問題60. <br/>
-<details><summary>1. </summary>1.は不正解です。<br/></details><br/>
-<details><summary>2. </summary>2.は不正解です。<br/></details><br/>
-<details><summary>3. </summary>3.は不正解です。<br/></details><br/>
-<details><summary>4. </summary>4.は不正解です。<br/></details><br/>
+### 問題60. <br/>今月の初めから今日までのサービス別の利用料金を確認するために利用するツールを選択してください。
+<details><summary>1. AWS Cost Explorer</summary>1.は不正解です。<br/>AWS Cost Explorerはコスト分析を実施してレポートを生成するツールです。<br/>次の月末の予想請求額を計算することができます。</details><br/>
+<details><summary>2. 請求アラームの通知内容</summary>2.は不正解です。<br/>請求アラームの通知内容は請求額がしきい値を超えたことを教えてくれるだけです。</details><br/>
+<details><summary>3. コスト配分レポート</summary>3.は不正解です。<br/>コスト配分レポートでは詳細なコスト配分をレポーティングします。以下の項目が含まれます。<br/>これは今月の初めから今日までのサービス別利用料金よりも詳細なコスト配分を確認するために利用されます。<br/><br/>・アカウント ID<br/>・請求書および課金情報<br/>・使用額および単位<br/>・レートとコスト<br/>・製品属性 (インスタンスタイプ、オペレーティングシステム、リージョンなど)<br/>・料金属性 (オファータイプ、リース期間など)<br/>・予約 ID および関連する詳細 (リザーブドインスタンスのみ)</details><br/>
+<details><summary>4. AWS Billing and Cost Managementの請求タグ</summary>正解です。<br/>Billing and Cost Management コンソールの請求表示は定期的に確認することが推奨されている機能です。<br/>ダッシュボードでは、AWS の使用状況のさまざまな詳細データをグラフで視覚的に確認することができます。以下のグラフを参照できます。<br/><br/>・利用料の概要<br/>・今月の初めから今日までのサービス別利用料金<br/>・今月の初めから今日までで最も利用料の多いサービス</details><br/>
 
-### 問題61. <br/>
-<details><summary>1. </summary>1.は不正解です。<br/></details><br/>
-<details><summary>2. </summary>2.は不正解です。<br/></details><br/>
-<details><summary>3. </summary>3.は不正解です。<br/></details><br/>
-<details><summary>4. </summary>4.は不正解です。<br/></details><br/>
+### 問題61. <br/>次の中でリージョンの説明として正しい内容を選択してください。（２つ選択してください）
+<details><summary>1. リージョン間の連携にはDirect Connectを利用することが出来る</summary>正解です。<br/>Direct Connect Gateway を使用すると、複数の AWS リージョンにまたがって接続を確立できます。<br/>そのため、各リージョンのVPC に対して複数の BGP セッションを確立する必要がないため、ネットワークデバイスへの負担も軽減することができます。</details><br/>
+<details><summary>2. AWSアカウントを立ち上げると利用可能な全リージョンにVPCが設定される</summary>正解です。<br/>AWSアカウントを立ち上げると自動的に利用可能な全リージョンにデフォルトVPCが設定されます。</details><br/>
+<details><summary>3. 全てのリージョンをクラウドから利用可能となる</summary>3.は不正解です。<br/>全てのリージョンがクラウドから利用可能となるわけではなく、中国内部のリージョンや大阪ローカルリージョンなどは利用できません。</details><br/>
+<details><summary>4. リージョン間でAWSサービスは共通して利用できる</summary>4.は不正解です。<br/>リージョンに応じてサービスが異なるものがあります。<br/>新しいサービスがリリースされると、全てのリージョンで利用できるようにはなりません。</details><br/>
+<details><summary>5. AWSマネジメントコンソールから全てのリージョンに移動することが可能である</summary>5.は不正解です。<br/>AWSコンソールから全てのリージョンに移動できるわけではなく、特定のリージョンには移動できません。</details><br/>
 
-### 問題62. <br/>
-<details><summary>1. </summary>1.は不正解です。<br/></details><br/>
-<details><summary>2. </summary>2.は不正解です。<br/></details><br/>
-<details><summary>3. </summary>3.は不正解です。<br/></details><br/>
-<details><summary>4. </summary>4.は不正解です。<br/></details><br/>
+### 問題62. <br/>需要変動が大きいアプリケーションに利用する場合のAWSのメリットを選択してください。
+<details><summary>1. オンデマンドでEC2インスタンスを増減できること</summary>正解です。<br/>クラウドは需要変動が大きいアプリケーションに対するインフラコストの効率をあげることができます。<br/>例えば、EC2インスタンスのAuto Scalingによりオンデマンドインスタンスは需要に応じて起動/終了できます。<br/>この仕組みにより、EC2インスタンスの利用料金を最適化できます。</details><br/>
+<details><summary>2. ELBによるトラフィック制御がマネージド型で提供されていること</summary>2.は不正解です。<br/>ELBによるトラフィック制御がマネージド型で提供されていることは需要変動による価格には影響がありません。</details><br/>
+<details><summary>3. マルチAZ構成を実現できること</summary>3.は不正解です。<br/>マルチAZ構成は需要変動に対する効果ではなく、障害発生時の可用性の確保として機能します。</details><br/>
+<details><summary>4. CloudWatchによるモニタリングが無料であること</summary>4.は不正解です。<br/>CloudWatchによるモニタリングが無料であることは、モニタリングコストを低減させることにつながりますが、需要変動に対する価格メリットにはなりません。</details><br/>
 
-### 問題63. <br/>
-<details><summary>1. </summary>1.は不正解です。<br/></details><br/>
-<details><summary>2. </summary>2.は不正解です。<br/></details><br/>
-<details><summary>3. </summary>3.は不正解です。<br/></details><br/>
-<details><summary>4. </summary>4.は不正解です。<br/></details><br/>
+### 問題63. <br/>EC2インスタンスの構成を別リージョンに再現したい場合にどのように対応する必要がありますか。
+<details><summary>1. 対象インスタンスのAMIを別リージョンにコピーする</summary>正解です。<br/>EC2インスタンスの構成を別リージョンに再現したい場合は、対象インスタンスのAMIを取得して別リージョンにコピーします。<br/>その上で、別リージョンにおいてそのAMIを選択して新規にEC2インスタンスを起動することで同じ構成のEC2インスタンスを構築することができます。</details><br/>
+<details><summary>2. 対象インスタンスのスナップショットを別リージョンにコピーする</summary>2.は不正解です。<br/>対象インスタンスの内容はAMIでコピーすることが必要です。スナップショットはEBSをコピーする際に利用します。</details><br/>
+<details><summary>3. 対象インスタンスを別リージョンに移行する</summary>3.は不正解です。<br/>対象インスタンスそのものを別リージョンに移行することはできません。</details><br/>
+<details><summary>4. クロスリージョンスナップショットを利用する</summary>4.は不正解です。<br/>対象インスタンスの内容はAMIでコピーすることが必要です。スナップショットはEBSをコピーする際に利用します。</details><br/>
 
-### 問題64. <br/>
-<details><summary>1. </summary>1.は不正解です。<br/></details><br/>
-<details><summary>2. </summary>2.は不正解です。<br/></details><br/>
-<details><summary>3. </summary>3.は不正解です。<br/></details><br/>
-<details><summary>4. </summary>4.は不正解です。<br/></details><br/>
+### 問題64. <br/>S3を利用して静的WEBサイトを構成するために必要のない設定を選択してください。
+<details><summary>1. 静的Webホスティングを有効化する</summary>1.は不正解です。<br/>S3静的WEBホスティングを利用するためには静的ウェブサイトホスティングの有効化、インデックスドキュメントの設定、およびアクセス許可の設定を行う必要があります。</details><br/>
+<details><summary>2. パブリックアクセスブロックを無効化する</summary>2.は不正解です。<br/>静的ウェブサイトが閲覧可能にするためにパブリックアクセスブロックを無効化することが必要です。</details><br/>
+<details><summary>3. バケットポリシーを設定する</summary>3.は不正解です。<br/>HTMLファイルをパブリックに読み取り可能にするには、すべてのユーザーに s3:GetObject アクセス許可を付与するバケットポリシーを作成する必要があります。</details><br/>
+<details><summary>4. アクセスコントロールポリシーを設定する</summary>正解です。<br/>S3静的WEBホスティングを利用するためにはアクセスコントロールポリシーを設定するのではなく、バケットポリシーを利用して、すべてのユーザーに s3:GetObject アクセス許可を付与する必要があります。 </details><br/>
 
-### 問題65. <br/>
-<details><summary>1. </summary>1.は不正解です。<br/></details><br/>
-<details><summary>2. </summary>2.は不正解です。<br/></details><br/>
-<details><summary>3. </summary>3.は不正解です。<br/></details><br/>
-<details><summary>4. </summary>4.は不正解です。<br/></details><br/>
+### 問題65. <br/>サブネットの特徴として間違っている内容を選択してください。
+<details><summary>1. サブネットでプライベートネットワークを構成する</summary>1.は不正解です。<br/>プライベートサブネットを利用してプライベートネットワーク空間を構成することができます。</details><br/>
+<details><summary>2. ネットワークACLを適用する</summary>2.は不正解です。<br/>サブネットにはネットワークACLを利用してトラフィック制御を実施します。</details><br/>
+<details><summary>3. ルートテーブルを適用する</summary>3.は不正解です。<br/>サブネットにはルートテーブルを適用して、ルーティング方法を設定します。</details><br/>
+<details><summary>4. １つのサブネットで複数AZに跨いで設置することが出来る</summary>正解です。<br/>１つのサブネットで１つのAZを指定して設置することが必要です。</details><br/>
