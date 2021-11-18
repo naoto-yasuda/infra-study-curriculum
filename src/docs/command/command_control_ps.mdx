@@ -1,0 +1,186 @@
+# コマンド操作の学習「ps」
+psコマンドはサーバーで動作している処理の状況を表示することができます。  
+## 1. 基本コマンド
+現在サーバー上で動作しているプロセスを単に表示したい場合は下記のコマンドで表示することができます。
+```shell
+ps
+
+※実行結果例
+  PID TTY          TIME CMD
+ 3842 pts/0    00:00:00 bash
+ 3893 pts/0    00:00:00 ps
+```
+## 2. 便利なpsコマンドのオプション
+psコマンドには「-」を付与しないアルファベット１文字だけのオプションも複数存在します。
+### 2-1. -Aオプション：全プロセスを表示する
+-Aオプションを利用することで全プロセスを表示することができます。  
+```shell
+ps -A
+
+※実行結果例
+  PID TTY          TIME CMD
+    1 ?        00:16:50 systemd
+    2 ?        00:00:04 kthreadd
+    4 ?        00:00:00 kworker/0:0H
+    6 ?        00:00:00 mm_percpu_wq
+
+   ～　省略　～
+
+ 9080 ?        00:00:03 kworker/u4:2
+22138 ?        00:00:00 kworker/u4:1
+```
+### 2-2. aオプション：端末操作のプロセスを表示する
+aオプションを利用することで、他の端末を含めた端末操作のプロセスを表示することが出来ます。
+```shell
+ps a
+
+※実行結果例
+  PID TTY      STAT   TIME COMMAND
+ 2418 tty1     Ss+    0:00 /sbin/agetty --noclear tty1 linux
+ 2419 ttyS0    Ss+    0:00 /sbin/agetty --keep-baud 115200,38400,9600 ttyS0 vt22
+ 3842 pts/0    Ss     0:00 -bash
+ 4261 pts/0    R+     0:00 ps a
+```
+### 2-3. -xオプション：現在実行しているプロセスのみを表示する
+-xオプションを利用することで、現在実行しているプロセスのみを表示することが出来ます。
+```shell
+ps -x
+
+※実行結果例
+  PID TTY      STAT   TIME COMMAND
+ 3841 ?        S      0:00 sshd: ec2-user@pts/0
+ 3842 pts/0    Ss     0:00 -bash
+ 4487 pts/0    R+     0:00 ps -x
+```
+### 2-4. cオプション：実行しているコマンド名を表示する
+cオプションを利用することで、実行しているコマンド名を表示することが出来ます。
+```shell
+ps c
+
+※実行結果例
+  PID TTY      STAT   TIME COMMAND
+ 3842 pts/0    Ss     0:00 bash
+ 4533 pts/0    R+     0:00 ps
+```
+### 2-5. eオプション：実行しているコマンド名と環境変数を表示する
+cオプションを利用することで、実行しているコマンド名と環境変数を表示することが出来ます。
+```shell
+ps e
+
+※実行結果例
+  PID TTY      STAT   TIME COMMAND
+ 3842 pts/0    Ss     0:00 -bash USER=ec2-user LOGNAME=ec2-user HOME=/home/ec2-u
+ 4738 pts/0    R+     0:00 ps e XDG_SESSION_ID=56301 HOSTNAME=zoness001 TERM=xte
+```
+### 2-6. uオプション：CPUやメモリの使用率なども表示する
+uオプションを利用することで、CPUやメモリの使用率なども表示することが出来ます。
+```shell
+ps u
+
+※実行結果例
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+ec2-user  3842  0.0  0.8 124992  4044 pts/0    Ss   11:06   0:00 -bash
+ec2-user  4877  0.0  0.8 164364  3816 pts/0    R+   11:25   0:00 ps u
+```
+### 2-7. oオプション：指定した項目だけを表示する
+oオプションを利用することで、指定した項目だけを表示することが出来ます。
+```shell
+ps o <項目名>
+
+複数指定する場合
+ps o <項目名１> <項目名２>
+
+※実行結果例
+ps o pid,time,command
+
+  PID     TIME COMMAND
+ 3842 00:00:00 -bash
+ 5020 00:00:00 ps o pid,time,command
+```
+### 2-8. -pオプション：実行しているプロセスのプロセス番号（PID）を指定して表示する
+-pオプションを利用することで、プロセスのプロセス番号を指定して表示することが出来ます。
+```shell
+ps -p <プロセス番号>
+
+※実行結果例
+ps -p 3842
+
+  PID TTY          TIME CMD
+ 3842 pts/0    00:00:00 bash
+```
+### 2-9. fオプション：プロセスを階層で表示する
+fオプションを利用することで、プロセスを階層で表示することが出来ます。
+```shell
+ps f
+
+※実行結果例
+ps -A f
+
+  PID TTY      STAT   TIME COMMAND
+    2 ?        S      0:04 [kthreadd]
+    4 ?        I<     0:00  \_ [kworker/0:0H]
+
+    ～省略～
+
+ 2419 ttyS0    Ss+    0:00 /sbin/agetty --keep-baud 115200,38400,9600 ttyS0 vt220
+ 2510 ?        Ss     3:13 /usr/sbin/sshd -D
+ 3823 ?        Ss     0:00  \_ sshd: ec2-user [priv]
+ 3841 ?        S      0:00      \_ sshd: ec2-user@pts/0
+ 3842 pts/0    Ss     0:00          \_ -bash
+ 6240 pts/0    R+     0:00              \_ ps -A f
+ ```
+### 2-10. --sortオプション：プロセスの表示順を指定する
+--sortオプションを利用することで、指定した項目だけを表示することが出来ます。
+```shell
+ps --sort <項目名>
+
+複数指定する場合
+ps --sort <項目名１> <項目名２>
+
+※実行結果例
+ps a --sort stat,tty
+
+  PID TTY      STAT   TIME COMMAND
+ 5483 pts/0    R+     0:00 ps a --sort stat,tty
+ 2418 tty1     Ss+    0:00 /sbin/agetty --noclear tty1 linux
+ 2419 ttyS0    Ss+    0:00 /sbin/agetty --keep-baud 115200,38400,9600 ttyS0 vt22
+ 3842 pts/0    Ss     0:00 -bash
+```
+## 3. Tips
+### 3-1. 便利なオプションの組み合わせ
+以下のオプションの組み合わせが全ての種類のプロセスの知りうるだけの情報が表示できます。
+```shell
+ps aux
+
+※実行結果例
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root         1  0.0  0.7 125640  3660 ?        Ss    2020  16:50 /usr/lib/systemd/systemd --switched-root --system --des
+root         2  0.0  0.0      0     0 ?        S     2020   0:04 [kthreadd]
+root         4  0.0  0.0      0     0 ?        I<    2020   0:00 [kworker/0:0H]
+
+    ～省略～
+
+ec2-user  6413  0.0  0.8 164364  3876 pts/0    R+   11:55   0:00 ps aux
+root      9080  0.0  0.0      0     0 ?        I    11月09   0:03 [kworker/u4:2]
+root     22138  0.0  0.0      0     0 ?        I    11月16   0:00 [kworker/u4:1]
+```
+
+更にfオプションを追加すればプロセスがツリー構造になるのでより視認性が向上します。
+```shell
+ps auxf
+
+※実行結果例
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root         2  0.0  0.0      0     0 ?        S     2020   0:04 [kthreadd]
+root         4  0.0  0.0      0     0 ?        I<    2020   0:00  \_ [kworker/0:0H]
+
+    ～省略～
+
+root      2419  0.0  0.0 120936   352 ttyS0    Ss+   2020   0:00 /sbin/agetty --keep-baud 115200,38400,9600 ttyS0 vt220
+root      2510  0.0  0.4 112812  2168 ?        Ss    2020   3:13 /usr/sbin/sshd -D
+root      3823  0.0  1.8 150484  8660 ?        Ss   11:06   0:00  \_ sshd: ec2-user [priv]
+ec2-user  3841  0.0  0.9 150484  4428 ?        S    11:06   0:00      \_ sshd: ec2-user@pts/0
+ec2-user  3842  0.0  0.8 124992  4052 pts/0    Ss   11:06   0:00          \_ -bash
+ec2-user  6508  0.0  0.8 164508  3852 pts/0    R+   11:57   0:00              \_ ps auxf
+```
+## 4. 学習用サーバーに接続して、実際にコマンドを試してみましょう

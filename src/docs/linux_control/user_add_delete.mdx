@@ -1,0 +1,32 @@
+# ユーザの追加・削除
+Linuxではユーザの追加・削除・パスワード変更もコマンドで行います。  
+いかにそれぞれの工程でのコマンドを記載します。
+## 1. ユーザの追加
+```shell
+adduser <ユーザ名>
+```
+## 2. ユーザの確認
+```shell
+cat /etc/passwd
+
+※実行結果例
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+～省略～
+```
+## 3. ユーザの削除
+```shell
+userdel <ユーザ名>
+```
+
+メールやホームディレクトリもまとめて削除する場合は以下のコマンドです。
+```shell
+userdel -r <ユーザ名>
+```
+## 4. パスワードの設定
+```shell
+passwd <ユーザ名>
+```
