@@ -1,0 +1,126 @@
+# 予行演習
+ここまで学んだコマンドを活用して各課題を実施していきましょう。
+### 1. /var/logに移動して、/var/log配下のファイルを表示する
+<details><summary>実行例</summary>
+<pre><code>cd /var/log
+ls
+</code></pre>
+</details>
+<br/>
+
+### 2. /tmpに移動して、testファイルを作成し、そのファイルに「Hello World!」と出力する
+<details><summary>実行例</summary>
+<pre><code>cd /tmp
+touch test
+echo Hello World! > test
+</code></pre>
+</details>
+<br/>
+
+### 3. testファイルの中身を確認し、ファイルを削除する
+<details><summary>実行例</summary>
+<pre><code>cat test
+rm test
+</code></pre>
+</details>
+<br/>
+
+### 4. /etc/servicesの内容を一括で出力する、その後１画面ずつ出力する
+<details><summary>実行例</summary>
+<pre><code>cat /etc/services
+less /etc/serices
+</code></pre>
+</details>
+<br/>
+
+### 5. /tmp/testファイルを作成し、以下のように文章を記載する
+```
+あいうえお
+12345
+ABCDE
+```
+<details><summary>実行例</summary>
+<pre><code>vi /tmp/test
+文字列はエディタに手打ち、もしくはコピペで記載して保存する
+</code></pre>
+</details>
+<br/>
+
+### 6. /tmp/testファイルの権限情報など詳細を一覧で表示する
+<details><summary>実行例</summary>
+<pre><code>ls -l /tmp
+</code></pre>
+</details>
+<br/>
+
+### 7. /tmp/testファイルの最終行だけ表示する
+<details><summary>実行例</summary>
+<pre><code>tail -n 1 /tmp/test
+</code></pre>
+</details>
+<br/>
+
+### 8. /var/log/messagesの更新を監視する
+<details><summary>実行例</summary>
+<pre><code>tail -f /var/log/messages
+</code></pre>
+</details>
+<br/>
+
+### 9. /tmp配下のtestという名前のファイルを検索する
+<details><summary>実行例</summary>
+<pre><code>find /tmp -name test
+</code></pre>
+</details>
+<br/>
+
+### 10. /tmpにtest_folderというディレクトリを作成し、そこに/tmp/testファイルを移動する
+<details><summary>実行例</summary>
+<pre><code>mkdir /tmp/test_folder
+mv /tmp/test /tmp/test_folder/
+</code></pre>
+</details>
+<br/>
+
+### 11. /tmp/test_folder/testファイルをnew_testとして/tmpにコピーする
+<details><summary>実行例</summary>
+<pre><code>cp /tmp/test_folder/test /tmp/new_test
+</code></pre>
+</details>
+<br/>
+
+### 12. /tmp/new_testファイルから「234」が含まれる行だけ抜き出して表示する
+<details><summary>実行例</summary>
+<pre><code>grep 234 /tmp/new_test
+</code></pre>
+</details>
+<br/>
+
+### 13. /tmp/new_testの2行目を「67890」に書き換え、/tmp/new_testと/tmp/test_folder/testとを比較する。その後、画面の表示を初期化する
+<details><summary>実行例</summary>
+<pre><code>vi /tmp/new_test
+2行目を手打ちで修正する
+diff /tmp/new_test /tmp/test_folder/test
+clear
+</code></pre>
+</details>
+<br/>
+
+### 14. 現在の作業ディレクトリを表示し、その後コマンドの実行履歴を確認する。そして再度作業ディレクトリの確認コマンドを履歴から実行する
+<details><summary>実行例</summary>
+<pre><code>pwd
+history
+pwd !&lt;pwdの履歴管理番号&gt;
+</code></pre>
+</details>
+<br/>
+
+### 15. CPUおよびメモリの利用状態を確認し、メモリの使用状態を確認後、ディスクの利用状態を確認する。最後にプロセスの動作状況を表示する。
+<details><summary>実行例</summary>
+<pre><code>top
+free
+df
+ps
+</code></pre>
+</details>
+<br/>

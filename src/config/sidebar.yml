@@ -18,8 +18,12 @@
       link: '/command/command_control_cat'
     - label: 'less'
       link: '/command/command_control_less'
+    - label: 'tail'
+      link: '/command/command_control_tail'
     - label: 'find'
       link: '/command/command_control_find'
+    - label: 'echo'
+      link: '/command/command_control_echo'
     - label: 'touch'
       link: '/command/command_control_touch'
     - label: 'mkdir'
@@ -78,6 +82,10 @@
       link: '/linux_control/user_add_delete'
     - label: '環境変数とPATH'
       link: '/linux_control/environment_variable_and_path'
+- label: 'Linuxサーバーの学習 - 予行演習'
+  items:
+    - label: '予行演習'
+      link: '/command/command_control_rehearsal'
 - label: 'AWSクラウドプラクティショナー資格学習 - 事前準備'
   items:
     - label: 'アカウント登録'
