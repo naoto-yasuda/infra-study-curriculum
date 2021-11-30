@@ -9,9 +9,7 @@
 <url> <loc>https://naoto-yasuda.github.io/infra-study-curriculum/command/command_control_cp</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://naoto-yasuda.github.io/infra-study-curriculum/command/command_control_diff</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://naoto-yasuda.github.io/infra-study-curriculum/command/command_control_exit</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://naoto-yasuda.github.io/infra-study-curriculum/command/command_control_free</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://naoto-yasuda.github.io/infra-study-curriculum/command/command_control_grep</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://naoto-yasuda.github.io/infra-study-curriculum/command/command_control_history</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://naoto-yasuda.github.io/infra-study-curriculum/command/command_control_less</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://naoto-yasuda.github.io/infra-study-curriculum/command/command_control_ls</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://naoto-yasuda.github.io/infra-study-curriculum/command/command_control_mkdir</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -107,4 +105,16 @@
 <url> <loc>https://naoto-yasuda.github.io/infra-study-curriculum/aws_cp/other_important_services/aws_cp_transition_and_relocation_test</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://naoto-yasuda.github.io/infra-study-curriculum/aws_cp/other_important_services/aws_cp_transition_and_relocation</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://naoto-yasuda.github.io/infra-study-curriculum/aws_cp/practice_exam/aws_cp_practice_exam_1</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://naoto-yasuda.github.io/infra-study-curriculum/command/command_control_free</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://naoto-yasuda.github.io/infra-study-curriculum/command/command_control_df</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://naoto-yasuda.github.io/infra-study-curriculum/linux_control/disk_expansion</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://naoto-yasuda.github.io/infra-study-curriculum/command/command_control_kill</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://naoto-yasuda.github.io/infra-study-curriculum/command/command_control_ps</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://naoto-yasuda.github.io/infra-study-curriculum/linux_control/environment_variable_and_path</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://naoto-yasuda.github.io/infra-study-curriculum/linux_control/user_add_delete</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://naoto-yasuda.github.io/infra-study-curriculum/linux_control/file_compression_decompression</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://naoto-yasuda.github.io/infra-study-curriculum/command/command_control_tail</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://naoto-yasuda.github.io/infra-study-curriculum/command/command_control_echo</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://naoto-yasuda.github.io/infra-study-curriculum/command/command_control_history</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://naoto-yasuda.github.io/infra-study-curriculum/command/command_control_rehearsal</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 </urlset>
